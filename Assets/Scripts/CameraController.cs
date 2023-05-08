@@ -6,23 +6,24 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
     public float smoothTime = 0.3f;
-    public Vector2 minBounds, maxBounds;
-    private Vector3 velocity = Vector3.zero;
+
+    private Vector3 offset;
+
+
+    private void Start()
+    {
+
+        offset = Camera.main.transform.position - player.position;
+        offset.z = -10;
+
+    }
+
     private void LateUpdate()
     {
         if (player == null) return;
 
-        // Calculate target position
-        Vector3 targetPosition = new Vector3(
-        Mathf.Clamp(player.position.x, minBounds.x, maxBounds.x),
-        Mathf.Clamp(player.position.y, minBounds.y, maxBounds.y),
-        transform.position.z
-    );
-
-        // Smoothly move camera towards target position
-        transform.position = Vector3.SmoothDamp(
-        transform.position, targetPosition, ref velocity, smoothTime
-    );
+        Vector3 targetPos = new Vector3(player.position.x, player.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, targetPos + offset, smoothTime);
 
     }
 }
