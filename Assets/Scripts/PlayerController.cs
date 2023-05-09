@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        isGrounded = true;
     }
 
     private void FixedUpdate()
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && context.performed)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
         }
     }
 
@@ -49,21 +47,11 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            // Get the mouse position in world coordinates
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-            // Calculate the direction from the player to the mouse position
             Vector2 direction = (mousePosition - transform.position).normalized;
-
-            // Instantiate a new bullet prefab at the player's position
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
-
-            // Set the bullet's velocity to the direction multiplied by the bullet speed
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // Set the bullet's rotation to face the mouse
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
     }
@@ -83,7 +71,5 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-
-
 
 }
