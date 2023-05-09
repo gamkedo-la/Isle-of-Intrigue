@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
 
             // Set the bullet's rotation to face the mouse
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-
         }
     }
 
