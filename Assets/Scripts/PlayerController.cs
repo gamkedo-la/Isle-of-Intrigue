@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public float moveSpeed = 5f;
-    private Vector2 move = Vector2.zero;
+    private Vector2 move;
     public float jumpForce = 10f;
     private bool isGrounded;
+
+    private int jumpCounter;
 
     public GameObject bulletPrefab;
     public GameObject firePoint;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        jumpCounter = 0;
     }
 
     private void FixedUpdate()
@@ -31,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        move = context.ReadValue<Vector2>();
+        move = !context.canceled ? context.ReadValue<Vector2>() : Vector2.zero;
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -40,6 +43,13 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && context.performed)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpCounter++;
+
+            if (jumpCounter >= 4)
+            {
+                isGrounded = false;
+                jumpCounter = 0;
+            }
         }
     }
 
