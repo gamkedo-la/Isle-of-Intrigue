@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform shotContainer;
     private Rigidbody2D rb;
 
     public float moveSpeed = 5f;
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        }
+            bullet.transform.SetParent(shotContainer);        }
     }
 
 
