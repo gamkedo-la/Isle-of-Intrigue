@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject firePoint;
 
     public float bulletSpeed = 10f;
+    public float bulletSpray = 45f; 
 
 
     void Start()
@@ -59,7 +60,9 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector2 direction = (mousePosition - transform.position).normalized;
+            float randAngleOffset = Random.Range(-0.5f,0.5f) * bulletSpray;
+            Quaternion inaccuracyQuat = Quaternion.AngleAxis(randAngleOffset, Vector3.forward);
+            Vector2 direction = inaccuracyQuat * (mousePosition - transform.position).normalized ;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
