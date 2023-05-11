@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
 
-    public float smoothing = 0.125f;
+    public float smoothing = 0.1f;
 
     private Vector3 offset;
 
