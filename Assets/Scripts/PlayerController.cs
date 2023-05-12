@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject firePoint;
 
     public float bulletSpeed = 10f;
-    public float bulletSpray = 45f; 
+    public float bulletSpray = 45f;
 
 
     void Start()
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpCounter++;
 
-            if (jumpCounter >= 4)
+            if (jumpCounter >= 2)
             {
                 isGrounded = false;
                 jumpCounter = 0;
@@ -60,14 +60,15 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            float randAngleOffset = Random.Range(-0.5f,0.5f) * bulletSpray;
+            float randAngleOffset = Random.Range(-0.5f, 0.5f) * bulletSpray;
             Quaternion inaccuracyQuat = Quaternion.AngleAxis(randAngleOffset, Vector3.forward);
-            Vector2 direction = inaccuracyQuat * (mousePosition - transform.position).normalized ;
+            Vector2 direction = inaccuracyQuat * (mousePosition - transform.position).normalized;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            bullet.transform.SetParent(shotContainer);        }
+            bullet.transform.SetParent(shotContainer);
+        }
     }
 
 
