@@ -715,6 +715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1607834545, guid: 17474a213442e4d4799313100de0aeae, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1526907166346097671, guid: 70460d6008aafca49bc7e1ccb1dc0993, type: 3}
     - target: {fileID: 6666549786860186532, guid: 17474a213442e4d4799313100de0aeae, type: 3}
       propertyPath: m_Name
       value: Player
