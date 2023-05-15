@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
 
     public Projectile projectile;
 
+    public GameObject bulletPrefab;
+    public GameObject firePoint;
+    public Transform shotContainer;
+
 
     void Start()
     {
@@ -54,7 +58,8 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            projectile.Shoot();
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
+            bullet.transform.SetParent(shotContainer);
         }
     }
 
