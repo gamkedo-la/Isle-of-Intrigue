@@ -1,26 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Grid
+
+public partial class Grid : MonoBehaviour
 {
-    private int width;
-    private int height;
-    private int[,] gridArray;
+    public int width;
+    public int height;
+    public float cellSize = 1f;
 
-    public Grid(int width, int height)
+    public GameObject nodePrefab;
+    public TextMeshProUGUI textPrefab;
+
+    private Node[,] nodes;
+
+    private void Awake()
     {
-        this.width = width;
-        this.height = height;
+        InitializeGrid();
+    }
 
-        gridArray = new int[width, height];
+    private void InitializeGrid()
+    {
+        nodes = new Node[width, height];
 
-        for (int x = 0; x < gridArray.GetLength(0); x++)
+        // Initialize nodes
+        for (int x = 0; x < width; x++)
         {
-            for (int y = 0; y < gridArray.GetLength(1); y++)
+            for (int y = 0; y < height; y++)
             {
-                Debug.Log(x + ", " + y);
+                Vector3 position = new Vector3(x * cellSize, 0f, y * cellSize);
+                GameObject nodeObject = Instantiate(nodePrefab, position, Quaternion.identity);
+                Node node = nodeObject.GetComponent<Node>();
+                node.SetCoordinates(x, y);
+                nodes[x, y] = node;
+
+                // Add text display
+                GameObject textObject = Instantiate(textPrefab.gameObject, position + Vector3.up * 0.5f, Quaternion.identity);
+                TextMeshProUGUI text = textObject.GetComponent<TextMeshProUGUI>();
+                text.text = node.GetCoordinatesText();
             }
         }
     }
+
+    public Node GetNode(int x, int y)
+    {
+        if (x >= 0 && x < width && y >= 0 && y < height)
+        {
+            return nodes[x, y];
+        }
+        return null;
+    }
 }
+
+public partial class Node : MonoBehaviour
+{
+    private int x;
+    private int y;
+
+    public void SetCoordinates(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public string GetCoordinatesText()
+    {
+        return "(" + x + ", " + y + ")";
+    }
+}
+
