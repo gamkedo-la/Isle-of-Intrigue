@@ -4,13 +4,11 @@ using System.Diagnostics;
 using System;
 using UnityEngine;
 
-public class PathFinding : MonoBehaviour
+public class Pathfinding : MonoBehaviour
 {
     Grid grid;
-    public Transform target;
-    public Transform seekar;
+    static Pathfinding instance;
 
-    static PathFinding instance;
 
     void Awake()
     {
@@ -18,10 +16,7 @@ public class PathFinding : MonoBehaviour
         instance = this;
     }
 
-    void Update()
-    {
-        FindPath(seekar.position, target.position);
-    }
+
 
     public static Vector2[] RequestPath(Vector2 from, Vector2 to)
     {
@@ -30,7 +25,6 @@ public class PathFinding : MonoBehaviour
 
     Vector2[] FindPath(Vector2 from, Vector2 to)
     {
-
         Stopwatch sw = new Stopwatch();
         sw.Start();
 
@@ -53,13 +47,13 @@ public class PathFinding : MonoBehaviour
         if (startNode.walkable && targetNode.walkable)
         {
 
-            List<Node> openSet = new List<Node>();
+            Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
             openSet.Add(startNode);
 
             while (openSet.Count > 0)
             {
-                Node currentNode = openSet[0];
+                Node currentNode = openSet.RemoveFirst();
                 closedSet.Add(currentNode);
 
                 if (currentNode == targetNode)
@@ -76,6 +70,19 @@ public class PathFinding : MonoBehaviour
                     {
                         continue;
                     }
+
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour) + TurningCost(currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                    {
+                        neighbour.gCost = newMovementCostToNeighbour;
+                        neighbour.hCost = GetDistance(neighbour, targetNode);
+                        neighbour.parent = currentNode;
+
+                        if (!openSet.Contains(neighbour))
+                            openSet.Add(neighbour);
+                        else
+                            openSet.UpdateItem(neighbour);
+                    }
                 }
             }
         }
@@ -87,6 +94,24 @@ public class PathFinding : MonoBehaviour
 
         return waypoints;
 
+    }
+
+    int TurningCost(Node from, Node to)
+    {
+        /*
+        Vector2 dirOld = new Vector2(from.gridX - from.parent.gridX, from.gridY - from.parent.gridY);
+        Vector2 dirNew = new Vector2(to.gridX - from.gridX, to.gridY - from.gridY);
+        if (dirNew == dirOld)
+            return 0;
+        else if (dirOld.x != 0 && dirOld.y != 0 && dirNew.x != 0 && dirNew.y != 0) {
+            return 5;
+        }
+        else {
+            return 10;
+        }
+        */
+
+        return 0;
     }
 
 
