@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void FixedUpdate()
