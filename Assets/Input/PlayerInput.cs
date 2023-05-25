@@ -53,6 +53,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThrowBomb"",
+                    ""type"": ""Button"",
+                    ""id"": ""efaa6866-d11a-4986-bf92-060489550314"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc886c91-793c-46db-9865-8b9b74115665"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowBomb"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,6 +141,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_ThrowBomb = m_Player.FindAction("ThrowBomb", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,6 +204,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_ThrowBomb;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -190,6 +212,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @ThrowBomb => m_Wrapper.m_Player_ThrowBomb;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -208,6 +231,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @ThrowBomb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowBomb;
+                @ThrowBomb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowBomb;
+                @ThrowBomb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowBomb;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -221,6 +247,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @ThrowBomb.started += instance.OnThrowBomb;
+                @ThrowBomb.performed += instance.OnThrowBomb;
+                @ThrowBomb.canceled += instance.OnThrowBomb;
             }
         }
     }
@@ -230,5 +259,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
+        void OnThrowBomb(InputAction.CallbackContext context);
     }
 }

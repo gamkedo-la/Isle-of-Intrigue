@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public GameObject firePoint;
     public Transform shotContainer;
 
+    public GameObject bombPrefab; // Prefab of the bomb object
+    public float throwForce = 10f; // Force applied to the thrown bomb
+
+
 
     void Start()
     {
@@ -62,6 +66,20 @@ public class PlayerController : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
             bullet.transform.SetParent(shotContainer);
+        }
+    }
+
+    public void ThrowingBomb(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            // Instantiate a new bomb object from the prefab
+            GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+
+            // Apply force to the bomb object in the desired direction
+            Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
+            bombRigidbody.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
+
         }
     }
 
