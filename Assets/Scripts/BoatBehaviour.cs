@@ -9,7 +9,7 @@ public class BoatBehaviour : MonoBehaviour
 
     public float movementSpeed = 2f;
 
-    public float driftSpeed = 1f; // Speed of drift motion
+    public float driftSpeed = 1f;
 
     private float startingRotation;
 
@@ -20,14 +20,11 @@ public class BoatBehaviour : MonoBehaviour
 
     private void Update()
     {
-        // Calculate the rotation motion
         float rotationOffset = Mathf.Sin(Time.time * driftSpeed) * rotationRange;
         float newRotation = startingRotation + rotationOffset;
 
-        // Apply the rotation motion to the boat
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
 
-        // Move the boat forward
         transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
     }
 }
