@@ -23,13 +23,13 @@ public class PlayerController : MonoBehaviour
     public GameObject bombPrefab; // Prefab of the bomb object
     public float throwForce = 10f; // Force applied to the thrown bomb
 
-
+    public bool hideMouseCursor = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (hideMouseCursor) Cursor.lockState = CursorLockMode.Locked;
 
     }
 
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
-            bullet.transform.SetParent(shotContainer);
+            bullet.transform.SetParent(shotContainer);//,true); // true = retain pos set above
         }
     }
 
