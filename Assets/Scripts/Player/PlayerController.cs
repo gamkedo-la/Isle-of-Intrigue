@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Projectile projectile;
 
     public GameObject bulletPrefab;
+    public GameObject muzzleFlashPrefab;
     public GameObject firePoint;
     public Transform shotContainer;
 
@@ -65,7 +66,16 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
-            bullet.transform.SetParent(shotContainer);//,true); // true = retain pos set above
+            bullet.transform.SetParent(shotContainer);
+
+            GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
+            muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
+            // I am not sure why we need to set any of this (affected by parent xforms, perhaps?)
+            muzzleFlash.transform.Rotate(0,90,90); // point forward
+            muzzleFlash.transform.localPosition = new Vector3(4.75f,0.5f,0f);
+            muzzleFlash.transform.localScale.Set(1f,1f,1f);
+            //muzzleFlash.transform.SetParent(shotContainer,true);
+
         }
     }
 
