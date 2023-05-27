@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 3243914706958639055}
   - component: {fileID: 3243914706958638899}
   - component: {fileID: 3243914706958638896}
+  - component: {fileID: 3618794664011243129}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -176,8 +177,8 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -200,6 +201,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3243914706344344218}
   smoothing: 3
+--- !u!114 &3618794664011243129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243914706958639054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 6d6cdcd274cf39648a233468431a6846, type: 2}
 --- !u!1 &5770211610249224913
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,25 +442,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1607834545, guid: 17474a213442e4d4799313100de0aeae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17474a213442e4d4799313100de0aeae, type: 3}
---- !u!1 &3243914706344344213 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6666549786860186532, guid: 17474a213442e4d4799313100de0aeae, type: 3}
-  m_PrefabInstance: {fileID: 8178788199729991985}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3243914707045377972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243914706344344213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3305009a2d815c4f813949dfef1c7bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 3619381684315798707, guid: e2f5d69d24297b6409f33956e7e81881, type: 3}
-  throwForce: 10
 --- !u!4 &3243914706344344218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6666549786860186539, guid: 17474a213442e4d4799313100de0aeae, type: 3}
