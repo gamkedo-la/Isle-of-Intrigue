@@ -1435,6 +1435,9 @@ MonoBehaviour:
   bombPrefab: {fileID: 0}
   throwForce: 10
   hideMouseCursor: 0
+  weaponToShake: {fileID: 6122560567052133503}
+  weaponShakeTimespan: 0.1
+  weaponShakeDistance: {x: -0.2, y: 0, z: 0}
 --- !u!61 &6666549786860186542
 BoxCollider2D:
   m_ObjectHideFlags: 0

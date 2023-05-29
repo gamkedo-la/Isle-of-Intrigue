@@ -26,17 +26,28 @@ public class PlayerController : MonoBehaviour
 
     public bool hideMouseCursor = false;
 
+    public Transform weaponToShake;
+    public float weaponShakeTimespan = 0.1f;
+    public Vector3 weaponShakeDistance = new Vector3(-0.2f,0,0);
+    private float weaponShakeTimeLeft = 0f;
+    private Vector3 weaponToShakePivot;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
         if (hideMouseCursor) Cursor.lockState = CursorLockMode.Locked;
 
+        if (this.weaponToShake) {
+            this.weaponToShakePivot = this.weaponToShake.transform.localPosition;
+        }
+
     }
 
     private void FixedUpdate()
     {
         PlayerMovement();
+        WeaponShake();
     }
 
 
@@ -70,11 +81,10 @@ public class PlayerController : MonoBehaviour
 
             GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
             muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
-            // I am not sure why we need to set any of this (affected by parent xforms, perhaps?)
             muzzleFlash.transform.Rotate(0,90,90); // point forward
-            muzzleFlash.transform.localPosition = new Vector3(4.0f,0.5f,0f); // <--- -ifxme shoudl just be firePoint
-            //muzzleFlash.transform.localScale.Set(1f,1f,1f);
-            //muzzleFlash.transform.SetParent(shotContainer,true);
+            muzzleFlash.transform.localPosition = new Vector3(4.0f,0.5f,0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+
+            this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
 
         }
     }
@@ -98,6 +108,30 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movement = move * moveSpeed;
         rb.velocity = new Vector2(movement.x, rb.velocity.y);
+
+    }
+
+    // wiggle the player and weapon - "kickback"
+    private void WeaponShake()
+    {
+        if (!this.weaponToShake) return;
+
+        if (this.weaponShakeTimeLeft > 0f) {
+
+            float perc = this.weaponShakeTimeLeft / this.weaponShakeTimespan;
+            if (perc>1f) perc = 1f;
+            if (perc<0f) perc = 0f;
+            
+            this.weaponToShake.transform.localPosition = Vector3.Lerp(this.weaponToShakePivot,this.weaponToShakePivot+this.weaponShakeDistance,perc);
+            
+            this.weaponShakeTimeLeft -= Time.deltaTime;
+            if (this.weaponShakeTimeLeft <= 0f) { // done!
+                this.weaponToShake.transform.localPosition = this.weaponToShakePivot;
+            }
+
+            
+
+        }
 
     }
 
