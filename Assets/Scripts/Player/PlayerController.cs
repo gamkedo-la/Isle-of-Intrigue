@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletPrefab;
     public GameObject muzzleFlashPrefab;
+    public GameObject bulletShellPrefab;
     public GameObject firePoint;
     public Transform shotContainer;
 
@@ -79,10 +80,21 @@ public class PlayerController : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
             bullet.transform.SetParent(shotContainer);
 
-            GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
-            muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
-            muzzleFlash.transform.Rotate(0,90,90); // point forward
-            muzzleFlash.transform.localPosition = new Vector3(4.0f,0.5f,0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+            if (muzzleFlashPrefab) {
+                GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
+                muzzleFlash.transform.Rotate(0,90,90); // point forward
+                muzzleFlash.transform.localPosition = new Vector3(4.0f,0.5f,0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+            }
+
+            if (bulletShellPrefab) {
+                GameObject shell = Instantiate(bulletShellPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                shell.transform.SetParent(shotContainer);
+                //shell.transform.Rotate(0,90,90); // point forward
+                //shell.transform.localPosition = new Vector3(3.0f,0.5f,0f);
+                // strange how all the xforms are off.. must be the parent?
+                Debug.Log("eject! "+shell.transform.localPosition);
+            }
 
             this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
 
