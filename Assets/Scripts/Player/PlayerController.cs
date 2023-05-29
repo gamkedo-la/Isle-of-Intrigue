@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour
             muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
             // I am not sure why we need to set any of this (affected by parent xforms, perhaps?)
             muzzleFlash.transform.Rotate(0,90,90); // point forward
-            muzzleFlash.transform.localPosition = new Vector3(4.75f,0.5f,0f);
-            muzzleFlash.transform.localScale.Set(1f,1f,1f);
+            muzzleFlash.transform.localPosition = new Vector3(4.0f,0.5f,0f); // <--- -ifxme shoudl just be firePoint
+            //muzzleFlash.transform.localScale.Set(1f,1f,1f);
             //muzzleFlash.transform.SetParent(shotContainer,true);
 
         }
