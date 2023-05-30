@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public GameObject muzzleFlashPrefab;
     public GameObject bulletShellPrefab;
     public GameObject firePoint;
+    public Light2D muzzleFlashLight;
     public Transform shotContainer;
     public GameObject bombPrefab; // Prefab of the bomb object
     public float throwForce = 10f; // Force applied to the thrown bomb
@@ -34,8 +35,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 weaponShakeDistance = new Vector3(-0.2f, 0, 0);
     private float weaponShakeTimeLeft = 0f;
     private Vector3 weaponToShakePivot;
-
-    public Light2D light;
 
 
 
@@ -80,13 +79,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void DisableMuzzleLight()
+    {
+        muzzleFlashLight.enabled = false;
+    }
+
     public void Fire(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
             bullet.transform.SetParent(shotContainer);
-            light.intensity = 4;
 
             if (muzzleFlashPrefab)
             {
@@ -94,6 +97,9 @@ public class PlayerController : MonoBehaviour
                 muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
                 muzzleFlash.transform.Rotate(0, 90, 90); // point forward
                 muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+
+                muzzleFlashLight.enabled = true;
+                Invoke(nameof(DisableMuzzleLight), 0.1f);
             }
 
 
@@ -110,14 +116,6 @@ public class PlayerController : MonoBehaviour
             this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
 
         }
-
-        else
-        {
-
-            light.intensity = 0;
-        }
-
-
     }
 
     public void ThrowingBomb(InputAction.CallbackContext context)
