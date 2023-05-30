@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private float weaponShakeTimeLeft = 0f;
     private Vector3 weaponToShakePivot;
 
+    public Light2D light;
+
 
 
     void Start()
@@ -90,6 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
             bullet.transform.SetParent(shotContainer);
+            light.intensity = 4;
 
             if (muzzleFlashPrefab)
             {
@@ -115,6 +118,12 @@ public class PlayerController : MonoBehaviour
 
             this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
 
+        }
+
+        else
+        {
+
+            light.intensity = 0;
         }
     }
 
