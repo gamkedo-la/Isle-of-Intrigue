@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimAtMouseEnabled: 1
-  maximumAngle: {x: 60, y: 60, z: 60}
+  stayWithinAngleRange: 0
+  minimumAngle: -89
+  maximumAngle: 89
 --- !u!1 &626596065276173939
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +248,7 @@ MonoBehaviour:
   rotOffsetY: 0
   rotOffsetZ: 0
   speedX: 0
-  speedY: 2
+  speedY: 3
   speedZ: 0
   magnitudeX: 0
   magnitudeY: 1
@@ -1852,6 +1854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6393811645470044606}
   - component: {fileID: 6987658908841760596}
+  - component: {fileID: 5948408274777216511}
   m_Layer: 0
   m_Name: face
   m_TagString: Untagged
@@ -1927,6 +1930,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5948408274777216511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7037476518898122260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d6429461771254d9b16df125920d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimAtMouseEnabled: 1
+  stayWithinAngleRange: 1
+  minimumAngle: -30
+  maximumAngle: 30
 --- !u!1 &7074327386370924604
 GameObject:
   m_ObjectHideFlags: 0
