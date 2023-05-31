@@ -1585,6 +1585,10 @@ PrefabInstance:
       propertyPath: light
       value: 
       objectReference: {fileID: 3243914707045377971}
+    - target: {fileID: 4135162226535792139, guid: b66a49f5c04024538b9d36b29083eeba, type: 3}
+      propertyPath: magnitudeY
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6197180406269201783, guid: b66a49f5c04024538b9d36b29083eeba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
