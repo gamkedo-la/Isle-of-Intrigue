@@ -11,11 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public float moveSpeed = 5f;
-    private Vector2 move;
     public float jumpForce = 10f;
-    private bool isGrounded;
-
-    private int jumpCounter;
 
     public Projectile projectile;
 
@@ -30,15 +26,20 @@ public class PlayerController : MonoBehaviour
 
     public bool hideMouseCursor = false;
 
+    public Animator animator;
+
     public Transform weaponToShake;
     public float weaponShakeTimespan = 0.1f;
     public Vector3 weaponShakeDistance = new Vector3(-0.2f, 0, 0);
-    private float weaponShakeTimeLeft = 0f;
-    private Vector3 weaponToShakePivot;
 
     public Light2D light;
 
+    private Vector2 move;
+    private bool isGrounded;
+    private int jumpCounter;
 
+    private float weaponShakeTimeLeft = 0f;
+    private Vector3 weaponToShakePivot;
 
     void Start()
     {
@@ -50,7 +51,6 @@ public class PlayerController : MonoBehaviour
         {
             this.weaponToShakePivot = this.weaponToShake.transform.localPosition;
         }
-
     }
 
     private void FixedUpdate()
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movement = move * moveSpeed;
         rb.velocity = new Vector2(movement.x, rb.velocity.y);
-
+        animator.SetBool("Run", Mathf.Abs(movement.x) > 0.0f);
     }
 
     // wiggle the player and weapon - "kickback"
