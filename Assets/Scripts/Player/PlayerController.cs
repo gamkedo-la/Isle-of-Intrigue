@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private float weaponShakeTimeLeft = 0f;
     private Vector3 weaponToShakePivot;
 
+    public GameObject GrenadePos;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -132,7 +134,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             // Instantiate a new bomb object from the prefab
-            GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+            GameObject bomb = Instantiate(bombPrefab, GrenadePos.transform.position, Quaternion.identity);
 
             // Apply force to the bomb object in the desired direction
             Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
