@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6697352070427820004}
   - component: {fileID: 6697352070427820002}
   - component: {fileID: 6697352070427820003}
+  - component: {fileID: 4137644343220269206}
   m_Layer: 0
   m_Name: Bullet Badge
   m_TagString: Untagged
@@ -188,3 +189,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697352070427820001}
   m_CullTransparentMesh: 1
+--- !u!114 &4137644343220269206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697352070427820001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4660de4daa81ff442a39754ac975a129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: {fileID: 1100404543518757113, guid: 806e48fc564d8a540a194cb06720a197, type: 3}
+  currentWeaponState: 0

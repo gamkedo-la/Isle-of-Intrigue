@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8497729590328989666}
   - component: {fileID: 8497729590328989213}
+  - component: {fileID: 7644068499714201869}
   m_Layer: 0
   m_Name: MachineGun Badge
   m_TagString: Untagged
@@ -85,6 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7644068499714201869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497729590328989212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4660de4daa81ff442a39754ac975a129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: {fileID: 1100404543518757113, guid: 806e48fc564d8a540a194cb06720a197, type: 3}
+  currentWeaponState: 1
 --- !u!1 &8497729590965956825
 GameObject:
   m_ObjectHideFlags: 0
