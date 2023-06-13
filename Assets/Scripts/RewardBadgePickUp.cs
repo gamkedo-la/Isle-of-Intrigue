@@ -9,16 +9,21 @@ public class RewardBadgePickUp : MonoBehaviour
     public WeaponType.WeaponState currentWeaponState;
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             WeaponType weaponTypeScript = FindObjectOfType<WeaponType>();
             if (weaponTypeScript != null)
             {
                 weaponTypeScript.ChangeWeaponState(currentWeaponState);
-                gameObject.SetActive(false); // Deactivate the badge pickup
+                gameObject.SetActive(false);
             }
+
+            Debug.Log("Collision");
         }
+
     }
+
+
 }

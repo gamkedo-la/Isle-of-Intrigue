@@ -17,8 +17,6 @@ public class WeaponType : MonoBehaviour
 
     public void ChangeWeaponState(WeaponState targetWeaponState)
     {
-        if (currentWeaponType == targetWeaponState)
-            return;
 
         currentWeaponType = targetWeaponState;
 
@@ -33,6 +31,7 @@ public class WeaponType : MonoBehaviour
         {
             if (weapon.CompareTag(currentWeaponTag))
             {
+                Debug.Log("Hogya Jan");
                 weapon.SetActive(true);
                 break;
             }
