@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
     public bool hideMouseCursor = false;
 
-    public Animator animator;
 
     public Transform weaponToShake;
     public float weaponShakeTimespan = 0.1f;
@@ -147,7 +146,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 movement = move * moveSpeed;
         rb.velocity = new Vector2(movement.x, rb.velocity.y);
-        animator.SetBool("Run", Mathf.Abs(movement.x) > 0.0f);
 
 
 
