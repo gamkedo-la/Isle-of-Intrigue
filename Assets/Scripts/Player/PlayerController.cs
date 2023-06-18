@@ -53,11 +53,13 @@ public class PlayerController : MonoBehaviour
         {
             this.weaponToShakePivot = this.weaponToShake.transform.localPosition;
         }
+
     }
 
     private void FixedUpdate()
     {
         PlayerMovement();
+        MovementCheck();
         WeaponShake();
     }
 
@@ -146,6 +148,23 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = move * moveSpeed;
         rb.velocity = new Vector2(movement.x, rb.velocity.y);
         animator.SetBool("Run", Mathf.Abs(movement.x) > 0.0f);
+
+
+
+    }
+
+    private void MovementCheck()
+    {
+        if (rb.velocity.x < 0.0f)
+        {
+            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+        }
+
+        else if (rb.velocity.x > 0.0f)
+        {
+            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z); // Reset to original scale
+        }
+
     }
 
     // wiggle the player and weapon - "kickback"
