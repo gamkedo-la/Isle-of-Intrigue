@@ -155,12 +155,12 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.velocity.x < 0.0f)
         {
-            transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+            transform.GetChild(0).localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
         }
 
         else if (rb.velocity.x > 0.0f)
         {
-            transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z); // Reset to original scale
+            transform.GetChild(0).localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z); // Reset to original scale
         }
 
     }
