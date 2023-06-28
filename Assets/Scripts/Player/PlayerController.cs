@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public GameObject firePoint;
     public Light2D muzzleFlashLight;
     public Transform shotContainer;
+
+    public Animator animator;
     public GameObject bombPrefab; // Prefab of the bomb object
     public float throwForce = 10f; // Force applied to the thrown bomb
 
@@ -147,20 +149,29 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = move * moveSpeed;
         rb.velocity = new Vector2(movement.x, rb.velocity.y);
 
-
-
     }
 
     private void MovementCheck()
     {
         if (rb.velocity.x < 0.0f)
         {
-            transform.GetChild(0).localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
+            animator.SetBool("move", true);
+            animator.SetFloat("Input", -1);
         }
 
         else if (rb.velocity.x > 0.0f)
         {
-            transform.GetChild(0).localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z); // Reset to original scale
+            animator.SetBool("move", true);
+            animator.SetFloat("Input", 1);
+
+        }
+
+        else
+        {
+
+            animator.SetBool("move", false);
+            animator.SetFloat("Input", 0);
+
         }
 
     }
