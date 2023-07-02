@@ -44,8 +44,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject GrenadePos;
 
+    bool right;
+
     void Start()
     {
+        right = true;
+        bulletPrefab = FindActiveBulletPrefab();
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
         if (hideMouseCursor) Cursor.lockState = CursorLockMode.Locked;
@@ -62,6 +66,22 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
         MovementCheck();
         WeaponShake();
+    }
+
+
+    private GameObject FindActiveBulletPrefab()
+    {
+        Projectile[] projectiles = FindObjectsOfType<Projectile>();
+
+        foreach (Projectile projectile in projectiles)
+        {
+            if (projectile.gameObject.activeSelf)
+            {
+                return projectile.gameObject;
+            }
+        }
+
+        return null;
     }
 
 
@@ -156,23 +176,38 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.x < 0.0f)
         {
             animator.SetBool("move", true);
+            animator.SetFloat("IdleInput", 0);
             animator.SetFloat("Input", -1);
-        }
+            right = false;
 
+        }
         else if (rb.velocity.x > 0.0f)
         {
             animator.SetBool("move", true);
+            animator.SetFloat("IdleInput", 0);
             animator.SetFloat("Input", 1);
+            right = true;
 
         }
 
-        else
+        if (Mathf.Approximately(rb.velocity.x, 0.0f))
         {
+            if (right)
+            {
+                animator.SetBool("move", false);
+                animator.SetFloat("Input", 0);
+                animator.SetFloat("IdleInput", 1);
 
-            animator.SetBool("move", false);
-            animator.SetFloat("Input", 0);
+            }
+            else
+            {
+                animator.SetBool("move", false);
+                animator.SetFloat("Input", 0);
+                animator.SetFloat("IdleInput", -1);
 
+            }
         }
+
 
     }
 

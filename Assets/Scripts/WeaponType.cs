@@ -11,6 +11,7 @@ public class WeaponType : MonoBehaviour
         Pistol,
         MachineGun,
         RocketLauncher,
+        Dagger,
     }
 
     private WeaponState currentWeaponType;
@@ -31,7 +32,6 @@ public class WeaponType : MonoBehaviour
         {
             if (weapon.CompareTag(currentWeaponTag))
             {
-                Debug.Log("Hogya Jan");
                 weapon.SetActive(true);
                 break;
             }
