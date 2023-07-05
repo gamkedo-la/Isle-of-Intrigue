@@ -44,12 +44,15 @@ public class PlayerController : MonoBehaviour
 
     public GameObject GrenadePos;
 
+    public WeaponType weaponManager;
+
+
     bool right;
 
     void Start()
     {
         right = true;
-        bulletPrefab = FindActiveBulletPrefab();
+        bulletPrefab = GetActiveBulletPrefab();
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
         if (hideMouseCursor) Cursor.lockState = CursorLockMode.Locked;
@@ -68,20 +71,27 @@ public class PlayerController : MonoBehaviour
         WeaponShake();
     }
 
-
-    private GameObject FindActiveBulletPrefab()
+    private GameObject GetActiveBulletPrefab()
     {
-        Projectile[] projectiles = FindObjectsOfType<Projectile>();
+        GameObject activePrefab = null;
 
-        foreach (Projectile projectile in projectiles)
+        switch (weaponManager.currentWeaponType)
         {
-            if (projectile.gameObject.activeSelf)
-            {
-                return projectile.gameObject;
-            }
+            case WeaponType.WeaponState.Pistol:
+                activePrefab = weaponManager.pistolPrefab;
+                break;
+            case WeaponType.WeaponState.MachineGun:
+                activePrefab = weaponManager.riflePrefab;
+                break;
+            case WeaponType.WeaponState.RocketLauncher:
+                activePrefab = weaponManager.rocketLauncherPrefab;
+                break;
+            default:
+                Debug.LogWarning("Unknown active weapon type");
+                break;
         }
 
-        return null;
+        return activePrefab;
     }
 
 
@@ -92,7 +102,6 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
         if (isGrounded && context.performed)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -103,6 +112,21 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
                 jumpCounter = 0;
             }
+        }
+    }
+
+
+    public void Crouch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            animator.SetBool("crouch", true);
+        }
+
+
+        if (context.canceled)
+        {
+            animator.SetBool("crouch", false);
         }
     }
 

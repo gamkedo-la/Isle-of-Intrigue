@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class WeaponType : MonoBehaviour
 {
     public List<GameObject> weapons = new List<GameObject>();
+    public GameObject pistolPrefab;
+    public GameObject riflePrefab;
+    public GameObject rocketLauncherPrefab;
 
     public enum WeaponState
     {
         Pistol,
         MachineGun,
         RocketLauncher,
-        Dagger,
     }
 
-    private WeaponState currentWeaponType;
+    public WeaponState currentWeaponType;
 
     public void ChangeWeaponState(WeaponState targetWeaponState)
     {
@@ -26,7 +29,7 @@ public class WeaponType : MonoBehaviour
             weapon.SetActive(false);
         }
 
-        string currentWeaponTag = currentWeaponType.ToString();
+        string currentWeaponTag = Enum.GetName(typeof(WeaponState), currentWeaponType);
 
         foreach (GameObject weapon in weapons)
         {

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3399021883120604101}
   m_Layer: 0
   m_Name: MachineGun Badge
-  m_TagString: Untagged
+  m_TagString: MachineGun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8497729590328989212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.45, y: -3.08, z: 0}
   m_LocalScale: {x: 1.2359, y: 1.5241, z: 1}
   m_ConstrainProportionsScale: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4660de4daa81ff442a39754ac975a129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: {fileID: 1100404543518757113, guid: 806e48fc564d8a540a194cb06720a197, type: 3}
-  currentWeaponState: 1
+  weaponType: {fileID: 0}
+  currentWeaponState: 3
 --- !u!61 &-3399021883120604101
 BoxCollider2D:
   m_ObjectHideFlags: 0

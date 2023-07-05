@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 7310304865659059766, guid: f53fe6565dd169c4e86c521908152fb6, type: 3}
-  - {fileID: 5671739858318313190, guid: f3810a7e022e8084b8a239df0c4ff2fd, type: 3}
-  - {fileID: 9165849096414782072, guid: d71515f51ad228d4b9c8cb38b6886717, type: 3}
-  - {fileID: 6044720848907033479, guid: 48e392a32c3a1df4690cb36d3ccca1bb, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pistolPrefab: {fileID: 1526907166346097671, guid: 70460d6008aafca49bc7e1ccb1dc0993, type: 3}
+  riflePrefab: {fileID: 1526907166346097671, guid: fced0afde463c1343b9feda531e3f843, type: 3}
+  rocketLauncherPrefab: {fileID: 3480980295515954729, guid: 9b62a38735577444e8abd4638d5d15cf, type: 3}
+  currentWeaponType: 0
