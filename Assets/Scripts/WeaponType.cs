@@ -15,7 +15,6 @@ public class WeaponType : MonoBehaviour
         Pistol,
         MachineGun,
         RocketLauncher,
-        Dagger
     }
 
     public WeaponState currentWeaponType;
@@ -30,13 +29,14 @@ public class WeaponType : MonoBehaviour
             weapon.SetActive(false);
         }
 
-        string currentWeaponTag = Enum.GetName(typeof(WeaponState), currentWeaponType);
+        string currentWeaponTag = currentWeaponType.ToString();
 
         foreach (GameObject weapon in weapons)
         {
             if (weapon.CompareTag(currentWeaponTag))
             {
                 weapon.SetActive(true);
+                Debug.Log("matched");
                 break;
             }
         }
