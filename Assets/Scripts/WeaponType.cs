@@ -15,6 +15,7 @@ public class WeaponType : MonoBehaviour
         Pistol,
         MachineGun,
         RocketLauncher,
+        Dagger
     }
 
     public WeaponState currentWeaponType;
