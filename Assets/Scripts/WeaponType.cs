@@ -17,7 +17,10 @@ public class WeaponType : MonoBehaviour
         RocketLauncher,
     }
 
+
     public WeaponState currentWeaponType;
+
+
 
     public void ChangeWeaponState(WeaponState targetWeaponState)
     {

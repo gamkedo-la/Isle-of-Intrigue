@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private int jumpCounter;
 
+    bool crouch;
+
     private float weaponShakeTimeLeft = 0f;
     private Vector3 weaponToShakePivot;
 
@@ -47,11 +49,14 @@ public class PlayerController : MonoBehaviour
     public WeaponType weaponManager;
 
 
+
+
     bool right;
 
     void Start()
     {
         right = true;
+        crouch = false;
         bulletPrefab = GetActiveBulletPrefab();
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
@@ -121,12 +126,14 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             animator.SetBool("crouch", true);
+            crouch = true;
         }
 
 
         if (context.canceled)
         {
             animator.SetBool("crouch", false);
+            crouch = false;
         }
     }
 
