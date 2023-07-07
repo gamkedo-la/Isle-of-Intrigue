@@ -1285,6 +1285,7 @@ MonoBehaviour:
   pistolPrefab: {fileID: 1526907166346097671, guid: 70460d6008aafca49bc7e1ccb1dc0993, type: 3}
   riflePrefab: {fileID: 1526907166346097671, guid: fced0afde463c1343b9feda531e3f843, type: 3}
   rocketLauncherPrefab: {fileID: 3480980295515954729, guid: 9b62a38735577444e8abd4638d5d15cf, type: 3}
+  animator: {fileID: 7652388203492012910}
   currentWeaponType: 0
 --- !u!4 &1197367287
 Transform:
@@ -3014,6 +3015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17474a213442e4d4799313100de0aeae, type: 3}
+--- !u!95 &7652388203492012910 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3675160837450172016, guid: 17474a213442e4d4799313100de0aeae, type: 3}
+  m_PrefabInstance: {fileID: 7652388203492012909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8193472415747816477
 Transform:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dagger Layer
+  m_Name: Dagger
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7813561557276829421}
@@ -99,7 +99,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Equip Dagger
+  m_Name: Dagger
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -125,7 +125,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rifle Layer
+  m_Name: MachineGun
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8644872262431392601}
@@ -308,7 +308,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rocket Layer
+  m_Name: RocketLauncher
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3853252073553083075}
@@ -376,7 +376,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Pistol Layer
+    m_Name: 'Pistol '
     m_StateMachine: {fileID: 5829961623676652236}
     m_Mask: {fileID: 31900000, guid: bee7fd50498805b4e9bc50648b4f4a60, type: 2}
     m_Motions: []
@@ -388,7 +388,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Rifle Layer
+    m_Name: MachineGun
     m_StateMachine: {fileID: -6551702234561503030}
     m_Mask: {fileID: 31900000, guid: bee7fd50498805b4e9bc50648b4f4a60, type: 2}
     m_Motions: []
@@ -400,7 +400,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Rocket Layer
+    m_Name: RocketLauncher
     m_StateMachine: {fileID: -1872855360100358609}
     m_Mask: {fileID: 31900000, guid: bee7fd50498805b4e9bc50648b4f4a60, type: 2}
     m_Motions: []
@@ -412,7 +412,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Dagger Layer
+    m_Name: Dagger
     m_StateMachine: {fileID: -8279833159831307271}
     m_Mask: {fileID: 31900000, guid: bee7fd50498805b4e9bc50648b4f4a60, type: 2}
     m_Motions: []
@@ -512,7 +512,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rocket Aim
+  m_Name: RocketLauncher
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -590,7 +590,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pistol Layer
+  m_Name: 'Pistol '
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 7180198456296164713}
@@ -639,7 +639,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerPistol
+  m_Name: Pistol
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
