@@ -24,8 +24,16 @@ public class WeaponType : MonoBehaviour
     public WeaponState currentWeaponType;
 
 
+    private void Awake()
+    {
+        CleanAnimatorLayersWeight();
+        animator.SetLayerWeight(1, 1);
+
+    }
+
     public void ChangeWeaponState(WeaponState targetWeaponState)
     {
+        CleanAnimatorLayersWeight();
 
         currentWeaponType = targetWeaponState;
 
@@ -40,11 +48,21 @@ public class WeaponType : MonoBehaviour
         {
             if (weapon.CompareTag(currentWeaponTag))
             {
-                weapon.SetActive(true);
                 SetAnimationLayerWeight(currentWeaponTag, 1);
-                Debug.Log("matched");
                 break;
             }
+        }
+
+
+    }
+
+    private void CleanAnimatorLayersWeight()
+    {
+        animator.SetLayerWeight(1, 0);
+
+        for (var i = 2; i < animator.layerCount; i++)
+        {
+            animator.SetLayerWeight(i, 0);
         }
     }
 
@@ -52,7 +70,10 @@ public class WeaponType : MonoBehaviour
     {
         int layerIndex = animator.GetLayerIndex(layerName);
         Debug.Log(layerName);
+        animator.SetLayerWeight(0, 0);
         animator.SetLayerWeight(layerIndex, weight);
         Debug.Log(layerIndex);
+
+
     }
 }

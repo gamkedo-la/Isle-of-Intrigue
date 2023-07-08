@@ -15,10 +15,11 @@ public class PlayerController : MonoBehaviour
 
     public Projectile projectile;
 
-    public GameObject bulletPrefab;
+    private GameObject bulletPrefab;
+
     public GameObject muzzleFlashPrefab;
     public GameObject bulletShellPrefab;
-    public GameObject firePoint;
+    private GameObject firePoint;
     public Light2D muzzleFlashLight;
     public Transform shotContainer;
 
@@ -57,7 +58,6 @@ public class PlayerController : MonoBehaviour
     {
         right = true;
         crouch = false;
-        bulletPrefab = GetActiveBulletPrefab();
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
         if (hideMouseCursor) Cursor.lockState = CursorLockMode.Locked;
@@ -66,6 +66,8 @@ public class PlayerController : MonoBehaviour
         {
             this.weaponToShakePivot = this.weaponToShake.transform.localPosition;
         }
+
+        Debug.Log(bulletPrefab);
 
     }
 
@@ -76,27 +78,41 @@ public class PlayerController : MonoBehaviour
         WeaponShake();
     }
 
-    private GameObject GetActiveBulletPrefab()
+    public void SetActiveBulletPrefab()
     {
-        GameObject activePrefab = null;
 
         switch (weaponManager.currentWeaponType)
         {
             case WeaponType.WeaponState.Pistol:
-                activePrefab = weaponManager.pistolPrefab;
+                bulletPrefab = weaponManager.pistolPrefab;
+                firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
+                Debug.Log(bulletPrefab);
+
+
+                Debug.Log("Pistol");
                 break;
             case WeaponType.WeaponState.MachineGun:
-                activePrefab = weaponManager.riflePrefab;
+                bulletPrefab = weaponManager.riflePrefab;
+                firePoint = weaponManager.weapons[1].transform.GetChild(1).gameObject;
+                Debug.Log(bulletPrefab);
+
+                Debug.Log("Machine");
+
+
                 break;
             case WeaponType.WeaponState.RocketLauncher:
-                activePrefab = weaponManager.rocketLauncherPrefab;
+                bulletPrefab = weaponManager.rocketLauncherPrefab;
+                firePoint = weaponManager.weapons[2].transform.GetChild(0).gameObject;
+                Debug.Log(bulletPrefab);
+
+                Debug.Log("Rocket");
+
                 break;
             default:
                 Debug.LogWarning("Unknown active weapon type");
                 break;
         }
 
-        return activePrefab;
     }
 
 
@@ -146,33 +162,45 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
-            bullet.transform.SetParent(shotContainer);
-            light.intensity = 4;
-
-            if (muzzleFlashPrefab)
+            if (bulletPrefab != null)
             {
-                GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
-                muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
-                muzzleFlash.transform.Rotate(0, 90, 90); // point forward
-                muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
+                bullet.transform.SetParent(shotContainer);
+                light.intensity = 4;
 
-                muzzleFlashLight.enabled = true;
-                Invoke(nameof(DisableMuzzleLight), 0.1f);
+                if (muzzleFlashPrefab)
+                {
+                    GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                    muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
+                    muzzleFlash.transform.Rotate(0, 90, 90); // point forward
+                    muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+
+                    muzzleFlashLight.enabled = true;
+                    Invoke(nameof(DisableMuzzleLight), 0.1f);
+                }
+
+
+                if (bulletShellPrefab)
+                {
+                    GameObject shell = Instantiate(bulletShellPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                    shell.transform.SetParent(shotContainer);
+                    //shell.transform.Rotate(0,90,90); // point forward
+                    //shell.transform.localPosition = new Vector3(3.0f,0.5f,0f);
+                    // strange how all the xforms are off.. must be the parent?
+                    Debug.Log("eject! " + shell.transform.localPosition);
+                }
+
+                this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
+
+
+            }
+
+            if (bulletPrefab == null)
+            {
+                animator.SetTrigger("attack");
             }
 
 
-            if (bulletShellPrefab)
-            {
-                GameObject shell = Instantiate(bulletShellPrefab, firePoint.transform.position, firePoint.transform.rotation);
-                shell.transform.SetParent(shotContainer);
-                //shell.transform.Rotate(0,90,90); // point forward
-                //shell.transform.localPosition = new Vector3(3.0f,0.5f,0f);
-                // strange how all the xforms are off.. must be the parent?
-                Debug.Log("eject! " + shell.transform.localPosition);
-            }
-
-            this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
 
         }
 
