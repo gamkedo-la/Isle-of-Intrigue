@@ -9,7 +9,8 @@ public class Droplets : MonoBehaviour
 
     void Start()
     {
-        Instantiate(dropsPrefab, transform.position, transform.rotation);
+        GameObject tempDrop = Instantiate(dropsPrefab, transform.position, transform.rotation);
+        Destroy(tempDrop, 1.5f); 
         StartCoroutine(StartDropTimer());
         Cursor.visible = false;
     }
@@ -24,7 +25,8 @@ public class Droplets : MonoBehaviour
         while (gameObject.activeInHierarchy)
         {
             yield return new WaitForSeconds(2);
-            Instantiate(dropsPrefab, transform.position, transform.rotation);
+            GameObject tempDrop = Instantiate(dropsPrefab, transform.position, transform.rotation);
+            Destroy(tempDrop, 1.5f); 
         }
 
 
