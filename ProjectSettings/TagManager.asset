@@ -9,6 +9,7 @@ TagManager:
   - RocketLauncher
   - MachineGun
   - Dagger
+  - bullet
   layers:
   - Default
   - TransparentFX

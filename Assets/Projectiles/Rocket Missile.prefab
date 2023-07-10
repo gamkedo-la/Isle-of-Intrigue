@@ -80,6 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59adca5c99fd2d2438c6b58d5cb61804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 10
+  baseSpeed: 120
   blastVfx: {fileID: 1483968071417661265, guid: 2c741f634b79af84eab0b55bd96879fb, type: 3}
   shakeIntensity: 1
