@@ -353,6 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5814351543683099393}
   - component: {fileID: 4627911852115276578}
+  - component: {fileID: 141655407}
   m_Layer: 0
   m_Name: rifle
   m_TagString: MachineGun
@@ -428,6 +429,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &141655407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139417753188121702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d6429461771254d9b16df125920d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimAtMouseEnabled: 1
+  stayWithinAngleRange: 1
+  minimumAngle: -90
+  maximumAngle: 90
 --- !u!1 &2167395159547353551
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2214326053874029787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.57, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -624,8 +641,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4323850925734370481}
   m_Bounds:
-    m_Center: {x: 0.09952924, y: -0.39844418, z: 0}
-    m_Extent: {x: 0.48800758, y: 0.2650802, z: 0}
+    m_Center: {x: 0.25515813, y: -0.11979389, z: 0}
+    m_Extent: {x: 0.52311474, y: 0.15035057, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -685,7 +702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2669396561963631127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.69, y: 1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -795,8 +812,8 @@ MonoBehaviour:
   - {fileID: 7231951795618512027}
   - {fileID: 3157863870288066383}
   m_Bounds:
-    m_Center: {x: 0.71297663, y: 0.024290994, z: 0}
-    m_Extent: {x: 0.16103667, y: 0.15352175, z: 0}
+    m_Center: {x: 0.7918173, y: 0.15239145, z: 0}
+    m_Extent: {x: 0.17402545, y: 0.13714424, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -816,7 +833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5546746317510315916
 Transform:
   m_ObjectHideFlags: 0
@@ -872,7 +889,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32
   m_Sprite: {fileID: 21300000, guid: 59af4f22a7192354db19d395ea4d15dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1033,6 +1050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2578542352049004050}
   - component: {fileID: 3675160837450172016}
+  - component: {fileID: 7652388203492012912}
   m_Layer: 0
   m_Name: Pirate
   m_TagString: Untagged
@@ -1083,6 +1101,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7652388203492012912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675160837450172017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786131cd0a2cc3a479dc9bc12a01d662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7652388203127434817}
 --- !u!1 &3789646434823381664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782719881092332038}
   - component: {fileID: 6706177144160836018}
+  - component: {fileID: 489464057}
   m_Layer: 0
   m_Name: pistol
   m_TagString: Pistol
@@ -1202,6 +1234,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &489464057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983024338630085832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d6429461771254d9b16df125920d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimAtMouseEnabled: 1
+  stayWithinAngleRange: 1
+  minimumAngle: -90
+  maximumAngle: 90
 --- !u!1 &4019160141938632168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,7 +1430,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 26
   m_Sprite: {fileID: 4389456726307743144, guid: 42185e09635cfd847b1577d5123b56f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1411,8 +1459,8 @@ MonoBehaviour:
   - {fileID: 7231951795618512027}
   - {fileID: 3157863870288066383}
   m_Bounds:
-    m_Center: {x: 0.4507011, y: -0.03881964, z: 0}
-    m_Extent: {x: 0.23926702, y: 0.22234103, z: 0}
+    m_Center: {x: 0.50412697, y: 0.0037213862, z: 0}
+    m_Extent: {x: 0.2640711, y: 0.18351433, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1685,7 +1733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4418569449281069080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.32, y: 2.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2276,7 +2324,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6603695230123480419}
-  m_LocalRotation: {x: 0, y: 0, z: -0.91430587, w: 0.40502453}
+  m_LocalRotation: {x: 0, y: 0, z: -0.85120285, w: 0.5248369}
   m_LocalPosition: {x: 1.1482882, y: -0.44984668, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2295,6 +2343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5212253126397084531}
   - component: {fileID: 1877493183300142140}
+  - component: {fileID: 254059779}
   m_Layer: 0
   m_Name: rocket launcher
   m_TagString: RocketLauncher
@@ -2370,6 +2419,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &254059779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6850383296046170582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d6429461771254d9b16df125920d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimAtMouseEnabled: 1
+  stayWithinAngleRange: 1
+  minimumAngle: -90
+  maximumAngle: 90
 --- !u!1 &7206671163434466099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,7 +2705,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7515847902068527741}
-  m_LocalRotation: {x: 0, y: 0, z: -0.007967299, w: 0.9999683}
+  m_LocalRotation: {x: 0, y: 0, z: -0.007967327, w: 0.9999683}
   m_LocalPosition: {x: 0.37787208, y: 0.00000006170255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3636,7 +3701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7652388203157620755}
   m_LocalRotation: {x: -0, y: -0, z: -0.33543214, w: 0.94206434}
-  m_LocalPosition: {x: 5.003, y: 4.613, z: 0}
+  m_LocalPosition: {x: 5.21, y: 4.842, z: 0}
   m_LocalScale: {x: 0.99999976, y: 0.9999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3856,7 +3921,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7652388203453676283}
-  m_LocalRotation: {x: -0, y: -0, z: 0.03428928, w: 0.999412}
+  m_LocalRotation: {x: -0, y: -0, z: -0.10104907, w: 0.99488145}
   m_LocalPosition: {x: 0.251, y: 0.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3959,7 +4024,7 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0, w: 0}
     - {x: 0, y: 0, z: 0, w: 0}
     - {x: 0, y: 0, z: 0, w: 0}
-  m_Flip: 1
+  m_Flip: 0
 --- !u!1 &7652388203807350576
 GameObject:
   m_ObjectHideFlags: 0

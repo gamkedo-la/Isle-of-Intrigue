@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: {fileID: 1100404543518757113, guid: 806e48fc564d8a540a194cb06720a197, type: 3}
-  player: {fileID: 0}
   currentWeaponState: 2
 --- !u!61 &2020770447
 BoxCollider2D:

@@ -86,26 +86,26 @@ public class PlayerController : MonoBehaviour
             case WeaponType.WeaponState.Pistol:
                 bulletPrefab = weaponManager.pistolPrefab;
                 firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
-                Debug.Log(bulletPrefab);
+                Debug.Log(firePoint.transform.parent.name);
+                Debug.Log("first");
 
-
-                Debug.Log("Pistol");
                 break;
+
             case WeaponType.WeaponState.MachineGun:
                 bulletPrefab = weaponManager.riflePrefab;
-                firePoint = weaponManager.weapons[1].transform.GetChild(1).gameObject;
-                Debug.Log(bulletPrefab);
-
-                Debug.Log("Machine");
+                firePoint = weaponManager.weapons[1].transform.GetChild(0).gameObject;
+                Debug.Log(firePoint.transform.parent.name);
+                Debug.Log("second");
 
 
                 break;
             case WeaponType.WeaponState.RocketLauncher:
                 bulletPrefab = weaponManager.rocketLauncherPrefab;
                 firePoint = weaponManager.weapons[2].transform.GetChild(0).gameObject;
-                Debug.Log(bulletPrefab);
+                Debug.Log(firePoint.transform.parent.name);
+                Debug.Log("third");
 
-                Debug.Log("Rocket");
+
 
                 break;
             default:
@@ -215,10 +215,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            GameObject bomb = Instantiate(bombPrefab, GrenadePos.transform.position, Quaternion.identity);
-            Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
-            bombRigidbody.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
-
+            animator.SetTrigger("throw");
         }
     }
 
@@ -268,6 +265,13 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void BombAttack()
+    {
+        GameObject bomb = Instantiate(bombPrefab, GrenadePos.transform.position, Quaternion.identity);
+        Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
+        bombRigidbody.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
     }
 
     // wiggle the player and weapon - "kickback"

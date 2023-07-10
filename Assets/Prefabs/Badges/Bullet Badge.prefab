@@ -203,7 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: {fileID: 0}
-  player: {fileID: 0}
   currentWeaponState: 0
 --- !u!61 &27597063
 BoxCollider2D:

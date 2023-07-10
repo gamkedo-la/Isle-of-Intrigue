@@ -11,6 +11,8 @@ public class WeaponType : MonoBehaviour
     public GameObject pistolPrefab;
     public GameObject riflePrefab;
     public GameObject rocketLauncherPrefab;
+    public PlayerController player;
+
 
     public Animator animator;
 
@@ -34,6 +36,8 @@ public class WeaponType : MonoBehaviour
     public void ChangeWeaponState(WeaponState targetWeaponState)
     {
         CleanAnimatorLayersWeight();
+        player.SetActiveBulletPrefab();
+
 
         currentWeaponType = targetWeaponState;
 
@@ -69,11 +73,7 @@ public class WeaponType : MonoBehaviour
     private void SetAnimationLayerWeight(string layerName, int weight)
     {
         int layerIndex = animator.GetLayerIndex(layerName);
-        Debug.Log(layerName);
         animator.SetLayerWeight(0, 0);
         animator.SetLayerWeight(layerIndex, weight);
-        Debug.Log(layerIndex);
-
-
     }
 }
