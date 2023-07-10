@@ -1087,13 +1087,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2780079151645995902, guid: d38e078785bd9c748a7f15770b3daaf7, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2090963266}
     - target: {fileID: 3118570746563904707, guid: d38e078785bd9c748a7f15770b3daaf7, type: 3}
       propertyPath: m_Name
-      value: Rocket Launcher Badge (1)
+      value: 'Rocket Launcher Badge '
       objectReference: {fileID: 0}
     - target: {fileID: 3118570746563904733, guid: d38e078785bd9c748a7f15770b3daaf7, type: 3}
       propertyPath: m_RootOrder
@@ -1260,7 +1256,7 @@ MonoBehaviour:
   - {fileID: 254059776}
   pistolPrefab: {fileID: 1526907166346097671, guid: 70460d6008aafca49bc7e1ccb1dc0993, type: 3}
   riflePrefab: {fileID: 1526907166346097671, guid: fced0afde463c1343b9feda531e3f843, type: 3}
-  rocketLauncherPrefab: {fileID: 1526907166346097671, guid: 70460d6008aafca49bc7e1ccb1dc0993, type: 3}
+  rocketLauncherPrefab: {fileID: 7895400025288256998, guid: cf7d7c2d2ed383746a49b49a854392a1, type: 3}
   player: {fileID: 2090963266}
   animator: {fileID: 7652388203492012910}
   currentWeaponType: 0
@@ -1673,16 +1669,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4137644343220269206, guid: 48bd235c05042384c9d5adbc16578aed, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2090963266}
-    - target: {fileID: 4137644343220269206, guid: 48bd235c05042384c9d5adbc16578aed, type: 3}
       propertyPath: weaponType
       value: 
       objectReference: {fileID: 1197367286}
     - target: {fileID: 6697352070427820001, guid: 48bd235c05042384c9d5adbc16578aed, type: 3}
       propertyPath: m_Name
-      value: Bullet Badge (1)
+      value: 'Bullet Badge '
       objectReference: {fileID: 0}
     - target: {fileID: 6697352070427820004, guid: 48bd235c05042384c9d5adbc16578aed, type: 3}
       propertyPath: m_Pivot.x
@@ -2392,16 +2384,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7644068499714201869, guid: 065f3da84b56de241887be299732a9c3, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2090963266}
-    - target: {fileID: 7644068499714201869, guid: 065f3da84b56de241887be299732a9c3, type: 3}
       propertyPath: weaponType
       value: 
       objectReference: {fileID: 1197367286}
     - target: {fileID: 8497729590328989212, guid: 065f3da84b56de241887be299732a9c3, type: 3}
       propertyPath: m_Name
-      value: MachineGun Badge (1)
+      value: 'MachineGun Badge '
       objectReference: {fileID: 0}
     - target: {fileID: 8497729590328989666, guid: 065f3da84b56de241887be299732a9c3, type: 3}
       propertyPath: m_RootOrder
