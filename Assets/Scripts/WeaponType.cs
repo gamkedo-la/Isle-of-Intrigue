@@ -36,10 +36,11 @@ public class WeaponType : MonoBehaviour
     public void ChangeWeaponState(WeaponState targetWeaponState)
     {
         CleanAnimatorLayersWeight();
+        currentWeaponType = targetWeaponState;
+
         player.SetActiveBulletPrefab();
 
 
-        currentWeaponType = targetWeaponState;
 
         foreach (GameObject weapon in weapons)
         {

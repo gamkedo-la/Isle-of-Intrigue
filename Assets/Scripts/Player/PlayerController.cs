@@ -128,17 +128,20 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded && context.performed)
+        if (context.performed)
+        {
+            animator.SetTrigger("jump");
+        }
+    }
+
+    public void JumpNow()
+    {
+        if (isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jumpCounter++;
-
-            if (jumpCounter >= 2)
-            {
-                isGrounded = false;
-                jumpCounter = 0;
-            }
+            isGrounded = false;
         }
+
     }
 
 
@@ -223,6 +226,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void BombAttack()
+    {
+        Debug.Log("Bomb");
+        GameObject bomb = Instantiate(bombPrefab, GrenadePos.transform.position, Quaternion.identity);
+        Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
+        bombRigidbody.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
+    }
+
+
 
     private void PlayerMovement()
     {
@@ -271,12 +283,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void BombAttack()
-    {
-        GameObject bomb = Instantiate(bombPrefab, GrenadePos.transform.position, Quaternion.identity);
-        Rigidbody2D bombRigidbody = bomb.GetComponent<Rigidbody2D>();
-        bombRigidbody.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
-    }
 
     // wiggle the player and weapon - "kickback"
     private void WeaponShake()

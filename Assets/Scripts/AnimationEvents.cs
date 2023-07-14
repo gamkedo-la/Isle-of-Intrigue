@@ -11,4 +11,9 @@ public class AnimationEvents : MonoBehaviour
         player.BombAttack();
     }
 
+    public void CallJump()
+    {
+        player.JumpNow();
+    }
+
 }
