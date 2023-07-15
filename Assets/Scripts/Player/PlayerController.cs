@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
     private int jumpCounter;
 
     bool crouch;
+    bool right;
+
+    bool pistol;
+    bool rocket;
 
     private float weaponShakeTimeLeft = 0f;
     private Vector3 weaponToShakePivot;
@@ -52,10 +56,12 @@ public class PlayerController : MonoBehaviour
     private bool machineGunFlag;
     private bool RocketLauncherFlag;
 
+    public AudioClip pistolSound;
 
+    public AudioClip rifleSound;
 
+    public AudioClip rocketSound;
 
-    bool right;
 
     void Start()
     {
@@ -88,31 +94,33 @@ public class PlayerController : MonoBehaviour
         switch (weaponManager.currentWeaponType)
         {
             case WeaponType.WeaponState.Pistol:
+                machineGunFlag = false;
+                rocket = false;
+                pistol = true;
                 bulletPrefab = weaponManager.pistolPrefab;
                 firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
-                Debug.Log(firePoint.transform.parent.name);
-                Debug.Log("first");
-
                 break;
 
             case WeaponType.WeaponState.MachineGun:
+                pistol = false;
+                rocket = false;
+                machineGunFlag = true;
                 bulletPrefab = weaponManager.riflePrefab;
                 firePoint = weaponManager.weapons[1].transform.GetChild(0).gameObject;
-                Debug.Log(firePoint.transform.parent.name);
-                Debug.Log("second");
-                machineGunFlag = true;
+
 
 
                 break;
+
             case WeaponType.WeaponState.RocketLauncher:
+                pistol = false;
+                machineGunFlag = false;
+                rocket = true;
+
                 bulletPrefab = weaponManager.rocketLauncherPrefab;
                 firePoint = weaponManager.weapons[2].transform.GetChild(0).gameObject;
-                Debug.Log(firePoint.transform.parent.name);
-                Debug.Log("third");
-
-
-
                 break;
+
             default:
                 Debug.LogWarning("Unknown active weapon type");
                 break;
@@ -175,6 +183,7 @@ public class PlayerController : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
                 bullet.transform.SetParent(shotContainer);
                 light.intensity = 4;
+                BulletAudio();
 
 
                 if (machineGunFlag == true)
@@ -226,6 +235,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void BulletAudio()
+    {
+        if (pistol == true)
+        {
+            AudioSource.PlayClipAtPoint(pistolSound, Camera.main.transform.position);
+        }
+
+        if (machineGunFlag == true)
+        {
+            AudioSource.PlayClipAtPoint(rifleSound, Camera.main.transform.position);
+        }
+
+        if (rocket == true)
+        {
+            AudioSource.PlayClipAtPoint(rocketSound, Camera.main.transform.position);
+        }
+    }
+
     public void BombAttack()
     {
         Debug.Log("Bomb");
@@ -248,7 +275,7 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.x < 0.0f)
         {
             animator.SetBool("move", true);
-            animator.SetFloat("IdleInput", 0);
+            animator.SetFloat("IdleInput", -1);
             animator.SetFloat("Input", -1);
             right = false;
 
@@ -256,7 +283,7 @@ public class PlayerController : MonoBehaviour
         else if (rb.velocity.x > 0.0f)
         {
             animator.SetBool("move", true);
-            animator.SetFloat("IdleInput", 0);
+            animator.SetFloat("IdleInput", 1);
             animator.SetFloat("Input", 1);
             right = true;
 
