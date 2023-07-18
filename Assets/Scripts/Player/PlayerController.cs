@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(bulletPrefab);
 
+        isGrounded = true;
+
     }
 
     private void FixedUpdate()
@@ -232,6 +234,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             animator.SetTrigger("throw");
+            Debug.Log("Throwing");
         }
     }
 

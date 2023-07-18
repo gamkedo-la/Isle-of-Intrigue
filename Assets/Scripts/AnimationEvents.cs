@@ -6,7 +6,7 @@ public class AnimationEvents : MonoBehaviour
 {
     public PlayerController player;
 
-    public void CallParentAnimations()
+    public void CallBombAnimations()
     {
         player.BombAttack();
     }

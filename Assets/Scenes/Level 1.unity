@@ -5357,13 +5357,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440704926411790461}
+  - component: {fileID: 1440704926411790462}
   m_Layer: 0
   m_Name: Sea Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &241201148746611443
 Transform:
   m_ObjectHideFlags: 0
@@ -5784,7 +5785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231496312751996958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.26, y: -9.64, z: 0}
+  m_LocalPosition: {x: -9.26, y: -4.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5796,6 +5797,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1440704926411790462
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231496312751996958}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b3bae373ddfa9f4d86ab7a23fd23712, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1487205092445379052
 GameObject:
   m_ObjectHideFlags: 0
@@ -6099,7 +6120,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2589954203085302819}
-  m_LocalRotation: {x: 0, y: 0, z: 0.47514534, w: 0.87990737}
+  m_LocalRotation: {x: 0, y: 0, z: 0.47514555, w: 0.8799073}
   m_LocalPosition: {x: 2.0418427, y: 0.00000042621247, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6166,7 +6187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343376127473781931}
-  m_LocalRotation: {x: 0, y: 0, z: -0.24832456, w: 0.96867687}
+  m_LocalRotation: {x: 0, y: 0, z: -0.24832466, w: 0.96867687}
   m_LocalPosition: {x: -2.2798004, y: 3.4480255, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6564,7 +6585,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2382000502343364470}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7405092, w: 0.6720463}
+  m_LocalRotation: {x: 0, y: 0, z: 0.74050945, w: 0.672046}
   m_LocalPosition: {x: 1.4773192, y: -0.00000003417266, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6816,7 +6837,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7897320627377643127}
-  m_LocalRotation: {x: 0, y: 0, z: -0.17461729, w: 0.98463637}
+  m_LocalRotation: {x: 0, y: 0, z: -0.17461754, w: 0.98463637}
   m_LocalPosition: {x: 1.8111194, y: 0.0000001954165, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13184,7 +13205,7 @@ MonoBehaviour:
   - {fileID: 7385181552605464181}
   - {fileID: 5432580102933357246}
   m_Bounds:
-    m_Center: {x: -0.006133318, y: -0.08828306, z: 0}
+    m_Center: {x: -0.006133318, y: -0.088282585, z: 0}
     m_Extent: {x: 3.2687047, y: 4.2454157, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -13945,7 +13966,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508601749436809197}
-  m_LocalRotation: {x: 0, y: 0, z: 0.83326507, w: 0.5528736}
+  m_LocalRotation: {x: 0, y: 0, z: 0.833265, w: 0.5528738}
   m_LocalPosition: {x: -1.7268786, y: 0.20696464, z: 0}
   m_LocalScale: {x: 0.99999976, y: 0.99999976, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13977,10 +13998,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8193472415747816477}
     m_Modifications:
-    - target: {fileID: 7652388203127434816, guid: 17474a213442e4d4799313100de0aeae, type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7652388203127434817, guid: 17474a213442e4d4799313100de0aeae, type: 3}
       propertyPath: light
       value: 
