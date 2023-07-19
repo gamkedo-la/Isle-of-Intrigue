@@ -77,8 +77,6 @@ public class PlayerController : MonoBehaviour
             this.weaponToShakePivot = this.weaponToShake.transform.localPosition;
         }
 
-        Debug.Log(bulletPrefab);
-
         isGrounded = true;
 
     }
