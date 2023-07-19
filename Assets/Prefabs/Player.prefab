@@ -3551,7 +3551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 5
+  jumpForce: 20
   projectile: {fileID: -2657624584772482098, guid: fced0afde463c1343b9feda531e3f843, type: 3}
   muzzleFlashPrefab: {fileID: 3480980295515954729, guid: 9b62a38735577444e8abd4638d5d15cf, type: 3}
   bulletShellPrefab: {fileID: 8175130694050520243, guid: 8b349e5d731b5cb4fa699182bc364f38, type: 3}
