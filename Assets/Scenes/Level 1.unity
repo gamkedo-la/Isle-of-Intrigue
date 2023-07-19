@@ -20817,6 +20817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sand_dunes
       objectReference: {fileID: 0}
+    - target: {fileID: 5425985699447847122, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
 --- !u!4 &5432580102933357246
