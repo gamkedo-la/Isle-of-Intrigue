@@ -3883,6 +3883,7 @@ MonoBehaviour:
   player: {fileID: 978001192}
   bulletPrefab: {fileID: 1526907166346097671, guid: b10d7083d39332b4883a5612e062f178, type: 3}
   shootingPoint: {fileID: 1730405107}
+  bulletSpeed: 50
   container: {fileID: 604992762}
   shootCooldown: 1
   shootDistance: 10

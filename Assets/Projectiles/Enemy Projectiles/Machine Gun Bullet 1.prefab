@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7539933332319131979}
   - component: {fileID: -6813943047540196357}
   - component: {fileID: 7948385856844765914}
-  - component: {fileID: -424609409293316083}
   m_Layer: 0
   m_Name: Machine Gun Bullet 1
   m_TagString: Untagged
@@ -69,20 +68,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAlive: 3
---- !u!114 &-424609409293316083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526907166346097671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fbd9ccbd17f4c748bab4bfd25304184, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 10
-  bulletSpray: 45
 --- !u!1 &5759334438901215070
 GameObject:
   m_ObjectHideFlags: 0
