@@ -15,7 +15,7 @@ public class EnemyThrowingBomb : MonoBehaviour
     {
         if (player != null)
         {
-            animator.SetTrigger("throw");
+            // animator.SetTrigger("throw");
         }
     }
 

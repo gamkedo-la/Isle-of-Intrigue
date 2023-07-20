@@ -15,15 +15,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("bullet"))
+        if (other.gameObject.CompareTag("enemyBullet"))
         {
-            TakeDamage();
+            TakeDamage(1);
         }
     }
 
-    private void TakeDamage()
+    private void TakeDamage(int hurt)
     {
-        currentHealth = 0;
+        currentHealth -= hurt;
     }
 
     private void HealthStatus()

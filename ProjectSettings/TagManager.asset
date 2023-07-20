@@ -10,6 +10,7 @@ TagManager:
   - MachineGun
   - Dagger
   - bullet
+  - enemyBullet
   layers:
   - Default
   - TransparentFX

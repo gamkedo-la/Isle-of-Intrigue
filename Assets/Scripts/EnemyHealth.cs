@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
             Destroy(other.gameObject);
             animator.SetTrigger("damage");
             TakeDamage(1);
-            Debug.Log("Collision");
+            Debug.Log(damage);
         }
     }
 
@@ -43,8 +43,14 @@ public class EnemyHealth : MonoBehaviour
         else
         {
             weapon.SetActive(false);
-            animator.SetTrigger("Die");
+            animator.SetTrigger("die");
+            Invoke("Destroy", 2f);
         }
 
+    }
+
+    public void Destroy()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -3586,7 +3586,7 @@ MonoBehaviour:
   GrenadePos: {fileID: 0}
   weaponManager: {fileID: 0}
   pistolSound: {fileID: 8300000, guid: 95a1edf889c69ea4ca7375f173791981, type: 3}
-  rifleSound: {fileID: 8300000, guid: 1697fb82e4135ac46940cbb47e173391, type: 3}
+  rifleSound: {fileID: 8300000, guid: e820e2be53859374db4a238c7cb3921f, type: 3}
   rocketSound: {fileID: 8300000, guid: 712f25bcac8da0a4f8df26b301be287e, type: 3}
 --- !u!114 &2090963270
 MonoBehaviour:
@@ -4371,7 +4371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8349052993371599449}
   m_LocalRotation: {x: -0, y: -0, z: -0.24995607, w: 0.96825725}
-  m_LocalPosition: {x: -7.83, y: 5.04, z: 10.139529}
+  m_LocalPosition: {x: -8.16, y: 5.88, z: 10.139529}
   m_LocalScale: {x: 0.54808253, y: 0.54808253, z: 0.5480827}
   m_ConstrainProportionsScale: 0
   m_Children: []
