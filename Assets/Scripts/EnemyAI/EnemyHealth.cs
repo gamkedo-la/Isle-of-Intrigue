@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float damage = 3f;
     public GameObject weapon;
+    public AudioClip enemyDamageSound;
     public Animator animator;
 
 
@@ -22,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         if (other.gameObject.CompareTag("bullet"))
         {
             Destroy(other.gameObject);
+            AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
             animator.SetTrigger("damage");
             TakeDamage(1);
             Debug.Log(damage);
