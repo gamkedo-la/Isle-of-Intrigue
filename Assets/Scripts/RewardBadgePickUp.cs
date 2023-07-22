@@ -5,6 +5,7 @@ using UnityEngine;
 public class RewardBadgePickUp : MonoBehaviour
 {
     public WeaponType weaponType;
+    public AudioClip rewardSound;
 
     public WeaponType.WeaponState currentWeaponState;
 
@@ -13,6 +14,7 @@ public class RewardBadgePickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(rewardSound, Camera.main.transform.position);
             WeaponType weaponTypeScript = FindObjectOfType<WeaponType>();
             if (weaponTypeScript != null)
             {
