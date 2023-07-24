@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationEvents : MonoBehaviour
 {
     public PlayerController player;
+    public EnemyThrowingBomb enemyBomb;
 
     public void CallBombAnimations()
     {
@@ -14,6 +15,11 @@ public class AnimationEvents : MonoBehaviour
     public void CallJump()
     {
         player.JumpNow();
+    }
+
+    public void CallThrow()
+    {
+        enemyBomb.ThrowBombTowardsPlayer();
     }
 
 }

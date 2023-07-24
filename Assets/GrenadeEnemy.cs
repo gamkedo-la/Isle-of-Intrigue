@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grenade : MonoBehaviour
+public class GrenadeEnemy : MonoBehaviour
 {
     public GameObject explosionVfx;
     public float vfxDestroyDelay = 1f;
 
     public AudioClip bombSound;
 
-    int playerLayer;
+    int enemyLayer;
     int grenadeLayer;
 
     void Start()
     {
-        playerLayer = LayerMask.NameToLayer("Player");
-        grenadeLayer = LayerMask.NameToLayer("GrenadePlayer");
+        enemyLayer = LayerMask.NameToLayer("Enemy");
+        grenadeLayer = LayerMask.NameToLayer("GrenadeEnemy");
     }
 
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == playerLayer || other.gameObject.layer == grenadeLayer)
+        if (other.gameObject.layer == enemyLayer || other.gameObject.layer == grenadeLayer)
         {
             return;
         }
@@ -32,6 +32,5 @@ public class Grenade : MonoBehaviour
         Destroy(explosion, vfxDestroyDelay);
 
     }
-
 
 }

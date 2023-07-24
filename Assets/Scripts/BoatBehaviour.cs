@@ -25,7 +25,7 @@ public class BoatBehaviour : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
 
-        transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+        //  transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
     }
 }
 

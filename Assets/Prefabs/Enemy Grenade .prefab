@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2989493690022376980}
   - component: {fileID: -5336376174112379796}
   - component: {fileID: 6690764229802257441}
-  - component: {fileID: -8348986494083362590}
-  m_Layer: 8
-  m_Name: Grenade
+  - component: {fileID: 6336268116259037852}
+  m_Layer: 9
+  m_Name: 'Enemy Grenade '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 373a604adc4fe6244888faee69f50eed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.114309, y: 4.0512404}
   m_EdgeRadius: 0
---- !u!114 &-8348986494083362590
+--- !u!114 &6336268116259037852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3619381684315798707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c45ee0a698dab45a16fe977e0abe8a, type: 3}
+  m_Script: {fileID: 11500000, guid: a569773c3c6b20c4da7b624e616efacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionVfx: {fileID: 1483968071417661265, guid: 2c741f634b79af84eab0b55bd96879fb, type: 3}
+  vfxDestroyDelay: 1
+  bombSound: {fileID: 8300000, guid: 4154f788b390a5d4b8d91328de57f310, type: 3}

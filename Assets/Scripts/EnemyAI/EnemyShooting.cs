@@ -4,42 +4,46 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-
     public Transform player;
     public GameObject bulletPrefab;
     public Transform shootingPoint;
 
-    public float bulletSpeed = 10f;
-
-    public float bulletSpray = 45f;
-
-
     Rigidbody2D rigid;
+
+    public AudioClip rifleShootingAudio;
+
+    public float bulletSpeed = 10f;
+    public float bulletSpray = 45f;
 
 
     public Transform container;
     public float shootCooldown = 1.0f;
     public float shootDistance = 10.0f;
 
+    private bool canShoot = true;
+
     void Start()
     {
         rigid = bulletPrefab.GetComponent<Rigidbody2D>();
     }
 
-
     void Update()
     {
-        Shoot();
+        if (canShoot)
+        {
+            Shoot();
+            StartCoroutine(ShootCooldownTimer());
+        }
     }
-
 
     private void Shoot()
     {
         Vector3 playerPosition = player.position;
-        float distance = Vector3.Distance(playerPosition, transform.position);
+        float distance = Vector3.Distance(playerPosition, shootingPoint.position);
         if (distance <= shootDistance)
         {
-            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
+            AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position);
             float randAngleOffset = Random.Range(-0.5f, 0.5f) * bulletSpray;
             Vector2 direction = (player.transform.position - transform.position).normalized;
             Quaternion inaccuracyQuat = Quaternion.AngleAxis(randAngleOffset, Vector3.forward);
@@ -49,8 +53,13 @@ public class EnemyShooting : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             bullet.transform.parent = container;
         }
-
     }
 
+    private IEnumerator ShootCooldownTimer()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
+    }
 }
 
