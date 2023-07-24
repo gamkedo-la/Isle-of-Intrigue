@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6813943047540196357}
   - component: {fileID: 7948385856844765914}
   - component: {fileID: 3328633091214737707}
+  - component: {fileID: 4094512883574950822}
   m_Layer: 0
   m_Name: Pistol Bullet
   m_TagString: bullet
@@ -83,6 +84,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 120
   bulletSpray: 12
+--- !u!58 &4094512883574950822
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526907166346097671}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046244115, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.24355558
 --- !u!1 &5759334438901215070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4922,7 +4939,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 16
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5425985698938270823}
   - component: {fileID: 5425985698938270820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sand_dunes (background) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5425985699248584724}
   - component: {fileID: 5425985699248584725}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sand_dunes (background) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 5425985699447847121}
   - component: {fileID: 5425985699447847120}
   - component: {fileID: 5425985699447847123}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sand_dunes
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -486,7 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5425985699630028418}
   - component: {fileID: 5425985699630028419}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sand_dunes (background)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

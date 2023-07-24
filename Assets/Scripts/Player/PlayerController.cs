@@ -79,6 +79,9 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = true;
 
+        pistol = true;
+        bulletPrefab = weaponManager.pistolPrefab;
+        firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
     }
 
     private void FixedUpdate()
@@ -93,14 +96,6 @@ public class PlayerController : MonoBehaviour
 
         switch (weaponManager.currentWeaponType)
         {
-            case WeaponType.WeaponState.Pistol:
-                machineGunFlag = false;
-                rocket = false;
-                pistol = true;
-                bulletPrefab = weaponManager.pistolPrefab;
-                firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
-                break;
-
             case WeaponType.WeaponState.MachineGun:
                 pistol = false;
                 rocket = false;

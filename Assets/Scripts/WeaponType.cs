@@ -29,7 +29,7 @@ public class WeaponType : MonoBehaviour
     private void Awake()
     {
         CleanAnimatorLayersWeight();
-        animator.SetLayerWeight(1, 1);
+        animator.SetLayerWeight(2, 1);
 
     }
 
