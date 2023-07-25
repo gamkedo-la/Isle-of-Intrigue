@@ -3553,19 +3553,7 @@ MonoBehaviour:
     m_ActionId: c276a21a-c67d-4a5f-b00f-1a76c87c8a7e
     m_ActionName: Player/Crouch[/Keyboard/c]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerInvisibilityController, Assembly-CSharp
-        m_MethodName: OnDodge
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 4e797125-cd3a-4664-88f8-3658b53d5755
     m_ActionName: Player/Dodge[/Keyboard/z]
   m_NeverAutoSwitchControlSchemes: 0
@@ -3617,7 +3605,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e571494c3e66fc498bc05fa93d67e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1
+  currentHealth: 20
+  weapons:
+  - {fileID: 3983024338630085832}
+  - {fileID: 2139417753188121702}
+  - {fileID: 6850383296046170582}
   animator: {fileID: 3675160837450172016}
 --- !u!50 &7652388203127434823
 Rigidbody2D:

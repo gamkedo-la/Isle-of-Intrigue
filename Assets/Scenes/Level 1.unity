@@ -4677,14 +4677,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5425985698938270822, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699248584727, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5425985699447847121, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -4732,14 +4724,6 @@ PrefabInstance:
     - target: {fileID: 5425985699447847122, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
       propertyPath: m_Name
       value: sand_dunes (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699447847122, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699630028445, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
@@ -8669,10 +8653,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1526907166346097671, guid: b10d7083d39332b4883a5612e062f178, type: 3}
   shootingPoint: {fileID: 1730405107}
   rifleShootingAudio: {fileID: 8300000, guid: 3e9f3f8012a64a549ab200fdb78a92e5, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 30
   bulletSpray: 45
   container: {fileID: 5133773938831091190}
-  shootCooldown: 2
+  shootCooldown: 0.5
   shootDistance: 10
 --- !u!1 &1480416354
 GameObject:
@@ -9120,8 +9104,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.4572139, y: -0.6003487}
-  m_Size: {x: 1.4139128, y: 3.3643441}
+  m_Offset: {x: -1.1684065, y: 2.5648031}
+  m_Size: {x: 1.0444998, y: 1.1808474}
   m_Direction: 0
 --- !u!114 &1564018945
 MonoBehaviour:
@@ -14536,10 +14520,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2459062869163221082, guid: 94fad8c7d2b6a27479a972881e1a7cb1, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2459062869945286465, guid: 94fad8c7d2b6a27479a972881e1a7cb1, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -14587,10 +14567,6 @@ PrefabInstance:
     - target: {fileID: 2459062869945286467, guid: 94fad8c7d2b6a27479a972881e1a7cb1, type: 3}
       propertyPath: m_Name
       value: foreground boulders
-      objectReference: {fileID: 0}
-    - target: {fileID: 2459062869945286467, guid: 94fad8c7d2b6a27479a972881e1a7cb1, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94fad8c7d2b6a27479a972881e1a7cb1, type: 3}
@@ -21357,14 +21333,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5425985698938270822, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699248584727, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5425985699447847121, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -21412,18 +21380,6 @@ PrefabInstance:
     - target: {fileID: 5425985699447847122, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
       propertyPath: m_Name
       value: sand_dunes
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699447847122, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699447847122, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 5425985699630028445, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d536f71a423e7e24c9d153c454ed5f8d, type: 3}
@@ -22198,17 +22154,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6425566120810942567, guid: b52e2921647067b489468ff8e972f99d, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6425566121178462148, guid: b52e2921647067b489468ff8e972f99d, type: 3}
       propertyPath: m_Name
       value: foreground boulder
-      objectReference: {fileID: 0}
-    - target: {fileID: 6425566121178462148, guid: b52e2921647067b489468ff8e972f99d, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6425566121178462150, guid: b52e2921647067b489468ff8e972f99d, type: 3}
       propertyPath: m_RootOrder
@@ -23418,14 +23366,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7652388203127434822, guid: 17474a213442e4d4799313100de0aeae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7652388203127434822, guid: 17474a213442e4d4799313100de0aeae, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2092342833}
     - target: {fileID: 7652388203127434826, guid: 17474a213442e4d4799313100de0aeae, type: 3}
       propertyPath: m_Name
       value: Player

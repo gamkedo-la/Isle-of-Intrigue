@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int currentHealth;
+
+    public List<GameObject> weapons = new List<GameObject>();
     public Animator animator;
 
 
@@ -18,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.CompareTag("enemyBullet"))
         {
             TakeDamage(1);
+            Destroy(other.gameObject);
         }
     }
 
@@ -28,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void HealthStatus()
     {
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             FinishThePlayer();
         }
@@ -38,7 +41,19 @@ public class PlayerHealth : MonoBehaviour
 
     private void FinishThePlayer()
     {
-        animator.SetBool("Die", true);
+        animator.SetBool("die", true);
+        foreach (GameObject weapon in weapons)
+        {
+            if (weapon.activeInHierarchy)
+            {
+                weapon.SetActive(false);
+                break;
+            }
+            else
+            {
+                continue;
+            }
+        }
     }
 
 }
