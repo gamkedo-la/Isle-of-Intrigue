@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int hurt)
+    public void TakeDamage(int hurt)
     {
         currentHealth -= hurt;
     }

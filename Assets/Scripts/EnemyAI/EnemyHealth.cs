@@ -28,6 +28,8 @@ public class EnemyHealth : MonoBehaviour
         {
             EnemyDie();
         }
+
+        Debug.Log(died);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

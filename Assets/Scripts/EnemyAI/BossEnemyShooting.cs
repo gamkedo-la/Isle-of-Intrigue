@@ -4,49 +4,84 @@ using UnityEngine;
 
 public class BossEnemyShooting : MonoBehaviour
 {
-    public Transform firePoint;
+    public Transform player;
     public GameObject bulletPrefab;
-    public float bulletSpeed = 10f;
-    public float fireRate = 1f;
-    public float detectionRange = 5f;
+    public Transform shootingPoint;
 
-    private Transform player;
+    public PlayerHealth playerHealth;
+
+    Rigidbody2D rigid;
+
+    public AudioClip rifleShootingAudio;
+
+    public float bulletSpeed = 10f;
+
+    public Transform container;
+    public float shootCooldown = 1.0f;
+    public float shootDistance = 10.0f;
+
     private bool canShoot = true;
 
-    private void Start()
+    public Animator animator;
+
+    int rand;
+
+
+
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        rigid = bulletPrefab.GetComponent<Rigidbody2D>();
+        StartCoroutine(BossAttack());
+        rand = Random.Range(8, 16);
     }
 
-    private void Update()
+    void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) <= detectionRange)
+        if (canShoot)
         {
-            Vector2 direction = player.position - transform.position;
-            transform.right = direction;
-
-            if (canShoot)
-            {
-                Shoot();
-                StartCoroutine(ShootDelay());
-            }
+            Shoot();
+            StartCoroutine(ShootCooldownTimer());
         }
+
     }
 
     private void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = transform.right * bulletSpeed;
+        Vector3 playerPosition = player.position;
+        float distance = Vector3.Distance(playerPosition, shootingPoint.position);
+        if (distance <= shootDistance)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position);
+            Vector2 direction = ((Vector2)playerPosition - (Vector2)shootingPoint.position).normalized;
+            bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+            bullet.transform.parent = container;
+        }
     }
 
-    private System.Collections.IEnumerator ShootDelay()
+    private IEnumerator ShootCooldownTimer()
     {
         canShoot = false;
+        yield return new WaitForSeconds(shootCooldown);
 
-        yield return new WaitForSeconds(1f / fireRate);
 
         canShoot = true;
+
+    }
+
+    public void PlayerDamage()
+    {
+        playerHealth.TakeDamage(3);
+    }
+
+    IEnumerator BossAttack()
+    {
+        while (gameObject.activeInHierarchy)
+        {
+            yield return new WaitForSeconds(rand);
+            animator.SetTrigger("attack");
+        }
     }
 
 }

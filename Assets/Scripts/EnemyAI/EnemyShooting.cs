@@ -33,11 +33,12 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        if (canShoot && enemyHealth.EnemyDieIndicator() == true)
+        if (canShoot)
         {
             Shoot();
             StartCoroutine(ShootCooldownTimer());
         }
+
     }
 
     private void Shoot()
@@ -63,7 +64,11 @@ public class EnemyShooting : MonoBehaviour
     {
         canShoot = false;
         yield return new WaitForSeconds(shootCooldown);
-        canShoot = true;
+
+        if (enemyHealth.EnemyDieIndicator() == false)
+        {
+            canShoot = true;
+        }
     }
 }
 
