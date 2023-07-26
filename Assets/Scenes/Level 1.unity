@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56582923}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 97502476}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 135283117}
   - component: {fileID: 135283119}
   - component: {fileID: 135283118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161932009}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 165989492}
   - component: {fileID: 165989493}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torso_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,6 +915,8 @@ GameObject:
   m_Component:
   - component: {fileID: 185043258}
   - component: {fileID: 185043259}
+  - component: {fileID: 185043260}
+  - component: {fileID: 185043261}
   m_Layer: 0
   m_Name: Dwarf
   m_TagString: Untagged
@@ -959,6 +961,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &185043260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185043257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76061b40a46542a41947215d8ff73eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dwarfChain: {fileID: 1319077971}
+  animator: {fileID: 185043259}
+--- !u!70 &185043261
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185043257}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.952838, y: -2.9778507}
+  m_Size: {x: 1.7872387, y: 2.659266}
+  m_Direction: 0
 --- !u!1 &212110436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 226993281}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1084,7 @@ GameObject:
   - component: {fileID: 229840395}
   - component: {fileID: 229840397}
   - component: {fileID: 229840396}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,6 +1185,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &231739059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 231739060}
+  m_Layer: 11
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &231739060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231739059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.91, y: 24.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1045985701}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232039834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 276839454}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pirate Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1838,7 +1901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430962709}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: foot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1875,7 +1938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 437922392}
   - component: {fileID: 437922393}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Thigh_R_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2023,6 +2086,117 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &453906842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 453906843}
+  - component: {fileID: 453906844}
+  m_Layer: 12
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453906843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453906842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.61, y: 5.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5622668240402442596}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &453906844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453906842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!4 &459902973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4533500639099176388, guid: 59f04a8d58ffb554e856b26ef9b9c275, type: 3}
@@ -2115,7 +2289,7 @@ GameObject:
   - component: {fileID: 495322595}
   - component: {fileID: 495322597}
   - component: {fileID: 495322596}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2220,7 +2394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 496518966}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,7 +2600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 518836833}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2823,7 +2997,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 540730840}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3082,7 +3256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 590449483}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rig Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3130,7 +3304,7 @@ GameObject:
   - component: {fileID: 600567453}
   - component: {fileID: 600567455}
   - component: {fileID: 600567454}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3410,7 +3584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636469562}
   - component: {fileID: 636469563}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Thigh_L_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3461,7 +3635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639616567}
   - component: {fileID: 639616568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Torso_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3512,7 +3686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641156901}
   - component: {fileID: 641156902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm_L_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4087,7 +4261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 705439934}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4403,7 +4577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730174321}
   - component: {fileID: 730174322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm_R_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4519,7 +4693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 735935771}
   - component: {fileID: 735935772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4736,7 +4910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 761536820}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4879,7 +5053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794607451}
   - component: {fileID: 794607452}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New FabrikSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4978,7 +5152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 797999486}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hand_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5009,7 +5183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 833876304}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5040,7 +5214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 835556708}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New FabrikSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5302,7 +5476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889467558}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5403,7 +5577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895201831}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5583,7 +5757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 962982032}
   - component: {fileID: 962982033}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Thigh_R_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5634,7 +5808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963143166}
   - component: {fileID: 963143167}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pirate_rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5718,7 +5892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 968299551}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rig Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5759,7 +5933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971505033}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: forearm_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5886,7 +6060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 990022924}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5918,7 +6092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 999624113}
   - component: {fileID: 999624114}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6112,7 +6286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041012252}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New FabrikSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6134,6 +6308,54 @@ Transform:
   m_Father: {fileID: 1186199012}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1045985700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1045985701}
+  - component: {fileID: 1045985702}
+  m_Layer: 11
+  m_Name: Player Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1045985701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045985700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 231739060}
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045985702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045985700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec3d9d67899b6c46ad3bd82d8d2f5ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2090963266}
+  spawnPos: {fileID: 231739060}
+  animator: {fileID: 7652388203492012910}
 --- !u!4 &1049140907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8072648277409660913, guid: 8729eb535576d7143881d99d70dd57c4, type: 3}
@@ -6149,7 +6371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063424457}
   - component: {fileID: 1063424458}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm_L_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6200,7 +6422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064038588}
   - component: {fileID: 1064038589}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6596,7 +6818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136167073}
   - component: {fileID: 1136167074}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6744,7 +6966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1151200966}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6776,7 +6998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186199012}
   - component: {fileID: 1186199013}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New FabrikSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6961,7 +7183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1238396598}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6994,7 +7216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1241708399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7390,7 +7612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1273602626}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7422,7 +7644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275402929}
   - component: {fileID: 1275402930}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Thigh_L_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7517,7 +7739,7 @@ GameObject:
   - component: {fileID: 1313935050}
   - component: {fileID: 1313935051}
   - component: {fileID: 1313935052}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pirate Enemy Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7574,7 +7796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   weapon: {fileID: 419769026}
-  enemyDamageSound: {fileID: 0}
+  enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 1313935048}
 --- !u!70 &1313935051
 CapsuleCollider2D:
@@ -7589,8 +7811,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -11.603718, y: -3.1230931}
-  m_Size: {x: 1.1602364, y: 2.840231}
+  m_Offset: {x: -0.2920699, y: 4.559573}
+  m_Size: {x: 1.0706878, y: 1.6427603}
   m_Direction: 0
 --- !u!114 &1313935052
 MonoBehaviour:
@@ -7724,6 +7946,7 @@ GameObject:
   - component: {fileID: 1319077967}
   - component: {fileID: 1319077969}
   - component: {fileID: 1319077970}
+  - component: {fileID: 1319077971}
   m_Layer: 0
   m_Name: prisoner_chains
   m_TagString: Untagged
@@ -7742,7 +7965,8 @@ Transform:
   m_LocalPosition: {x: -4.01, y: -3.27, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1833416276}
   m_Father: {fileID: 185043258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7798,8 +8022,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1319077970
-BoxCollider2D:
+--- !u!60 &1319077970
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7821,9 +8045,719 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.4, y: 6.4}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.22, y: -3.01}
+      - {x: 2.3, y: -2.9199998}
+      - {x: 2.37, y: -2.84}
+      - {x: 2.4099998, y: -2.6799998}
+      - {x: 2.4099998, y: -2.57}
+      - {x: 2.3799999, y: -2.4099998}
+      - {x: 2.32, y: -2.32}
+      - {x: 2.28, y: -2.29}
+      - {x: 2.29, y: -2.12}
+      - {x: 2.27, y: -2.04}
+      - {x: 2.21, y: -1.91}
+      - {x: 2.12, y: -1.8}
+      - {x: 1.9599999, y: -1.73}
+      - {x: 1.9, y: -1.7099999}
+      - {x: 1.6999999, y: -1.6899999}
+      - {x: 1.5899999, y: -1.6999999}
+      - {x: 1.53, y: -1.7099999}
+      - {x: 1.43, y: -1.73}
+      - {x: 1.36, y: -1.75}
+      - {x: 1.24, y: -1.8}
+      - {x: 1.06, y: -1.89}
+      - {x: 1.01, y: -1.87}
+      - {x: 0.90999997, y: -1.8499999}
+      - {x: 0.69, y: -1.8199999}
+      - {x: 0.53999996, y: -1.8299999}
+      - {x: 0.45, y: -1.79}
+      - {x: 0.32999998, y: -1.6999999}
+      - {x: 0.19999999, y: -1.63}
+      - {x: 0.08, y: -1.5899999}
+      - {x: -0.049999997, y: -1.5699999}
+      - {x: -0.21, y: -1.5699999}
+      - {x: -0.29, y: -1.5899999}
+      - {x: -0.35, y: -1.61}
+      - {x: -0.42999998, y: -1.68}
+      - {x: -0.52, y: -1.66}
+      - {x: -0.69, y: -1.64}
+      - {x: -0.88, y: -1.64}
+      - {x: -0.97999996, y: -1.5899999}
+      - {x: -1.16, y: -1.56}
+      - {x: -1.48, y: -1.56}
+      - {x: -1.56, y: -1.5799999}
+      - {x: -1.73, y: -1.63}
+      - {x: -1.88, y: -1.76}
+      - {x: -2.08, y: -1.9799999}
+      - {x: -2.1299999, y: -2.09}
+      - {x: -2.1299999, y: -2.31}
+      - {x: -2.09, y: -2.47}
+      - {x: -1.93, y: -2.6499999}
+      - {x: -1.86, y: -2.69}
+      - {x: -1.7199999, y: -2.72}
+      - {x: -1.54, y: -2.73}
+      - {x: -1.36, y: -2.71}
+      - {x: -1.17, y: -2.6599998}
+      - {x: -1, y: -2.58}
+      - {x: -0.94, y: -2.54}
+      - {x: -0.74, y: -2.51}
+      - {x: -0.68, y: -2.54}
+      - {x: -0.45999998, y: -2.61}
+      - {x: -0.32, y: -2.62}
+      - {x: -0.22, y: -2.69}
+      - {x: -0.16, y: -2.76}
+      - {x: 0.02, y: -2.8999999}
+      - {x: 0.17, y: -2.97}
+      - {x: 0.34, y: -3.02}
+      - {x: 0.52, y: -3.01}
+      - {x: 0.64, y: -2.95}
+      - {x: 0.71, y: -2.98}
+      - {x: 0.87, y: -3.03}
+      - {x: 0.98999995, y: -3.06}
+      - {x: 1.3, y: -3.08}
+      - {x: 1.3299999, y: -3.12}
+      - {x: 1.48, y: -3.1399999}
+      - {x: 1.61, y: -3.1499999}
+      - {x: 1.6899999, y: -3.1499999}
+      - {x: 1.81, y: -3.1399999}
+      - {x: 1.9699999, y: -3.11}
+      - {x: 2.07, y: -3.08}
+    - - {x: 1.5999999, y: -2.72}
+      - {x: 1.64, y: -2.72}
+      - {x: 1.66, y: -2.73}
+      - {x: 1.6899999, y: -2.71}
+      - {x: 1.74, y: -2.71}
+      - {x: 1.78, y: -2.69}
+      - {x: 1.8, y: -2.7}
+      - {x: 1.8199999, y: -2.6799998}
+      - {x: 1.8499999, y: -2.6799998}
+      - {x: 1.88, y: -2.6599998}
+      - {x: 1.89, y: -2.6699998}
+      - {x: 1.93, y: -2.6599998}
+      - {x: 1.9599999, y: -2.6499999}
+      - {x: 1.9799999, y: -2.62}
+      - {x: 2, y: -2.62}
+      - {x: 2.05, y: -2.59}
+      - {x: 2.04, y: -2.6599998}
+      - {x: 1.99, y: -2.71}
+      - {x: 1.9499999, y: -2.72}
+      - {x: 1.92, y: -2.73}
+      - {x: 1.9, y: -2.75}
+      - {x: 1.86, y: -2.75}
+      - {x: 1.8499999, y: -2.76}
+      - {x: 1.73, y: -2.77}
+      - {x: 1.7199999, y: -2.78}
+      - {x: 1.5999999, y: -2.78}
+    - - {x: 0.17999999, y: -2.37}
+      - {x: 0.14999999, y: -2.37}
+      - {x: 0.14999999, y: -2.33}
+      - {x: 0.16, y: -2.32}
+      - {x: 0.16, y: -2.22}
+      - {x: 0.14999999, y: -2.21}
+      - {x: 0.14999999, y: -2.1699998}
+      - {x: 0.13, y: -2.1499999}
+      - {x: 0.13, y: -2.1299999}
+      - {x: 0.12, y: -2.1299999}
+      - {x: 0.14, y: -2.1499999}
+      - {x: 0.14, y: -2.26}
+      - {x: 0.14999999, y: -2.27}
+      - {x: 0.16, y: -2.33}
+      - {x: 0.17, y: -2.36}
+      - {x: 0.19999999, y: -2.3799999}
+      - {x: 0.19999999, y: -2.3899999}
+      - {x: 0.19999999, y: -2.3799999}
+    - - {x: -1.42, y: -2.2}
+      - {x: -1.43, y: -2.19}
+      - {x: -1.48, y: -2.19}
+      - {x: -1.5, y: -2.18}
+      - {x: -1.51, y: -2.19}
+      - {x: -1.54, y: -2.1599998}
+      - {x: -1.56, y: -2.1599998}
+      - {x: -1.5999999, y: -2.1299999}
+      - {x: -1.5999999, y: -2.12}
+      - {x: -1.63, y: -2.08}
+      - {x: -1.5799999, y: -2.06}
+      - {x: -1.56, y: -2.06}
+      - {x: -1.55, y: -2.05}
+      - {x: -1.52, y: -2.05}
+      - {x: -1.48, y: -2.03}
+      - {x: -1.43, y: -2.03}
+      - {x: -1.39, y: -2.01}
+      - {x: -1.36, y: -2.01}
+      - {x: -1.35, y: -2.1}
+      - {x: -1.3199999, y: -2.1399999}
+      - {x: -1.3199999, y: -2.1599998}
+      - {x: -1.28, y: -2.21}
+      - {x: -1.3, y: -2.21}
+      - {x: -1.31, y: -2.2}
+      - {x: -1.37, y: -2.21}
+      - {x: -1.38, y: -2.2}
+    - - {x: -0.63, y: -2.1499999}
+      - {x: -0.62, y: -2.1399999}
+      - {x: -0.62, y: -2.04}
+      - {x: -0.59, y: -2.05}
+      - {x: -0.59, y: -2.09}
+      - {x: -0.58, y: -2.1}
+      - {x: -0.57, y: -2.1599998}
+      - {x: -0.56, y: -2.1699998}
+      - {x: -0.58, y: -2.1599998}
+      - {x: -0.59, y: -2.1499999}
+    - - {x: 1.42, y: -2.12}
+      - {x: 1.4399999, y: -2.1}
+      - {x: 1.4699999, y: -2.1}
+      - {x: 1.5, y: -2.08}
+      - {x: 1.52, y: -2.08}
+      - {x: 1.53, y: -2.07}
+      - {x: 1.5799999, y: -2.07}
+      - {x: 1.5899999, y: -2.06}
+      - {x: 1.61, y: -2.07}
+      - {x: 1.63, y: -2.05}
+      - {x: 1.6999999, y: -2.05}
+      - {x: 1.7099999, y: -2.04}
+      - {x: 1.73, y: -2.06}
+      - {x: 1.74, y: -2.06}
+      - {x: 1.75, y: -2.05}
+      - {x: 1.81, y: -2.05}
+      - {x: 1.8499999, y: -2.07}
+      - {x: 1.86, y: -2.06}
+      - {x: 1.9499999, y: -2.1299999}
+      - {x: 1.93, y: -2.1}
+      - {x: 1.87, y: -2.1}
+      - {x: 1.86, y: -2.09}
+      - {x: 1.77, y: -2.09}
+      - {x: 1.75, y: -2.08}
+      - {x: 1.74, y: -2.09}
+      - {x: 1.61, y: -2.09}
+      - {x: 1.5999999, y: -2.1}
+      - {x: 1.5899999, y: -2.09}
+      - {x: 1.5699999, y: -2.1}
+      - {x: 1.52, y: -2.1}
+      - {x: 1.49, y: -2.12}
+      - {x: 1.4499999, y: -2.12}
+      - {x: 1.43, y: -2.1299999}
+      - {x: 1.43, y: -2.12}
+    - - {x: 0.98999995, y: -1.12}
+      - {x: 1.22, y: -1.09}
+      - {x: 1.3199999, y: -1.14}
+      - {x: 1.51, y: -1.15}
+      - {x: 1.66, y: -1.15}
+      - {x: 1.9599999, y: -1.0699999}
+      - {x: 2.11, y: -0.96999997}
+      - {x: 2.25, y: -0.82}
+      - {x: 2.29, y: -0.71}
+      - {x: 2.29, y: -0.53999996}
+      - {x: 2.27, y: -0.45999998}
+      - {x: 2.24, y: -0.35999998}
+      - {x: 2.27, y: -0.26}
+      - {x: 2.26, y: -0.06}
+      - {x: 2.1599998, y: 0.12}
+      - {x: 2.03, y: 0.24}
+      - {x: 1.93, y: 0.28}
+      - {x: 1.8499999, y: 0.31}
+      - {x: 1.55, y: 0.32}
+      - {x: 1.37, y: 0.28}
+      - {x: 1.24, y: 0.22999999}
+      - {x: 1.23, y: 0.29999998}
+      - {x: 1.3, y: 0.29}
+      - {x: 1.52, y: 0.35999998}
+      - {x: 1.65, y: 0.41}
+      - {x: 1.74, y: 0.45999998}
+      - {x: 1.8499999, y: 0.53}
+      - {x: 1.9699999, y: 0.68}
+      - {x: 2.03, y: 0.88}
+      - {x: 2.09, y: 0.91999996}
+      - {x: 2.19, y: 1}
+      - {x: 2.33, y: 1.14}
+      - {x: 2.4299998, y: 1.27}
+      - {x: 2.52, y: 1.3}
+      - {x: 2.6599998, y: 1.4499999}
+      - {x: 2.69, y: 1.4399999}
+      - {x: 2.8, y: 1.5899999}
+      - {x: 2.8999999, y: 1.76}
+      - {x: 2.96, y: 1.91}
+      - {x: 2.96, y: 2.1599998}
+      - {x: 2.95, y: 2.22}
+      - {x: 2.8999999, y: 2.31}
+      - {x: 2.71, y: 2.47}
+      - {x: 2.58, y: 2.51}
+      - {x: 2.36, y: 2.5}
+      - {x: 2.23, y: 2.44}
+      - {x: 2.07, y: 2.3}
+      - {x: 1.9599999, y: 2.1599998}
+      - {x: 1.87, y: 2.01}
+      - {x: 1.79, y: 1.81}
+      - {x: 1.66, y: 1.65}
+      - {x: 1.54, y: 1.56}
+      - {x: 1.4499999, y: 1.49}
+      - {x: 1.3199999, y: 1.35}
+      - {x: 1.1999999, y: 1.3299999}
+      - {x: 0.96999997, y: 1.27}
+      - {x: 0.75, y: 1.15}
+      - {x: 0.64, y: 1.04}
+      - {x: 0.56, y: 0.9}
+      - {x: 0.52, y: 0.77}
+      - {x: 0.48999998, y: 0.75}
+      - {x: 0.44, y: 0.71}
+      - {x: 0.22999999, y: 0.57}
+      - {x: 0.08, y: 0.68}
+      - {x: 0.03, y: 0.77}
+      - {x: -0.04, y: 0.84999996}
+      - {x: -0.22, y: 1.02}
+      - {x: -0.34, y: 1.1}
+      - {x: -0.35, y: 1.2099999}
+      - {x: -0.38, y: 1.25}
+      - {x: -0.42999998, y: 1.3399999}
+      - {x: -0.53999996, y: 1.4499999}
+      - {x: -0.68, y: 1.53}
+      - {x: -0.77, y: 1.5699999}
+      - {x: -0.9, y: 1.61}
+      - {x: -0.98999995, y: 1.63}
+      - {x: -1.04, y: 1.64}
+      - {x: -1.12, y: 1.64}
+      - {x: -1.24, y: 1.78}
+      - {x: -1.42, y: 1.9399999}
+      - {x: -1.5699999, y: 2.02}
+      - {x: -1.5799999, y: 2.11}
+      - {x: -1.65, y: 2.28}
+      - {x: -1.68, y: 2.34}
+      - {x: -1.79, y: 2.51}
+      - {x: -1.89, y: 2.6299999}
+      - {x: -2.03, y: 2.73}
+      - {x: -2.1699998, y: 2.8}
+      - {x: -2.4099998, y: 2.8}
+      - {x: -2.57, y: 2.72}
+      - {x: -2.6799998, y: 2.6}
+      - {x: -2.73, y: 2.51}
+      - {x: -2.75, y: 2.46}
+      - {x: -2.75, y: 2.2}
+      - {x: -2.6599998, y: 2}
+      - {x: -2.59, y: 1.89}
+      - {x: -2.5, y: 1.76}
+      - {x: -2.35, y: 1.63}
+      - {x: -2.25, y: 1.5699999}
+      - {x: -2.1699998, y: 1.5}
+      - {x: -1.9799999, y: 1.3}
+      - {x: -1.88, y: 1.22}
+      - {x: -1.78, y: 1.16}
+      - {x: -1.78, y: 1.0799999}
+      - {x: -1.75, y: 0.98999995}
+      - {x: -1.6999999, y: 0.90999997}
+      - {x: -1.63, y: 0.84}
+      - {x: -1.4599999, y: 0.71}
+      - {x: -1.3199999, y: 0.65}
+      - {x: -1.09, y: 0.59999996}
+      - {x: -1.02, y: 0.59999996}
+      - {x: -0.95, y: 0.52}
+      - {x: -1, y: 0.42999998}
+      - {x: -1.09, y: 0.42}
+      - {x: -1.13, y: 0.47}
+      - {x: -1.22, y: 0.48999998}
+      - {x: -1.36, y: 0.51}
+      - {x: -1.63, y: 0.48999998}
+      - {x: -1.78, y: 0.44}
+      - {x: -1.9599999, y: 0.37}
+      - {x: -2.11, y: 0.21}
+      - {x: -2.1499999, y: 0.08}
+      - {x: -2.1699998, y: -0.01}
+      - {x: -2.1599998, y: -0.16}
+      - {x: -2.09, y: -0.31}
+      - {x: -2.07, y: -0.39999998}
+      - {x: -2.1299999, y: -0.51}
+      - {x: -2.1299999, y: -0.71999997}
+      - {x: -2.09, y: -0.89}
+      - {x: -1.93, y: -1.0699999}
+      - {x: -1.86, y: -1.11}
+      - {x: -1.7199999, y: -1.14}
+      - {x: -1.54, y: -1.15}
+      - {x: -1.36, y: -1.13}
+      - {x: -1.17, y: -1.0799999}
+      - {x: -1, y: -1}
+      - {x: -0.85999995, y: -0.9}
+      - {x: -0.65999997, y: -0.95}
+      - {x: -0.35999998, y: -0.95}
+      - {x: -0.26, y: -0.98999995}
+      - {x: -0.19, y: -1.03}
+      - {x: -0.099999994, y: -1.09}
+      - {x: 0.03, y: -1.13}
+      - {x: 0.12, y: -1.18}
+      - {x: 0.22, y: -1.1999999}
+      - {x: 0.34, y: -1.1999999}
+      - {x: 0.47, y: -1.1899999}
+      - {x: 0.65999997, y: -1.09}
+      - {x: 0.81, y: -1.12}
+    - - {x: -1.68, y: -0.77}
+      - {x: -1.7099999, y: -0.74}
+      - {x: -1.7199999, y: -0.74}
+      - {x: -1.73, y: -0.75}
+      - {x: -1.77, y: -0.71}
+      - {x: -1.78, y: -0.64}
+      - {x: -1.76, y: -0.61}
+      - {x: -1.7099999, y: -0.55}
+      - {x: -1.6999999, y: -0.55}
+      - {x: -1.68, y: -0.53}
+      - {x: -1.48, y: -0.53}
+      - {x: -1.4699999, y: -0.52}
+      - {x: -1.37, y: -0.52}
+      - {x: -1.35, y: -0.51}
+      - {x: -1.35, y: -0.52}
+      - {x: -1.3199999, y: -0.56}
+      - {x: -1.3199999, y: -0.58}
+      - {x: -1.27, y: -0.64}
+      - {x: -1.22, y: -0.69}
+      - {x: -1.23, y: -0.69}
+      - {x: -1.26, y: -0.71999997}
+      - {x: -1.29, y: -0.71999997}
+      - {x: -1.3, y: -0.72999996}
+      - {x: -1.3199999, y: -0.72999996}
+      - {x: -1.36, y: -0.75}
+      - {x: -1.39, y: -0.75}
+      - {x: -1.4, y: -0.76}
+      - {x: -1.43, y: -0.76}
+      - {x: -1.4399999, y: -0.77}
+      - {x: -1.48, y: -0.77}
+      - {x: -1.49, y: -0.78}
+      - {x: -1.64, y: -0.78}
+      - {x: -1.65, y: -0.77}
+    - - {x: 1.53, y: -0.76}
+      - {x: 1.5799999, y: -0.76}
+      - {x: 1.5899999, y: -0.75}
+      - {x: 1.66, y: -0.75}
+      - {x: 1.67, y: -0.74}
+      - {x: 1.7199999, y: -0.74}
+      - {x: 1.75, y: -0.71999997}
+      - {x: 1.81, y: -0.71}
+      - {x: 1.86, y: -0.68}
+      - {x: 1.89, y: -0.68}
+      - {x: 1.9399999, y: -0.65}
+      - {x: 1.89, y: -0.69}
+      - {x: 1.8499999, y: -0.7}
+      - {x: 1.81, y: -0.72999996}
+      - {x: 1.78, y: -0.72999996}
+      - {x: 1.75, y: -0.75}
+      - {x: 1.7199999, y: -0.75}
+      - {x: 1.7099999, y: -0.76}
+      - {x: 1.68, y: -0.76}
+      - {x: 1.67, y: -0.77}
+      - {x: 1.63, y: -0.77}
+      - {x: 1.62, y: -0.78}
+      - {x: 1.53, y: -0.78}
+    - - {x: 0.78999996, y: -0.74}
+      - {x: 0.78999996, y: -0.72999996}
+      - {x: 0.84999996, y: -0.75}
+      - {x: 0.89, y: -0.75}
+      - {x: 0.95, y: -0.74}
+      - {x: 0.95, y: -0.77}
+      - {x: 0.96, y: -0.78}
+      - {x: 0.94, y: -0.77}
+      - {x: 0.93, y: -0.76}
+    - - {x: -0.72999996, y: -0.55}
+      - {x: -0.72999996, y: -0.44}
+      - {x: -0.63, y: -0.45}
+      - {x: -0.59999996, y: -0.45999998}
+      - {x: -0.59, y: -0.51}
+      - {x: -0.58, y: -0.52}
+      - {x: -0.57, y: -0.58}
+      - {x: -0.56, y: -0.59}
+      - {x: -0.58, y: -0.58}
+      - {x: -0.59, y: -0.57}
+    - - {x: 0.78999996, y: -0.25}
+      - {x: 0.78999996, y: -0.22}
+      - {x: 0.84999996, y: -0.22999999}
+      - {x: 0.83, y: -0.26}
+      - {x: 0.82, y: -0.25}
+    - - {x: 1.35, y: -0.13}
+      - {x: 1.35, y: -0.12}
+      - {x: 1.36, y: -0.13}
+      - {x: 1.39, y: -0.099999994}
+      - {x: 1.41, y: -0.099999994}
+      - {x: 1.42, y: -0.089999996}
+      - {x: 1.4599999, y: -0.089999996}
+      - {x: 1.49, y: -0.07}
+      - {x: 1.56, y: -0.07}
+      - {x: 1.5699999, y: -0.06}
+      - {x: 1.62, y: -0.06}
+      - {x: 1.63, y: -0.049999997}
+      - {x: 1.66, y: -0.049999997}
+      - {x: 1.67, y: -0.06}
+      - {x: 1.73, y: -0.049999997}
+      - {x: 1.74, y: -0.06}
+      - {x: 1.81, y: -0.07}
+      - {x: 1.8399999, y: -0.099999994}
+      - {x: 1.86, y: -0.099999994}
+      - {x: 1.89, y: -0.13}
+      - {x: 1.6999999, y: -0.099999994}
+      - {x: 1.6899999, y: -0.11}
+      - {x: 1.5899999, y: -0.11}
+      - {x: 1.5799999, y: -0.12}
+      - {x: 1.53, y: -0.12}
+      - {x: 1.52, y: -0.13}
+      - {x: 1.43, y: -0.14}
+      - {x: 1.42, y: -0.14999999}
+      - {x: 1.38, y: -0.16}
+      - {x: 1.38, y: -0.14999999}
+    - - {x: -1.76, y: -0.11}
+      - {x: -1.78, y: -0.11}
+      - {x: -1.78, y: -0.099999994}
+      - {x: -1.81, y: -0.07}
+      - {x: -1.81, y: 0.01}
+      - {x: -1.77, y: 0.049999997}
+      - {x: -1.76, y: 0.049999997}
+      - {x: -1.74, y: 0.07}
+      - {x: -1.7199999, y: 0.07}
+      - {x: -1.67, y: 0.099999994}
+      - {x: -1.63, y: 0.099999994}
+      - {x: -1.62, y: 0.11}
+      - {x: -1.5999999, y: 0.11}
+      - {x: -1.56, y: 0.13}
+      - {x: -1.55, y: 0.12}
+      - {x: -1.53, y: 0.12}
+      - {x: -1.52, y: 0.13}
+      - {x: -1.49, y: 0.13}
+      - {x: -1.48, y: 0.14}
+      - {x: -1.4699999, y: 0.13}
+      - {x: -1.41, y: 0.14}
+      - {x: -1.4, y: 0.13}
+      - {x: -1.39, y: 0.13}
+      - {x: -1.39, y: 0.049999997}
+      - {x: -1.38, y: 0.04}
+      - {x: -1.38, y: 0.02}
+      - {x: -1.36, y: -0.02}
+      - {x: -1.37, y: -0.04}
+      - {x: -1.35, y: -0.06}
+      - {x: -1.36, y: -0.049999997}
+      - {x: -1.37, y: -0.06}
+      - {x: -1.4399999, y: -0.06}
+      - {x: -1.4499999, y: -0.07}
+      - {x: -1.49, y: -0.07}
+      - {x: -1.5, y: -0.08}
+      - {x: -1.53, y: -0.08}
+      - {x: -1.54, y: -0.089999996}
+      - {x: -1.5799999, y: -0.089999996}
+      - {x: -1.5899999, y: -0.099999994}
+      - {x: -1.65, y: -0.11}
+      - {x: -1.7099999, y: -0.14}
+      - {x: -1.73, y: -0.14}
+    - - {x: -0.77, y: -0.049999997}
+      - {x: -0.78999996, y: -0.03}
+      - {x: -0.79999995, y: -0.03}
+      - {x: -0.81, y: -0.04}
+      - {x: -0.81, y: -0.01}
+      - {x: -0.79999995, y: 0}
+      - {x: -0.79999995, y: 0.02}
+      - {x: -0.81, y: 0.03}
+      - {x: -0.81, y: 0.08}
+      - {x: -0.82, y: 0.089999996}
+      - {x: -0.79999995, y: 0.089999996}
+      - {x: -0.77, y: 0.07}
+      - {x: -0.74, y: 0.07}
+      - {x: -0.72999996, y: 0.06}
+      - {x: -0.65999997, y: 0.049999997}
+      - {x: -0.65999997, y: 0.01}
+      - {x: -0.65, y: 0}
+      - {x: -0.65, y: -0.06}
+      - {x: -0.68, y: -0.06}
+      - {x: -0.69, y: -0.049999997}
+    - - {x: 0.57, y: 0.35}
+      - {x: 0.55, y: 0.35}
+      - {x: 0.59999996, y: 0.39}
+      - {x: 0.63, y: 0.39999998}
+      - {x: 0.65999997, y: 0.42999998}
+      - {x: 0.69, y: 0.45}
+      - {x: 0.74, y: 0.39}
+      - {x: 0.81, y: 0.35999998}
+      - {x: 0.82, y: 0.37}
+      - {x: 0.81, y: 0.35999998}
+      - {x: 0.79999995, y: 0.35999998}
+      - {x: 0.75, y: 0.31}
+      - {x: 0.72999996, y: 0.31}
+      - {x: 0.66999996, y: 0.26}
+      - {x: 0.66999996, y: 0.26999998}
+    - - {x: -0.52, y: 0.61}
+      - {x: -0.53999996, y: 0.61}
+      - {x: -0.59, y: 0.65999997}
+      - {x: -0.59999996, y: 0.65999997}
+      - {x: -0.61, y: 0.66999996}
+      - {x: -0.59999996, y: 0.65999997}
+      - {x: -0.53, y: 0.69}
+      - {x: -0.48, y: 0.75}
+      - {x: -0.47, y: 0.75}
+      - {x: -0.41, y: 0.7}
+      - {x: -0.39, y: 0.69}
+      - {x: -0.34, y: 0.65}
+      - {x: -0.35999998, y: 0.65}
+      - {x: -0.45999998, y: 0.56}
+      - {x: -0.45999998, y: 0.57}
+    - - {x: 1.3199999, y: 0.7}
+      - {x: 1.3199999, y: 0.71999997}
+      - {x: 1.3, y: 0.77}
+      - {x: 1.18, y: 0.89}
+      - {x: 1.13, y: 0.90999997}
+      - {x: 1.11, y: 0.90999997}
+      - {x: 1.1, y: 0.91999996}
+      - {x: 1.05, y: 0.91999996}
+      - {x: 1.0699999, y: 0.90999997}
+      - {x: 1.17, y: 0.96}
+      - {x: 1.22, y: 0.96}
+      - {x: 1.25, y: 0.97999996}
+      - {x: 1.27, y: 0.93}
+      - {x: 1.28, y: 0.89}
+      - {x: 1.39, y: 0.78}
+      - {x: 1.43, y: 0.77}
+      - {x: 1.4499999, y: 0.75}
+      - {x: 1.53, y: 0.75}
+      - {x: 1.5, y: 0.75}
+      - {x: 1.4499999, y: 0.71999997}
+      - {x: 1.41, y: 0.71999997}
+      - {x: 1.38, y: 0.7}
+      - {x: 1.3299999, y: 0.69}
+    - - {x: -1.17, y: 1}
+      - {x: -1.1999999, y: 1.02}
+      - {x: -1.24, y: 1.02}
+      - {x: -1.29, y: 1.05}
+      - {x: -1.3199999, y: 1.05}
+      - {x: -1.24, y: 1.05}
+      - {x: -1.22, y: 1.0699999}
+      - {x: -1.18, y: 1.0799999}
+      - {x: -1.0699999, y: 1.1899999}
+      - {x: -1.06, y: 1.23}
+      - {x: -1.04, y: 1.28}
+      - {x: -1.01, y: 1.26}
+      - {x: -0.96, y: 1.26}
+      - {x: -0.85999995, y: 1.2099999}
+      - {x: -0.84, y: 1.22}
+      - {x: -0.89, y: 1.22}
+      - {x: -0.9, y: 1.2099999}
+      - {x: -0.91999996, y: 1.2099999}
+      - {x: -0.96999997, y: 1.1899999}
+      - {x: -1.09, y: 1.0699999}
+      - {x: -1.12, y: 0.98999995}
+      - {x: -1.13, y: 0.98999995}
+      - {x: -1.14, y: 1}
+    - - {x: 1.86, y: 1.23}
+      - {x: 1.8199999, y: 1.24}
+      - {x: 1.76, y: 1.29}
+      - {x: 1.78, y: 1.29}
+      - {x: 1.8199999, y: 1.3299999}
+      - {x: 1.8299999, y: 1.3299999}
+      - {x: 1.89, y: 1.38}
+      - {x: 1.92, y: 1.38}
+      - {x: 1.9799999, y: 1.3199999}
+      - {x: 2.01, y: 1.3}
+      - {x: 2.02, y: 1.3}
+      - {x: 2.02, y: 1.31}
+      - {x: 2, y: 1.3}
+      - {x: 1.9599999, y: 1.25}
+      - {x: 1.9399999, y: 1.25}
+      - {x: 1.88, y: 1.1999999}
+      - {x: 1.88, y: 1.2099999}
+    - - {x: -1.73, y: 1.55}
+      - {x: -1.75, y: 1.55}
+      - {x: -1.79, y: 1.5999999}
+      - {x: -1.81, y: 1.61}
+      - {x: -1.81, y: 1.5999999}
+      - {x: -1.8, y: 1.5999999}
+      - {x: -1.77, y: 1.62}
+      - {x: -1.7099999, y: 1.68}
+      - {x: -1.68, y: 1.68}
+      - {x: -1.62, y: 1.63}
+      - {x: -1.61, y: 1.63}
+      - {x: -1.5699999, y: 1.5899999}
+      - {x: -1.55, y: 1.5899999}
+      - {x: -1.5799999, y: 1.5699999}
+      - {x: -1.62, y: 1.54}
+      - {x: -1.65, y: 1.53}
+      - {x: -1.67, y: 1.5}
+      - {x: -1.67, y: 1.51}
+    - - {x: 2.3999999, y: 1.73}
+      - {x: 2.3799999, y: 1.73}
+      - {x: 2.36, y: 1.76}
+      - {x: 2.31, y: 1.78}
+      - {x: 2.28, y: 1.78}
+      - {x: 2.24, y: 1.8}
+      - {x: 2.1699998, y: 1.8}
+      - {x: 2.18, y: 1.8399999}
+      - {x: 2.22, y: 1.9}
+      - {x: 2.22, y: 1.92}
+      - {x: 2.28, y: 1.99}
+      - {x: 2.28, y: 2.01}
+      - {x: 2.29, y: 2.02}
+      - {x: 2.3, y: 2.02}
+      - {x: 2.33, y: 2.05}
+      - {x: 2.33, y: 2.06}
+      - {x: 2.3899999, y: 2.11}
+      - {x: 2.4099998, y: 2.12}
+      - {x: 2.45, y: 2.1499999}
+      - {x: 2.49, y: 2.1499999}
+      - {x: 2.5, y: 2.1599998}
+      - {x: 2.51, y: 2.1499999}
+      - {x: 2.55, y: 2.1499999}
+      - {x: 2.56, y: 2.1399999}
+      - {x: 2.61, y: 2.1}
+      - {x: 2.61, y: 2.01}
+      - {x: 2.59, y: 1.9699999}
+      - {x: 2.59, y: 1.9399999}
+      - {x: 2.56, y: 1.9}
+      - {x: 2.56, y: 1.88}
+      - {x: 2.53, y: 1.8399999}
+      - {x: 2.53, y: 1.8199999}
+      - {x: 2.48, y: 1.76}
+      - {x: 2.48, y: 1.75}
+      - {x: 2.4199998, y: 1.6899999}
+      - {x: 2.4299998, y: 1.68}
+      - {x: 2.44, y: 1.6899999}
+    - - {x: -2.27, y: 2.05}
+      - {x: -2.27, y: 2.06}
+      - {x: -2.3, y: 2.09}
+      - {x: -2.3, y: 2.1}
+      - {x: -2.32, y: 2.12}
+      - {x: -2.32, y: 2.1399999}
+      - {x: -2.35, y: 2.18}
+      - {x: -2.35, y: 2.2}
+      - {x: -2.3799999, y: 2.24}
+      - {x: -2.3799999, y: 2.27}
+      - {x: -2.3999999, y: 2.31}
+      - {x: -2.3999999, y: 2.3999999}
+      - {x: -2.35, y: 2.44}
+      - {x: -2.34, y: 2.45}
+      - {x: -2.3, y: 2.45}
+      - {x: -2.29, y: 2.46}
+      - {x: -2.28, y: 2.45}
+      - {x: -2.24, y: 2.45}
+      - {x: -2.2, y: 2.4199998}
+      - {x: -2.18, y: 2.4099998}
+      - {x: -2.12, y: 2.36}
+      - {x: -2.12, y: 2.35}
+      - {x: -2.07, y: 2.31}
+      - {x: -2.07, y: 2.29}
+      - {x: -2.01, y: 2.22}
+      - {x: -2.01, y: 2.2}
+      - {x: -1.9799999, y: 2.1599998}
+      - {x: -1.9599999, y: 2.1}
+      - {x: -2.03, y: 2.1}
+      - {x: -2.07, y: 2.08}
+      - {x: -2.1, y: 2.08}
+      - {x: -2.1499999, y: 2.06}
+      - {x: -2.1699998, y: 2.03}
+      - {x: -2.19, y: 2.03}
+      - {x: -2.23, y: 2}
+      - {x: -2.21, y: 2}
+--- !u!114 &1319077971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319077966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605eab633d1986444bae95b5a5aee143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chainHealth: 5
+  dwarfController: {fileID: 185043260}
+  glow: {fileID: 1833416277}
 --- !u!4 &1325950503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2459062869945286465, guid: 94fad8c7d2b6a27479a972881e1a7cb1, type: 3}
@@ -8053,7 +8987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1354833301}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8287,7 +9221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1430607075}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8352,7 +9286,7 @@ GameObject:
   - component: {fileID: 1459257071}
   - component: {fileID: 1459257073}
   - component: {fileID: 1459257072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8456,7 +9390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463513692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8656,6 +9590,7 @@ MonoBehaviour:
   bulletSpeed: 30
   bulletSpray: 45
   container: {fileID: 5133773938831091190}
+  enemyHealth: {fileID: 1564018945}
   shootCooldown: 0.5
   shootDistance: 10
 --- !u!1 &1480416354
@@ -8668,7 +9603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1480416355}
   - component: {fileID: 1480416356}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8947,7 +9882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537668652}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9048,7 +9983,7 @@ GameObject:
   - component: {fileID: 1564018942}
   - component: {fileID: 1564018943}
   - component: {fileID: 1564018945}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pirate Enemy Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9268,7 +10203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608460347}
   - component: {fileID: 1608460348}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9372,7 +10307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1631779203}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9403,7 +10338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1640154710}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9473,7 +10408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662297273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9679,7 +10614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683978517}
   - component: {fileID: 1683978518}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arm_R_Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9882,7 +10817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1712707666}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9915,7 +10850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718002819}
   - component: {fileID: 1718002820}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10120,7 +11055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730405107}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10258,7 +11193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1747209716}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10290,7 +11225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1747861570}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10617,7 +11552,7 @@ GameObject:
   - component: {fileID: 1764983211}
   - component: {fileID: 1764983213}
   - component: {fileID: 1764983212}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10722,7 +11657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1765043256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10840,7 +11775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1822311812}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10931,6 +11866,117 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0, w: 0}
   m_Iterations: 10
   m_Tolerance: 0.01
+--- !u!1 &1833416275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833416276}
+  - component: {fileID: 1833416277}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1833416276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833416275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319077967}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833416277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833416275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.703
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1838022702
 GameObject:
   m_ObjectHideFlags: 0
@@ -10985,7 +12031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1843914332}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_effector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11138,7 +12184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1859710628}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: throwingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11200,7 +12246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866292629}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11388,7 +12434,7 @@ GameObject:
   - component: {fileID: 1902768071}
   - component: {fileID: 1902768073}
   - component: {fileID: 1902768072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11495,7 +12541,7 @@ GameObject:
   - component: {fileID: 1903207983}
   - component: {fileID: 1903207985}
   - component: {fileID: 1903207984}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11602,7 +12648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914851319}
   - component: {fileID: 1914851320}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11671,7 +12717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930069201}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New LimbSolver2D_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11815,7 +12861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1950098440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12038,7 +13084,7 @@ GameObject:
   - component: {fileID: 1997404652}
   - component: {fileID: 1997404654}
   - component: {fileID: 1997404653}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: left hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12437,7 +13483,7 @@ GameObject:
   - component: {fileID: 2080296295}
   - component: {fileID: 2080296297}
   - component: {fileID: 2080296296}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12906,7 +13952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5330989306207033014}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12997,7 +14043,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 340674284662748651}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13472,7 +14518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6067143867947273399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13621,7 +14667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1446140753234763165}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13868,14 +14914,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3695957198201631343}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.017451515, y: -0, z: -0, w: 0.99984777}
   m_LocalPosition: {x: 0.83500004, y: 5.475, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 968299551}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2, y: 0, z: 0}
 --- !u!4 &1663015325343486112
 Transform:
   m_ObjectHideFlags: 0
@@ -14199,7 +15245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281651673987598327}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14316,7 +15362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8236663824335236276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14454,7 +15500,7 @@ GameObject:
   - component: {fileID: 7684842607207596883}
   - component: {fileID: 5383945270954862631}
   - component: {fileID: 7567592818642626803}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14660,7 +15706,7 @@ GameObject:
   - component: {fileID: 310002935460433849}
   - component: {fileID: 8528734177398960450}
   - component: {fileID: 2367009840553798667}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: left hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14724,7 +15770,7 @@ GameObject:
   - component: {fileID: 7543192475086189580}
   - component: {fileID: 744613931448095781}
   - component: {fileID: 5132252913179140290}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14999,7 +16045,7 @@ GameObject:
   - component: {fileID: 7547686033668517585}
   - component: {fileID: 5728211530842460787}
   - component: {fileID: 3382784946700210196}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15120,7 +16166,7 @@ GameObject:
   - component: {fileID: 5739617738294096987}
   - component: {fileID: 2789129835993085907}
   - component: {fileID: 447161489672443548}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15339,7 +16385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 666995442221256722}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15459,7 +16505,7 @@ GameObject:
   - component: {fileID: 1564324021953328716}
   - component: {fileID: 1075144621413086224}
   - component: {fileID: 7047013360945111806}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20353,7 +21399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4012004770021918487}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20592,7 +21638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 432225714763753798}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21439,6 +22485,7 @@ Transform:
   - {fileID: 1063424457}
   - {fileID: 437922392}
   - {fileID: 636469562}
+  - {fileID: 453906843}
   m_Father: {fileID: 1564018940}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21852,7 +22899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 910195552150685370}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: forearm_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22049,7 +23096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8973704243052595724}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22140,7 +23187,7 @@ GameObject:
   - component: {fileID: 7813419045813366387}
   - component: {fileID: 8775600729215974746}
   - component: {fileID: 5519274441993901115}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22213,7 +23260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2348820122117516530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hand_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22359,7 +23406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8798434416051032492}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22420,7 +23467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5622668240402442596}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pirate Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22750,8 +23797,8 @@ MonoBehaviour:
   - {fileID: 910195552150685370}
   - {fileID: 8798434416051032492}
   m_Bounds:
-    m_Center: {x: -0.20401141, y: -0.05021012, z: 0}
-    m_Extent: {x: 0.4283301, y: 0.60941935, z: 0}
+    m_Center: {x: -0.20401141, y: -0.050179064, z: 0.0017522406}
+    m_Extent: {x: 0.4283301, y: 0.6090481, z: 0.021267343}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -23178,7 +24225,7 @@ GameObject:
   - component: {fileID: 4888478391703341522}
   - component: {fileID: 7682126535334607541}
   - component: {fileID: 457087000041107999}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23280,7 +24327,7 @@ GameObject:
   - component: {fileID: 3102559886597251172}
   - component: {fileID: 2230656480993733658}
   - component: {fileID: 4604103223105028318}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Left foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23310,6 +24357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8193472415747816477}
     m_Modifications:
+    - target: {fileID: 2090963270, guid: 17474a213442e4d4799313100de0aeae, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1045985702}
     - target: {fileID: 7652388203127434817, guid: 17474a213442e4d4799313100de0aeae, type: 3}
       propertyPath: GrenadePos
       value: 
@@ -23386,7 +24437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6878730398584760951}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: thigh_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23484,7 +24535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6666064059251882941}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: foot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23622,7 +24673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663015325343486112}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23927,7 +24978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3228953476285254820}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: torso_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24237,7 +25288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 507672623426618474}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24324,7 +25375,7 @@ GameObject:
   - component: {fileID: 2705426940971528966}
   - component: {fileID: 2399564704392493486}
   - component: {fileID: 8473713049345661163}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: right_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

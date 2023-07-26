@@ -1344,7 +1344,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 35
   m_Sprite: {fileID: 928100237005196738, guid: 42185e09635cfd847b1577d5123b56f6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.62352943}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1558,7 +1558,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 29
   m_Sprite: {fileID: -6664408542607527015, guid: 42185e09635cfd847b1577d5123b56f6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.62352943}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3611,6 +3611,7 @@ MonoBehaviour:
   - {fileID: 2139417753188121702}
   - {fileID: 6850383296046170582}
   animator: {fileID: 3675160837450172016}
+  spawner: {fileID: 0}
 --- !u!50 &7652388203127434823
 Rigidbody2D:
   serializedVersion: 4
@@ -4646,7 +4647,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 34
+  m_SortingOrder: 30
   m_Sprite: {fileID: 2410960544864896626, guid: 42185e09635cfd847b1577d5123b56f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -8,6 +8,19 @@ public class PlayerHealth : MonoBehaviour
 
     public List<GameObject> weapons = new List<GameObject>();
     public Animator animator;
+    public PlayerSpawner spawner;
+
+    private int deathCounter;
+
+    bool died;
+
+
+
+    private void Awake()
+    {
+        deathCounter = 0;
+        died = true;
+    }
 
 
     void Update()
@@ -31,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void HealthStatus()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && died == true)
         {
             FinishThePlayer();
         }
@@ -42,6 +55,10 @@ public class PlayerHealth : MonoBehaviour
     private void FinishThePlayer()
     {
         animator.SetBool("die", true);
+        Invoke("Spawn", 2);
+        currentHealth = 10;
+        died = false;
+
         foreach (GameObject weapon in weapons)
         {
             if (weapon.activeInHierarchy)
@@ -53,6 +70,20 @@ public class PlayerHealth : MonoBehaviour
             {
                 continue;
             }
+        }
+    }
+
+    private void Spawn()
+    {
+        if (deathCounter >= 3)
+        {
+
+            return;
+        }
+
+        else
+        {
+            spawner.SpawnPlayer();
         }
     }
 

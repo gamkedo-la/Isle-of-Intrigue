@@ -17,10 +17,14 @@ public class EnemyShooting : MonoBehaviour
 
 
     public Transform container;
+
+    public EnemyHealth enemyHealth;
     public float shootCooldown = 1.0f;
     public float shootDistance = 10.0f;
 
     private bool canShoot = true;
+
+
 
     void Start()
     {
@@ -29,7 +33,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        if (canShoot)
+        if (canShoot && enemyHealth.EnemyDieIndicator() == true)
         {
             Shoot();
             StartCoroutine(ShootCooldownTimer());

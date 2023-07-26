@@ -8,6 +8,18 @@ public class EnemyHealth : MonoBehaviour
     public GameObject weapon;
     public AudioClip enemyDamageSound;
     public Animator animator;
+    bool died;
+
+
+
+
+    private int deathCounter;
+
+    private void Awake()
+    {
+        died = false;
+    }
+
 
 
     private void Update()
@@ -23,10 +35,8 @@ public class EnemyHealth : MonoBehaviour
         if (other.gameObject.CompareTag("bullet"))
         {
             Destroy(other.gameObject);
-            AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
             animator.SetTrigger("damage");
             TakeDamage(1);
-            Debug.Log(damage);
         }
     }
 
@@ -44,15 +54,27 @@ public class EnemyHealth : MonoBehaviour
 
         else
         {
-            weapon.SetActive(false);
-            animator.SetTrigger("die");
-            Invoke("Destroy", 2f);
+            if (!died)
+            {
+                died = true;
+                AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
+                weapon.SetActive(false);
+                animator.SetTrigger("die");
+                Invoke("Destroy", 4f);
+            }
         }
+
 
     }
 
     public void Destroy()
     {
         gameObject.SetActive(false);
+
+    }
+
+    public bool EnemyDieIndicator()
+    {
+        return died;
     }
 }
