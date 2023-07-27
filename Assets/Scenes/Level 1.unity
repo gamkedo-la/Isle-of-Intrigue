@@ -1472,7 +1472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &263718508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3316,7 +3316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &549874617
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3402,7 +3402,7 @@ MonoBehaviour:
   player: {fileID: 978001192}
   bulletPrefab: {fileID: 1526907166346097671, guid: b10d7083d39332b4883a5612e062f178, type: 3}
   shootingPoint: {fileID: 1989312747}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 2090963270}
   rifleShootingAudio: {fileID: 8300000, guid: 3e9f3f8012a64a549ab200fdb78a92e5, type: 3}
   bulletSpeed: 10
   container: {fileID: 604992762}
@@ -8306,7 +8306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   weapon: {fileID: 419769026}
-  enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  enemyDamageSound: {fileID: 8300000, guid: c39c600ec0d9be14f83a55faf28c6905, type: 3}
   animator: {fileID: 1313935048}
 --- !u!70 &1313935051
 CapsuleCollider2D:
@@ -14632,6 +14632,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 076b8358fc2d13f4c9f8931db1869359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2090963270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2090963270, guid: 17474a213442e4d4799313100de0aeae, type: 3}
+  m_PrefabInstance: {fileID: 7652388203492012909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308033138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e571494c3e66fc498bc05fa93d67e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2092342830

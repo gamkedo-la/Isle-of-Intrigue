@@ -37,8 +37,13 @@ public class EnemyHealth : MonoBehaviour
         if (other.gameObject.CompareTag("bullet"))
         {
             Destroy(other.gameObject);
-            animator.SetTrigger("damage");
-            TakeDamage(1);
+
+            if (!died)
+            {
+                animator.SetTrigger("damage");
+                TakeDamage(1);
+            }
+
         }
     }
 
@@ -62,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
                 AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
                 weapon.SetActive(false);
                 animator.SetTrigger("die");
-                Invoke("Destroy", 4f);
+                Invoke("Destroy", 3f);
             }
         }
 
