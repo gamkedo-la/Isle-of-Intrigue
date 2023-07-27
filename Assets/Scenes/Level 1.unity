@@ -8306,8 +8306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   weapon: {fileID: 419769026}
-  enemyDamageSound: {fileID: 8300000, guid: c39c600ec0d9be14f83a55faf28c6905, type: 3}
+  enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 1313935048}
+  rewardController: {fileID: 1490137226}
 --- !u!70 &1313935051
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10321,6 +10322,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b52e2921647067b489468ff8e972f99d, type: 3}
+--- !u!1 &1490137225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490137227}
+  - component: {fileID: 1490137226}
+  m_Layer: 0
+  m_Name: Reward Badge Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490137226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490137225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce56e4a0940d1cd44aa33110cb884e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardBadge:
+  - {fileID: 6697352070427820001, guid: 48bd235c05042384c9d5adbc16578aed, type: 3}
+  - {fileID: 8497729590328989212, guid: 065f3da84b56de241887be299732a9c3, type: 3}
+  - {fileID: 3118570746563904707, guid: d38e078785bd9c748a7f15770b3daaf7, type: 3}
+--- !u!4 &1490137227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490137225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1493825669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10650,8 +10699,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   weapon: {fileID: 963143165}
-  enemyDamageSound: {fileID: 8300000, guid: c39c600ec0d9be14f83a55faf28c6905, type: 3}
+  enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 1564018942}
+  rewardController: {fileID: 1490137226}
 --- !u!1 &1584991244
 GameObject:
   m_ObjectHideFlags: 0

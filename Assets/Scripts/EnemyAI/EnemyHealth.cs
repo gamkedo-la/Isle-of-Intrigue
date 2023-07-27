@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour
     public GameObject weapon;
     public AudioClip enemyDamageSound;
     public Animator animator;
+
+    public RewardBadgeController rewardController;
     bool died;
 
 
@@ -76,6 +78,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Destroy()
     {
+        rewardController.TakeReward(this.transform.GetChild(0));
         gameObject.SetActive(false);
 
     }

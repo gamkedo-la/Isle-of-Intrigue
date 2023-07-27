@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class RewardBadgeController : MonoBehaviour
 {
-    public GameObject rewardBadge;
+    public List<GameObject> rewardBadge = new List<GameObject>();
+    int rand;
 
-    public void TakeReward()
+
+    public void TakeReward(Transform pos)
     {
-
-        GameObject reward = Instantiate(rewardBadge, );
+        rand = Random.Range(0, 2);
+        GameObject reward = Instantiate(rewardBadge[rand], pos.position, pos.transform.rotation);
     }
 
 }
