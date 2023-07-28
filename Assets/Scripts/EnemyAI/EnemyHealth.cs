@@ -69,7 +69,7 @@ public class EnemyHealth : MonoBehaviour
                 AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
                 weapon.SetActive(false);
                 animator.SetTrigger("die");
-                Invoke("Destroy", 3f);
+                Invoke("Destroy", 2f);
             }
         }
 
