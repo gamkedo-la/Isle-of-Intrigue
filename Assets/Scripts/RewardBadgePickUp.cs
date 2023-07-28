@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class RewardBadgePickUp : MonoBehaviour
 {
-    public WeaponType weaponType;
+    private WeaponType weaponType;
     public AudioClip rewardSound;
 
     public WeaponType.WeaponState currentWeaponState;
+
+    void Start()
+    {
+        weaponType = FindObjectOfType<WeaponType>();
+    }
 
 
     private void OnCollisionEnter2D(Collision2D other)

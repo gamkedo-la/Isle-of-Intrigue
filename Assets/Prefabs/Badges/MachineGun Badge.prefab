@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: {fileID: 0}
-  rewardSound: {fileID: 0}
+  rewardSound: {fileID: 8300000, guid: d373695c49945b04ca5bca7a9b227ecd, type: 3}
   currentWeaponState: 1
 --- !u!61 &5123118172063356533
 BoxCollider2D:
