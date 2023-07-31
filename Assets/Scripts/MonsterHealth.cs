@@ -13,14 +13,6 @@ public class MonsterHealth : MonoBehaviour
         died = false;
     }
 
-    private void Update()
-    {
-        if (damage <= 0)
-        {
-            EnemyDie();
-        }
-
-    }
     private void OnCollisionEnter2D(Collision2D other)
     {
 
@@ -28,10 +20,16 @@ public class MonsterHealth : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            if (!died)
+            if (!died && damage > 0)
             {
                 animator.SetTrigger("damage");
                 TakeDamage(1);
+            }
+
+            else
+            {
+
+                EnemyDie();
             }
 
         }
@@ -44,13 +42,8 @@ public class MonsterHealth : MonoBehaviour
 
     private void EnemyDie()
     {
-
-        if (!died)
-        {
-            died = true;
-            animator.SetTrigger("die");
-        }
-
+        died = true;
+        animator.SetTrigger("die");
     }
 
 
