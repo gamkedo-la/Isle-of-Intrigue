@@ -22,11 +22,11 @@ TagManager:
   - Unwalkable
   - Grenade Player
   - Grenade Enemy
-  - Bullet
+  - PlayerBullet
   - Ship
   - Enemy
-  - 
-  - 
+  - Dwarf
+  - EnemyBullet
   - 
   - 
   - 

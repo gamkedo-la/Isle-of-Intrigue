@@ -95,10 +95,9 @@ GameObject:
   - component: {fileID: 7895400025288256997}
   - component: {fileID: 7895400025288256996}
   - component: {fileID: 7895400025288256999}
-  - component: {fileID: -295142714537274972}
   - component: {fileID: 8679247296676555549}
   m_Layer: 10
-  m_Name: Rocket Missile
+  m_Name: Rocket Missile 1
   m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,20 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeAlive: 10
---- !u!114 &-295142714537274972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7895400025288256998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59adca5c99fd2d2438c6b58d5cb61804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 25
-  blastVfx: {fileID: 1483968071417661265, guid: 2c741f634b79af84eab0b55bd96879fb, type: 3}
 --- !u!58 &8679247296676555549
 CircleCollider2D:
   m_ObjectHideFlags: 0

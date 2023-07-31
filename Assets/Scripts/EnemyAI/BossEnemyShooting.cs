@@ -24,6 +24,10 @@ public class BossEnemyShooting : MonoBehaviour
 
     public Animator animator;
 
+    PlayerHealth health;
+
+    MonsterHealth monsterHealth;
+
     int rand;
 
 
@@ -33,6 +37,7 @@ public class BossEnemyShooting : MonoBehaviour
         rigid = bulletPrefab.GetComponent<Rigidbody2D>();
         StartCoroutine(BossAttack());
         rand = Random.Range(8, 16);
+        health = player.GetComponent<PlayerHealth>();
     }
 
     void Update()
@@ -75,12 +80,25 @@ public class BossEnemyShooting : MonoBehaviour
         playerHealth.TakeDamage(3);
     }
 
-    IEnumerator BossAttack()
+    public IEnumerator BossAttack()
     {
-        while (gameObject.activeInHierarchy)
+        do
         {
             yield return new WaitForSeconds(rand);
             animator.SetTrigger("attack");
+
+        } while (!playerHealth.DieStatus());
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("bullet"))
+        {
+            Debug.Log("trigger");
+
+            Destroy(other.gameObject);
+            animator.SetTrigger("damage");
         }
     }
 

@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         deathCounter = 0;
-        died = true;
+        died = false;
     }
 
 
@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void HealthStatus()
     {
-        if (currentHealth <= 0 && died == true)
+        if (currentHealth <= 0 && died == false)
         {
             FinishThePlayer();
         }
@@ -54,37 +54,53 @@ public class PlayerHealth : MonoBehaviour
 
     private void FinishThePlayer()
     {
-        animator.SetBool("die", true);
-        Invoke("Spawn", 2);
-        currentHealth = 10;
-        died = false;
+        died = true;
+        Debug.Log("call");
 
-        foreach (GameObject weapon in weapons)
+        if (died)
         {
-            if (weapon.activeInHierarchy)
+            deathCounter++;
+            animator.SetBool("die", true);
+            Invoke("Spawn", 2);
+            currentHealth = 10;
+
+            foreach (GameObject weapon in weapons)
             {
-                weapon.SetActive(false);
-                break;
+                if (weapon.activeInHierarchy)
+                {
+                    weapon.SetActive(false);
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
             }
-            else
-            {
-                continue;
-            }
+
         }
+
     }
 
     private void Spawn()
     {
         if (deathCounter >= 3)
         {
-
             return;
         }
 
         else
         {
+            died = false;
+            currentHealth = 3;
+            animator.SetBool("die", false);
             spawner.SpawnPlayer();
         }
+    }
+
+
+    public bool DieStatus()
+    {
+        return died;
     }
 
 }

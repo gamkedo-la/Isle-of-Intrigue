@@ -23,7 +23,7 @@ public class MusicPlayer : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(28);
+            yield return new WaitForSeconds(35);
             audioSource.Pause();
             yield return new WaitForSeconds(pauseDuration);
             audioSource.UnPause();
