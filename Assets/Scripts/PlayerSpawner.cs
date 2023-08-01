@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public PlayerController player;
+    public GameObject player;
     public Transform spawnPos;
-
-    public Animator animator;
 
 
     public void SpawnPlayer()
     {
-        player.transform.position = spawnPos.position;
+        player.transform.position = spawnPos.localPosition;
     }
 }

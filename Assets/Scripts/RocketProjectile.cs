@@ -14,7 +14,7 @@ public class RocketProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(blastVfx, collision.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        GameObject vfx = Instantiate(blastVfx, collision.transform.position, Quaternion.identity);
+        Destroy(vfx, 1f);
     }
 }

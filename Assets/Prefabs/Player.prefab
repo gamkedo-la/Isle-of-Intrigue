@@ -503,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3359848897234019725}
   m_Layer: 0
-  m_Name: FirePoibt
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
