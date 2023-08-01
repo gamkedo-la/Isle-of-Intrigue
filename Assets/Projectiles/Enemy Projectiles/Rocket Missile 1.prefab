@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7660044007614760731}
   - component: {fileID: 2400670914197037244}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Missile
-  m_TagString: Untagged
+  m_TagString: enemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7895400025288256999}
   - component: {fileID: 8679247296676555549}
   - component: {fileID: 6636398463531781534}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: Rocket Missile 1
   m_TagString: bullet
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0

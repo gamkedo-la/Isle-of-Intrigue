@@ -19,7 +19,9 @@ public class RocketProjectileEnemy : MonoBehaviour
         {
             Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
             missileRigidbody.velocity = directionToPlayer * missileSpeed;
+            Debug.Log(directionToPlayer);
         }
+
     }
 
     void OnCollisionEnter(Collision collision)

@@ -7,6 +7,8 @@ public class DwarfController : MonoBehaviour
     public DwarfChain dwarfChain;
     public Animator animator;
 
+    public Animator shipAnimator;
+
     public void StartCelebrating()
     {
         dwarfChain.GetComponent<Collider2D>().enabled = false;
@@ -21,5 +23,16 @@ public class DwarfController : MonoBehaviour
         {
             animator.SetTrigger("reward");
         }
+    }
+
+    public void Fade()
+    {
+        animator.SetTrigger("fade");
+    }
+
+    public void ShipSink()
+    {
+
+        shipAnimator.SetTrigger("sink");
     }
 }
