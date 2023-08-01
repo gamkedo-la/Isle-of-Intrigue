@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public AudioClip enemyDamageSound;
     public Animator animator;
 
+    public GameObject shootingMechanism;
+
     public RewardBadgeController rewardController;
     bool died;
 
@@ -20,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         died = false;
+        shootingMechanism.SetActive(true);
     }
 
 
@@ -31,7 +34,6 @@ public class EnemyHealth : MonoBehaviour
             EnemyDie();
         }
 
-        Debug.Log(died);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -70,6 +72,7 @@ public class EnemyHealth : MonoBehaviour
                 weapon.SetActive(false);
                 animator.SetTrigger("die");
                 Invoke("Destroy", 2f);
+                StopShooting();
             }
         }
 
@@ -86,5 +89,10 @@ public class EnemyHealth : MonoBehaviour
     public bool EnemyDieIndicator()
     {
         return died;
+    }
+
+    public void StopShooting()
+    {
+        shootingMechanism.SetActive(false);
     }
 }

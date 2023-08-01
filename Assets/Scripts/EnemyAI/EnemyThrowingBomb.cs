@@ -12,6 +12,27 @@ public class EnemyThrowingBomb : MonoBehaviour
     public Animator animator;
     public float throwForce = 10f;
 
+    public float throwTimer;
+
+    void Start()
+    {
+
+        StartCoroutine(BombAnim());
+    }
+
+
+    private IEnumerator BombAnim()
+    {
+        do
+        {
+            yield return new WaitForSeconds(throwTimer);
+            animator.SetTrigger("bomb");
+
+        } while (gameObject.activeInHierarchy);
+
+
+    }
+
 
 
     public void ThrowBombTowardsPlayer()

@@ -520,6 +520,7 @@ MonoBehaviour:
   weapon: {fileID: 419769026}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 89761969}
+  shootingMechanism: {fileID: 757508769}
   rewardController: {fileID: 1490137226}
 --- !u!95 &89761969
 Animator:
@@ -819,6 +820,7 @@ MonoBehaviour:
   weapon: {fileID: 2021624448}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 111157482}
+  shootingMechanism: {fileID: 472873795}
   rewardController: {fileID: 1490137226}
 --- !u!70 &111157481
 CapsuleCollider2D:
@@ -3555,7 +3557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &472873796
 Transform:
   m_ObjectHideFlags: 0
@@ -3932,6 +3934,7 @@ GameObject:
   - component: {fileID: 503254174}
   - component: {fileID: 503254175}
   - component: {fileID: 503254176}
+  - component: {fileID: 503254177}
   m_Layer: 0
   m_Name: Pirate Enemy Rocket
   m_TagString: Untagged
@@ -3992,7 +3995,7 @@ Animator:
   m_GameObject: {fileID: 503254173}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a381ccc15081f734f8e1cadbb0b53620, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6ee9225d381e0cb48852e498cbe25fed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4002,6 +4005,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &503254177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503254173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ab36468a4c58f4484af319f40d17d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+  weapon: {fileID: 694408140}
+  enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  animator: {fileID: 503254176}
+  shootingMechanism: {fileID: 50499870}
+  rewardController: {fileID: 1490137226}
 --- !u!1 &510397639
 GameObject:
   m_ObjectHideFlags: 0
@@ -7166,7 +7187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &757508770
 Transform:
   m_ObjectHideFlags: 0
@@ -7263,8 +7284,9 @@ MonoBehaviour:
   player: {fileID: 978001192}
   bombPrefab: {fileID: 3619381684315798707, guid: ae64cab3ac615644786a870730f125d3, type: 3}
   throwingPoint: {fileID: 649407321}
-  animator: {fileID: 1313935048}
+  animator: {fileID: 89761969}
   throwForce: 10
+  throwTimer: 3
 --- !u!1 &757705333
 GameObject:
   m_ObjectHideFlags: 0
@@ -8200,7 +8222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &885147865
 Transform:
   m_ObjectHideFlags: 0
@@ -8233,6 +8255,7 @@ MonoBehaviour:
   throwingPoint: {fileID: 1859710628}
   animator: {fileID: 1313935048}
   throwForce: 10
+  throwTimer: 3
 --- !u!114 &885147867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11700,7 +11723,7 @@ Animator:
   m_GameObject: {fileID: 1313935045}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 526200e096b0b7b46983755439fb0557, type: 2}
+  m_Controller: {fileID: 9100000, guid: a381ccc15081f734f8e1cadbb0b53620, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11726,6 +11749,7 @@ MonoBehaviour:
   weapon: {fileID: 419769026}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 1313935048}
+  shootingMechanism: {fileID: 885147864}
   rewardController: {fileID: 1490137226}
 --- !u!70 &1313935051
 CapsuleCollider2D:
@@ -14568,6 +14592,7 @@ MonoBehaviour:
   weapon: {fileID: 963143165}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
   animator: {fileID: 1564018942}
+  shootingMechanism: {fileID: 1472261547}
   rewardController: {fileID: 1490137226}
 --- !u!1 &1584991244
 GameObject:
