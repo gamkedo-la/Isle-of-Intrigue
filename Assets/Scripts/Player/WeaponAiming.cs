@@ -27,6 +27,7 @@ public class WeaponAiming : MonoBehaviour
         headBone.rotation = Quaternion.Lerp(headBone.rotation, Quaternion.Euler(0f, 0f, rotationAngle), Time.deltaTime * aimingSpeed);
 
         float verticalAimOffset = Mathf.Lerp(-verticalAimRange, verticalAimRange, (rotationAngle - minAngle) / (maxAngle - minAngle));
+
         handsBone.localPosition = new Vector3(handsBone.localPosition.x, verticalAimOffset, handsBone.localPosition.z);
 
     }
