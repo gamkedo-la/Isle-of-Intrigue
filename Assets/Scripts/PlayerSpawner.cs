@@ -10,6 +10,6 @@ public class PlayerSpawner : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        player.transform.position = spawnPos.localPosition;
+        player.transform.position = spawnPos.position;
     }
 }
