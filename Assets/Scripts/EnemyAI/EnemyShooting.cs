@@ -8,6 +8,8 @@ public class EnemyShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform shootingPoint;
 
+    public PlayerHealth playerHealth;
+
     Rigidbody2D rigid;
 
     public AudioClip rifleShootingAudio;
@@ -33,7 +35,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        if (canShoot)
+        if (canShoot && !playerHealth.DieStatus())
         {
             Shoot();
             StartCoroutine(ShootCooldownTimer());

@@ -7,6 +7,8 @@ public class EnemyRockets : MonoBehaviour
     public GameObject missilePrefab;
     public float fireInterval = 3f;
     public Transform firePoint;
+    public PlayerHealth player;
+
 
     void Start()
     {
@@ -25,6 +27,9 @@ public class EnemyRockets : MonoBehaviour
 
     void FireMissile()
     {
-        GameObject missileObject = Instantiate(missilePrefab, firePoint.position, transform.rotation);
+        if (!player.DieStatus())
+        {
+            GameObject missileObject = Instantiate(missilePrefab, firePoint.position, transform.rotation);
+        }
     }
 }

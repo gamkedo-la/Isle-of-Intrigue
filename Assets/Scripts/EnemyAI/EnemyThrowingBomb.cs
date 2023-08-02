@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyThrowingBomb : MonoBehaviour
 {
     public Transform player;
+
+    public PlayerHealth playerHealth;
     public GameObject bombPrefab;
 
     public Transform throwingPoint;
@@ -16,7 +18,6 @@ public class EnemyThrowingBomb : MonoBehaviour
 
     void Start()
     {
-
         StartCoroutine(BombAnim());
     }
 
@@ -28,12 +29,10 @@ public class EnemyThrowingBomb : MonoBehaviour
             yield return new WaitForSeconds(throwTimer);
             animator.SetTrigger("bomb");
 
-        } while (gameObject.activeInHierarchy);
+        } while (!playerHealth.DieStatus());
 
 
     }
-
-
 
     public void ThrowBombTowardsPlayer()
     {

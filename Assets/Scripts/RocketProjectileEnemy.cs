@@ -12,6 +12,7 @@ public class RocketProjectileEnemy : MonoBehaviour
 
     Rigidbody2D missileRigidbody;
 
+
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -20,21 +21,19 @@ public class RocketProjectileEnemy : MonoBehaviour
 
     void Update()
     {
-
         if (missileRigidbody != null)
+
         {
             Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
             missileRigidbody.velocity = directionToPlayer * missileSpeed;
-            Debug.Log(directionToPlayer);
         }
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        GameObject vfx = Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
+        Destroy(vfx, 2f);
     }
 
 

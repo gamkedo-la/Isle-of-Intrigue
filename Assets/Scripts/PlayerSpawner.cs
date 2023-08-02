@@ -7,6 +7,8 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject player;
     public Transform spawnPos;
 
+    public AudioClip spawnSound;
+
 
     public void SpawnPlayer()
     {
