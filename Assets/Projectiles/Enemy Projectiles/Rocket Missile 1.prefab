@@ -167,9 +167,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36938196, y: 0.24625412}
+  m_Offset: {x: 0.108496934, y: 0.097176544}
   serializedVersion: 2
-  m_Radius: 4.1527715
+  m_Radius: 2.0035682
 --- !u!114 &6636398463531781534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,5 +183,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1483968071417661265, guid: 2c741f634b79af84eab0b55bd96879fb, type: 3}
-  missileSpeed: 200
+  missileSpeed: 5
   turnSpeed: 2

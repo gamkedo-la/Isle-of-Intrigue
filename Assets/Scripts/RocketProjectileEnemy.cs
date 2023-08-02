@@ -10,10 +10,16 @@ public class RocketProjectileEnemy : MonoBehaviour
 
     public float turnSpeed = 2f;
 
+    Rigidbody2D missileRigidbody;
+
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        Rigidbody missileRigidbody = GetComponent<Rigidbody>();
+        missileRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
 
         if (missileRigidbody != null)
         {
