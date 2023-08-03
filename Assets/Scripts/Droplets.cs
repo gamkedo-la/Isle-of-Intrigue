@@ -9,8 +9,13 @@ public class Droplets : MonoBehaviour
 
     void Start()
     {
+        Invoke("StartingFunction", Random.value);
+    }
+
+    void StartingFunction()
+    {
         GameObject tempDrop = Instantiate(dropsPrefab, transform.position, transform.rotation);
-        Destroy(tempDrop, 1.5f); 
+        Destroy(tempDrop, 1.0f); 
         StartCoroutine(StartDropTimer());
         Cursor.visible = false;
     }
@@ -24,12 +29,10 @@ public class Droplets : MonoBehaviour
     {
         while (gameObject.activeInHierarchy)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.0f));
             GameObject tempDrop = Instantiate(dropsPrefab, transform.position, transform.rotation);
-            Destroy(tempDrop, 1.5f); 
+            Destroy(tempDrop, 1.0f); 
         }
-
-
     }
 
 }
