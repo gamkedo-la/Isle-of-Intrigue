@@ -86,7 +86,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlayerMovement();
         MovementCheck();
         WeaponShake();
     }
@@ -123,29 +122,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-    public void Move(InputAction.CallbackContext context)
-    {
-        move = !context.canceled ? context.ReadValue<Vector2>() : Vector2.zero;
-    }
-
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            animator.SetTrigger("jump");
-        }
-    }
-
-    public void JumpNow()
-    {
-        if (isGrounded)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
-        }
-
-    }
 
 
     public void Crouch(InputAction.CallbackContext context)
@@ -259,12 +235,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-    private void PlayerMovement()
-    {
-        Vector2 movement = move * moveSpeed;
-        rb.velocity = new Vector2(movement.x, rb.velocity.y);
-
-    }
 
     private void MovementCheck()
     {
@@ -272,7 +242,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("move", true);
             animator.SetFloat("IdleInput", -1);
-            animator.SetFloat("Input", -1);
             right = false;
 
         }
@@ -280,7 +249,6 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("move", true);
             animator.SetFloat("IdleInput", 1);
-            animator.SetFloat("Input", 1);
             right = true;
 
         }
@@ -290,14 +258,12 @@ public class PlayerController : MonoBehaviour
             if (right)
             {
                 animator.SetBool("move", false);
-                animator.SetFloat("Input", 0);
                 animator.SetFloat("IdleInput", 1);
 
             }
             else
             {
                 animator.SetBool("move", false);
-                animator.SetFloat("Input", 0);
                 animator.SetFloat("IdleInput", -1);
 
             }
@@ -337,5 +303,6 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
+
 
 }

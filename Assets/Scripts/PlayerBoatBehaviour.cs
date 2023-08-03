@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoatBehaviour : MonoBehaviour
+public class PlayerBoatBehaviour : MonoBehaviour
 {
     public float rotationRange = 5f; // Range of rotation motion
     public float rotationSpeed = 2f; // Speed at which the boat rotates
 
-    public Transform player;
+    public Transform enemyShip;
+    public Transform seaMonster;
 
     public float movementSpeed = 2f;
 
@@ -24,29 +25,8 @@ public class BoatBehaviour : MonoBehaviour
     {
         float rotationOffset = Mathf.Sin(Time.time * driftSpeed) * rotationRange;
         float newRotation = startingRotation + rotationOffset;
-
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
 
-
-
-    }
-
-
-    public void MoveBoat()
-    {
-        StartCoroutine(BoatMovement());
-    }
-
-    IEnumerator BoatMovement()
-    {
-        yield return new WaitForSeconds(0);
-        do
-        {
-            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
-
-        } while (Vector3.Distance(player.position, this.transform.position) <= 2);
     }
 
 }
-
-

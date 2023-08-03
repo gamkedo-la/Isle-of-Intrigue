@@ -6,8 +6,8 @@ public class DwarfController : MonoBehaviour
 {
     public DwarfChain dwarfChain;
     public Animator animator;
-
-    public Animator shipAnimator;
+    public Animator ship1Animator;
+    public Animator ship2Animator;
 
     public void StartCelebrating()
     {
@@ -33,6 +33,14 @@ public class DwarfController : MonoBehaviour
     public void ShipSink()
     {
 
-        shipAnimator.SetTrigger("sink");
+        ship1Animator.SetTrigger("sink");
     }
+
+    public void Ship2Sink()
+    {
+
+        ship2Animator.SetTrigger("sink");
+    }
+
+
 }
