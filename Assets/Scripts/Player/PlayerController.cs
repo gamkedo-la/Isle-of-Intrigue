@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Composites;
 using UnityEngine.Rendering.Universal;
 
 
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     public Light2D light;
 
-    private Vector2 move;
+    private int move = 0;
     private bool isGrounded;
     private int jumpCounter;
 
@@ -80,6 +82,9 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
 
         pistol = true;
+
+        if (weaponManager == null) return;
+
         bulletPrefab = weaponManager.pistolPrefab;
         firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
     }
@@ -122,7 +127,24 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        if (context.canceled || Mathf.Approximately((float)context.ReadValueAsObject(), 0.0f))
+            move = 0;
+        else
+            move = (float)context.ReadValueAsObject() > 0.0f ? 1 : -1;
+    }
 
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.performed && isGrounded)
+        {
+            Vector2 velocity = rb.velocity;
+            velocity.y = jumpForce * Time.fixedDeltaTime;
+            rb.velocity = velocity;
+            isGrounded = false;
+        }
+    }
 
     public void Crouch(InputAction.CallbackContext context)
     {
@@ -131,7 +153,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("crouch", true);
             crouch = true;
         }
-
 
         if (context.canceled)
         {
@@ -233,43 +254,29 @@ public class PlayerController : MonoBehaviour
         bombRigidbody.AddForce(Vector2.right * throwForce, ForceMode2D.Impulse);
     }
 
-
-
-
     private void MovementCheck()
     {
+        Vector2 velocity = rb.velocity;
+        velocity.x = move * moveSpeed * Time.fixedDeltaTime;
+        rb.velocity = velocity;
+
         if (rb.velocity.x < 0.0f)
         {
-            animator.SetBool("move", true);
-            animator.SetFloat("IdleInput", -1);
+            animator.SetInteger("move", -1);
             right = false;
-
         }
         else if (rb.velocity.x > 0.0f)
         {
-            animator.SetBool("move", true);
-            animator.SetFloat("IdleInput", 1);
+            animator.SetInteger("move", 1);
             right = true;
-
         }
 
         if (Mathf.Approximately(rb.velocity.x, 0.0f))
         {
-            if (right)
-            {
-                animator.SetBool("move", false);
-                animator.SetFloat("IdleInput", 1);
-
-            }
-            else
-            {
-                animator.SetBool("move", false);
-                animator.SetFloat("IdleInput", -1);
-
-            }
+            animator.SetInteger("move", 0);
         }
 
-
+        animator.SetFloat("IdleInput", right ? 1 : -1);
     }
 
 
@@ -303,6 +310,5 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-
 
 }

@@ -22,7 +22,7 @@ public class WeaponAiming : MonoBehaviour
         Vector3 lookDirection = mousePosition - transform.position;
         float rotationAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        rotationAngle = Mathf.Clamp(rotationAngle, minAngle, maxAngle);
+        rotationAngle = Mathf.Clamp(rotationAngle, minAngle, maxAngle) + 45.0f;
 
         headBone.rotation = Quaternion.Lerp(headBone.rotation, Quaternion.Euler(0f, 0f, rotationAngle), Time.deltaTime * aimingSpeed);
 
