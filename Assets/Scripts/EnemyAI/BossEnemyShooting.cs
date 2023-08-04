@@ -6,6 +6,8 @@ public class BossEnemyShooting : MonoBehaviour
 {
     public Transform player;
     public GameObject bulletPrefab;
+    public Transform playerShip;
+    public float movementSpeed;
     public Transform shootingPoint;
 
     public PlayerHealth playerHealth;
@@ -30,6 +32,8 @@ public class BossEnemyShooting : MonoBehaviour
 
     Coroutine AttackRoutine;
 
+    private bool move;
+
     int rand;
 
 
@@ -40,17 +44,18 @@ public class BossEnemyShooting : MonoBehaviour
         AttackRoutine = StartCoroutine(BossAttack());
         rand = Random.Range(8, 16);
         health = player.GetComponent<PlayerHealth>();
+        move = true;
     }
 
     void Update()
     {
-        if (canShoot && !monsterHealth.EnemyDieIndicator())
+        if (canShoot && !monsterHealth.EnemyDieIndicator() && !GetInRange())
         {
             Shoot();
             StartCoroutine(ShootCooldownTimer());
         }
 
-        if (monsterHealth.EnemyDieIndicator() == true)
+        if (monsterHealth.EnemyDieIndicator() == true) ;
         {
 
             StopCoroutine(AttackRoutine);
@@ -97,5 +102,26 @@ public class BossEnemyShooting : MonoBehaviour
 
         } while (!playerHealth.DieStatus());
     }
+
+    public bool GetInRange()
+    {
+        float distance = Vector3.Distance(this.transform.position, playerShip.position);
+        Debug.Log(distance);
+
+        if (distance >= 40)
+        {
+            Vector2 direction = (playerShip.position - this.transform.position).normalized;
+            transform.Translate(direction * movementSpeed * Time.deltaTime);
+            move = true;
+        }
+        else
+        {
+            move = false;
+        }
+
+        return move;
+
+    }
+
 
 }

@@ -15,9 +15,12 @@ public class EnemyBoatBehaviour : MonoBehaviour
 
     private float startingRotation;
 
+    bool move;
+
     private void Start()
     {
         startingRotation = transform.rotation.eulerAngles.z;
+        move = false;
     }
 
     private void Update()
@@ -31,16 +34,23 @@ public class EnemyBoatBehaviour : MonoBehaviour
     }
 
 
-    public float GetInRange()
+    public bool GetInRange()
     {
         float distance = Vector3.Distance(this.transform.position, playerShip.position);
 
         if (distance >= 7)
         {
             transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
+            move = true;
         }
 
-        return distance;
+        else
+        {
+
+            move = false;
+        }
+
+        return move;
 
     }
 

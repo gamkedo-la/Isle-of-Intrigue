@@ -8,6 +8,7 @@ public class EnemyRockets : MonoBehaviour
     public float fireInterval = 3f;
     public Transform firePoint;
     public PlayerHealth player;
+    public EnemyBoatBehaviour boat;
 
 
     void Start()
@@ -18,7 +19,7 @@ public class EnemyRockets : MonoBehaviour
 
     private System.Collections.IEnumerator FireMissilesRoutine()
     {
-        while (true)
+        while (!boat.GetInRange())
         {
             FireMissile();
             yield return new WaitForSeconds(fireInterval);

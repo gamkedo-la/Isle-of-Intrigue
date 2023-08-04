@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
     public float damage = 3f;
     public GameObject weapon;
     public AudioClip enemyDamageSound;
+    public Transform playerShip;
+    public bool move;
     public Animator animator;
 
     public GameObject shootingMechanism;
@@ -22,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         died = false;
-        shootingMechanism.SetActive(true);
+        move = true;
     }
 
 
@@ -32,6 +34,11 @@ public class EnemyHealth : MonoBehaviour
         if (damage <= 0)
         {
             EnemyDie();
+        }
+
+        if (!GetInRange())
+        {
+            shootingMechanism.SetActive(true);
         }
 
     }
@@ -93,6 +100,28 @@ public class EnemyHealth : MonoBehaviour
 
     public void StopShooting()
     {
+
         shootingMechanism.SetActive(false);
+
+    }
+
+    public bool GetInRange()
+    {
+        float distance = Vector3.Distance(this.transform.position, playerShip.position);
+
+
+        if (distance >= 45)
+        {
+            move = true;
+        }
+
+        else
+        {
+
+            move = false;
+        }
+
+        return move;
+
     }
 }

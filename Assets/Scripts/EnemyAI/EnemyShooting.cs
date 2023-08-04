@@ -27,7 +27,6 @@ public class EnemyShooting : MonoBehaviour
     private bool canShoot = true;
 
 
-
     void Start()
     {
         rigid = bulletPrefab.GetComponent<Rigidbody2D>();

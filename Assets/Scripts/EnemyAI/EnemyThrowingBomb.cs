@@ -16,6 +16,8 @@ public class EnemyThrowingBomb : MonoBehaviour
 
     public float throwTimer;
 
+
+
     void Start()
     {
         StartCoroutine(BombAnim());
@@ -27,12 +29,15 @@ public class EnemyThrowingBomb : MonoBehaviour
         do
         {
             yield return new WaitForSeconds(throwTimer);
+
             animator.SetTrigger("bomb");
+
 
         } while (!playerHealth.DieStatus());
 
 
     }
+
 
     public void ThrowBombTowardsPlayer()
     {
@@ -47,4 +52,7 @@ public class EnemyThrowingBomb : MonoBehaviour
 
 
     }
+
+
+
 }

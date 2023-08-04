@@ -325,6 +325,7 @@ MonoBehaviour:
   fireInterval: 3
   firePoint: {fileID: 1542535325}
   player: {fileID: 7652388202076332587}
+  boat: {fileID: 2042080655}
 --- !u!1 &56582922
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +641,8 @@ MonoBehaviour:
   damage: 3
   weapon: {fileID: 419769026}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  playerShip: {fileID: 1024682680}
+  move: 0
   animator: {fileID: 89761969}
   shootingMechanism: {fileID: 757508769}
   rewardController: {fileID: 1490137226}
@@ -940,6 +943,8 @@ MonoBehaviour:
   damage: 3
   weapon: {fileID: 2021624448}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  playerShip: {fileID: 1024682680}
+  move: 0
   animator: {fileID: 111157482}
   shootingMechanism: {fileID: 472873795}
   rewardController: {fileID: 1490137226}
@@ -2670,7 +2675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship2: {fileID: 2042080651}
-  SeaMonster: {fileID: 0}
+  SeaMonster: {fileID: 231496312751996958}
 --- !u!1 &265847585
 GameObject:
   m_ObjectHideFlags: 0
@@ -5086,6 +5091,8 @@ MonoBehaviour:
   damage: 3
   weapon: {fileID: 694408140}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  playerShip: {fileID: 1024682680}
+  move: 0
   animator: {fileID: 503254176}
   shootingMechanism: {fileID: 50499870}
   rewardController: {fileID: 1490137226}
@@ -5390,6 +5397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 978001192}
+  offset: {x: 0, y: 0, z: 0}
   smoothing: 3
 --- !u!1 &523730819
 GameObject:
@@ -14343,6 +14351,8 @@ MonoBehaviour:
   damage: 3
   weapon: {fileID: 419769026}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  playerShip: {fileID: 1024682680}
+  move: 0
   animator: {fileID: 1313935048}
   shootingMechanism: {fileID: 885147864}
   rewardController: {fileID: 1490137226}
@@ -17902,6 +17912,8 @@ MonoBehaviour:
   damage: 3
   weapon: {fileID: 963143165}
   enemyDamageSound: {fileID: 8300000, guid: e00cc7d9cbb9cf94fb84e7df3bad2023, type: 3}
+  playerShip: {fileID: 1024682680}
+  move: 0
   animator: {fileID: 1564018942}
   shootingMechanism: {fileID: 1472261547}
   rewardController: {fileID: 1490137226}
@@ -26176,7 +26188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &231663004693290931
 GameObject:
   m_ObjectHideFlags: 0
@@ -27621,6 +27633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 978001192}
   bulletPrefab: {fileID: 1526907166346097671, guid: b10d7083d39332b4883a5612e062f178, type: 3}
+  playerShip: {fileID: 1024682680}
+  movementSpeed: 100
   shootingPoint: {fileID: 238341466}
   playerHealth: {fileID: 7652388202076332587}
   rifleShootingAudio: {fileID: 8300000, guid: 3e9f3f8012a64a549ab200fdb78a92e5, type: 3}
