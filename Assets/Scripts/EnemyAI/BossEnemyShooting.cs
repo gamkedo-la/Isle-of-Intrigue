@@ -44,22 +44,29 @@ public class BossEnemyShooting : MonoBehaviour
         AttackRoutine = StartCoroutine(BossAttack());
         rand = Random.Range(8, 16);
         health = player.GetComponent<PlayerHealth>();
-        move = true;
+        move = false;
     }
+
+    
 
     void Update()
     {
-        if (canShoot && !monsterHealth.EnemyDieIndicator() && !GetInRange())
+        if (canShoot && !monsterHealth.EnemyDieIndicator())
         {
-            Shoot();
-            StartCoroutine(ShootCooldownTimer());
+            if (!GetInRange())
+            {
+                Shoot();
+                StartCoroutine(ShootCooldownTimer());
+            }
+          
         }
 
-        if (monsterHealth.EnemyDieIndicator() == true) ;
+        if (monsterHealth.EnemyDieIndicator() == true) 
         {
 
             StopCoroutine(AttackRoutine);
         }
+
 
     }
 
@@ -73,7 +80,6 @@ public class BossEnemyShooting : MonoBehaviour
             AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position);
             Vector2 direction = ((Vector2)playerPosition - (Vector2)shootingPoint.position).normalized;
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
             bullet.transform.parent = container;
         }
     }
@@ -108,10 +114,9 @@ public class BossEnemyShooting : MonoBehaviour
         float distance = Vector3.Distance(this.transform.position, playerShip.position);
         Debug.Log(distance);
 
-        if (distance >= 40)
+        if (distance >= 7)
         {
-            Vector2 direction = (playerShip.position - this.transform.position).normalized;
-            transform.Translate(direction * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
             move = true;
         }
         else

@@ -172,20 +172,34 @@ public class PlayerController : MonoBehaviour
         {
             if (bulletPrefab != null)
             {
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
-                bullet.transform.SetParent(shotContainer);
-                light.intensity = 4;
-                BulletAudio();
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                Vector2 directionToMouse = (mousePosition - transform.position).normalized;
 
+                float distanceToMouse = Vector2.Distance(transform.position, mousePosition);
+                float angleToMouse = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+
+                // Only allow shooting in the right half of the player's direction
+                if (angleToMouse < -90f || angleToMouse > 90f)
+                {
+                    return;
+                }
+
+                if (distanceToMouse >= 1f )
+                {
+                    GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
+                    bullet.transform.SetParent(shotContainer);
+                    light.intensity = 4;
+                    BulletAudio();
+                }
 
                 if (machineGunFlag == true)
                 {
                     if (muzzleFlashPrefab)
                     {
                         GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
-                        muzzleFlash.transform.SetParent(firePoint.transform); // stay stuck to gun muzzle
-                        muzzleFlash.transform.Rotate(0, 90, 90); // point forward
-                        muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f); // <--- fixme: should just be firePoint, not sure why we need to set this
+                        muzzleFlash.transform.SetParent(firePoint.transform); 
+                        muzzleFlash.transform.Rotate(0, 90, 90); 
+                        muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f); 
 
                         muzzleFlashLight.enabled = true;
                         Invoke(nameof(DisableMuzzleLight), 0.1f);
@@ -199,7 +213,7 @@ public class PlayerController : MonoBehaviour
                         Debug.Log("eject! " + shell.transform.localPosition);
                     }
 
-                    this.weaponShakeTimeLeft = this.weaponShakeTimespan; // start kickback
+                    this.weaponShakeTimeLeft = this.weaponShakeTimespan;
 
                 }
 

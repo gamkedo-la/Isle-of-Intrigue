@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyBoatBehaviour : MonoBehaviour
 {
-    public float rotationRange = 5f; // Range of rotation motion
-    public float rotationSpeed = 2f; // Speed at which the boat rotates
+    public float rotationRange = 5f; 
+    public float rotationSpeed = 2f; 
 
     public Transform playerShip;
 
