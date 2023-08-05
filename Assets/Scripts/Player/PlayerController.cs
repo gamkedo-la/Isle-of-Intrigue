@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private int move = 0;
     private bool isGrounded;
     private int jumpCounter;
+    public PlayerHealth playerHealth;
 
     bool crouch;
     bool right;
@@ -170,7 +171,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (bulletPrefab != null)
+            if (bulletPrefab != null && !playerHealth.DieStatus())
             {
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 Vector2 directionToMouse = (mousePosition - transform.position).normalized;

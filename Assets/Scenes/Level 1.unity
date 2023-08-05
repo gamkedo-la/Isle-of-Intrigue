@@ -11084,6 +11084,7 @@ MonoBehaviour:
   weaponShakeTimespan: 0.1
   weaponShakeDistance: {x: -0.2, y: 0, z: 0}
   light: {fileID: 9010703376931569864}
+  playerHealth: {fileID: 7652388202076332587}
   GrenadePos: {fileID: 4355581918965321072}
   weaponManager: {fileID: 1197367286}
   pistolSound: {fileID: 8300000, guid: 95a1edf889c69ea4ca7375f173791981, type: 3}
@@ -27563,7 +27564,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5b3bae373ddfa9f4d86ab7a23fd23712, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
