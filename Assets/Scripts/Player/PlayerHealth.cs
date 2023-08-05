@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int currentHealth;
-
-    public List<GameObject> weapons = new List<GameObject>();
     public Animator animator;
     public PlayerSpawner spawner;
 
@@ -62,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
             animator.SetBool("die", true);
             Invoke("Spawn", 2);
             currentHealth = 10;
+            Debug.Log(deathCounter);
         }
 
     }
@@ -70,18 +69,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (deathCounter >= 3)
         {
-            foreach (GameObject weapon in weapons)
+
+            for (var i = 0; i < animator.layerCount; i++)
             {
-                if (weapon.activeInHierarchy)
-                {
-                    weapon.SetActive(false);
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
+                animator.SetLayerWeight(i, 0);
             }
+
         }
 
         else

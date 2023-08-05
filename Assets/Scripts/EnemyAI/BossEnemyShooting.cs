@@ -67,7 +67,6 @@ public class BossEnemyShooting : MonoBehaviour
             StopCoroutine(AttackRoutine);
         }
 
-
     }
 
     private void Shoot()
@@ -112,15 +111,16 @@ public class BossEnemyShooting : MonoBehaviour
     public bool GetInRange()
     {
         float distance = Vector3.Distance(this.transform.position, playerShip.position);
-        Debug.Log(distance);
 
-        if (distance >= 7)
+        if (distance >= 15)
         {
+            animator.enabled = false;
             transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
             move = true;
         }
         else
         {
+            animator.enabled = true;
             move = false;
         }
 
