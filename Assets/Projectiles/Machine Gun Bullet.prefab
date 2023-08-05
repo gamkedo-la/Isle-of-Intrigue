@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 120
   bulletSpray: 12
+  maxShootDistance: 10
 --- !u!61 &1483513827124464784
 BoxCollider2D:
   m_ObjectHideFlags: 0
