@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offset;
-
-    public float smoothing = 0.1f;
-
-    private Vector3 baseOffset;
-
-    private void Start()
-    {
-        baseOffset = Camera.main.transform.position - player.position;
-    }
+    public Transform target; 
+    public float smoothSpeed = 0.125f;
+    public Vector3 offset; 
 
     private void LateUpdate()
     {
-        if (player == null) return;
+        if (target == null)
+        {
+            return;
+        }
 
-        Vector3 targetPos = new Vector3(player.position.x, player.position.y, 0f);
-        transform.position = Vector3.Lerp(targetPos + baseOffset + offset, transform.position, Mathf.Pow(0.5f, Time.deltaTime * smoothing));
+        Vector3 desiredPosition = target.position + offset;
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+
+        transform.position = smoothedPosition;
     }
 }
+
+
+
+

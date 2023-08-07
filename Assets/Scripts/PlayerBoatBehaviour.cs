@@ -16,6 +16,12 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
     private float startingRotation;
 
+    public float stoppingDistance = 2f;
+
+
+    public List<Transform> attackers = new List<Transform>();
+
+
 
     private void Start()
     {
@@ -27,7 +33,19 @@ public class PlayerBoatBehaviour : MonoBehaviour
         float rotationOffset = Mathf.Sin(Time.time * driftSpeed) * rotationRange;
         float newRotation = startingRotation + rotationOffset;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
-        transform.Translate(Vector2.right *movementSpeed * Time.deltaTime);
+
+        foreach (Transform attacker in attackers)
+        {
+            if (attacker != null && Vector2.Distance(transform.position, attacker.position) < stoppingDistance)
+            {
+                return; 
+            }
+
+            else
+            {
+                transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
+            }
+        }
     }
 
   

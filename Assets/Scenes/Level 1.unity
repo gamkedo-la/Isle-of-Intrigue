@@ -5283,7 +5283,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420034}
   - component: {fileID: 2250737341526374859}
   - component: {fileID: 2250737341526374860}
   m_Layer: 0
@@ -5392,21 +5391,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1bce73f5efd42840b4972c359fe2412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 978001192}
-  offset: {x: 0, y: 0, z: 0}
-  smoothing: 3
 --- !u!1 &523730819
 GameObject:
   m_ObjectHideFlags: 0
@@ -11686,8 +11670,13 @@ MonoBehaviour:
   rotationSpeed: 2
   enemyShip: {fileID: 263718509}
   seaMonster: {fileID: 1440704926411790461}
-  movementSpeed: 1
+  movementSpeed: 0.5
   driftSpeed: 1
+  stoppingDistance: 10
+  attackers:
+  - {fileID: 263718509}
+  - {fileID: 2042080653}
+  - {fileID: 1440704926411790461}
 --- !u!1 &1029898058
 GameObject:
   m_ObjectHideFlags: 0
@@ -28459,9 +28448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bce73f5efd42840b4972c359fe2412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1024682680}
-  offset: {x: 13, y: 0, z: 0}
-  smoothing: 0.1
+  target: {fileID: 1024682680}
+  smoothSpeed: 0.125
+  offset: {x: 10, y: 0, z: -10}
 --- !u!4 &2295481957920442609
 Transform:
   m_ObjectHideFlags: 0
