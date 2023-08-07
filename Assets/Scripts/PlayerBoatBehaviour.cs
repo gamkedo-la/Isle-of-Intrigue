@@ -25,7 +25,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
     private void Start()
     {
-        movementSpeed = 0.5f;
+        movementSpeed = 2f;
         startingRotation = transform.rotation.eulerAngles.z;
         anyAttackerClose = false;
     }
@@ -82,7 +82,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
         }
         else
         {
-            movementSpeed = 0.5f;
+            movementSpeed = 2f;
         }
     }
 }

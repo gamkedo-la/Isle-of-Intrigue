@@ -49,3 +49,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Environment
+    uniqueID: 547677349
+    locked: 0
+  - name: Player
+    uniqueID: 1131955929
+    locked: 0
+  - name: boulders
+    uniqueID: 390242537
+    locked: 0
