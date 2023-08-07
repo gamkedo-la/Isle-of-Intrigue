@@ -34,12 +34,15 @@ public class DwarfController : MonoBehaviour
     {
 
         ship1Animator.SetTrigger("sink");
+        Destroy(ship1Animator.gameObject, 5f);
     }
 
     public void Ship2Sink()
     {
 
         ship2Animator.SetTrigger("sink");
+        Destroy(ship2Animator.gameObject, 5f);
+
     }
 
 

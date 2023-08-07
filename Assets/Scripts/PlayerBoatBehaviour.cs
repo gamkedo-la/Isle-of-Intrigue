@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerBoatBehaviour : MonoBehaviour
 {
-    public float rotationRange = 5f; 
-    public float rotationSpeed = 2f; 
+    public float rotationRange = 5f;
+    public float rotationSpeed = 2f;
 
     public Transform enemyShip;
     public Transform seaMonster;
 
-    public float movementSpeed = 2f;
+    public float movementSpeed;
 
     public float driftSpeed = 1f;
 
@@ -18,14 +18,16 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
     public float stoppingDistance = 2f;
 
+    bool anyAttackerClose;
 
     public List<Transform> attackers = new List<Transform>();
-
-
+    private List<Transform> attackersToRemove = new List<Transform>();
 
     private void Start()
     {
+        movementSpeed = 0.5f;
         startingRotation = transform.rotation.eulerAngles.z;
+        anyAttackerClose = false;
     }
 
     private void Update()
@@ -34,20 +36,53 @@ public class PlayerBoatBehaviour : MonoBehaviour
         float newRotation = startingRotation + rotationOffset;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
 
-        foreach (Transform attacker in attackers)
-        {
-            if (attacker != null && Vector2.Distance(transform.position, attacker.position) < stoppingDistance)
-            {
-                return; 
-            }
+        CheckEnemyBoatDistance();
 
-            else
-            {
-                transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
-            }
+        if (movementSpeed != 0)
+        {
+            // Move the ship only if the movementSpeed is not zero
+            transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
         }
+
+        Debug.Log(movementSpeed);
     }
 
-  
+    private void CheckEnemyBoatDistance()
+    {
+        anyAttackerClose = false; // Reset the flag before checking each attacker
+        attackersToRemove.Clear(); // Clear the list of attackers to remove
 
+        for (int i = 0; i < attackers.Count; i++)
+        {
+            Transform attacker = attackers[i];
+
+            if (attacker == null)
+            {
+                attackersToRemove.Add(attacker); // Collect attackers to remove
+                continue;
+            }
+
+            if (Vector2.Distance(transform.position, attacker.position) < stoppingDistance)
+            {
+                Debug.Log(attacker.gameObject.name);
+                anyAttackerClose = true;
+                break;
+            }
+        }
+
+        // Remove attackers marked for removal
+        foreach (Transform attackerToRemove in attackersToRemove)
+        {
+            attackers.Remove(attackerToRemove);
+        }
+
+        if (anyAttackerClose)
+        {
+            movementSpeed = 0;
+        }
+        else
+        {
+            movementSpeed = 0.5f;
+        }
+    }
 }

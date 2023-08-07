@@ -23,6 +23,9 @@ public class BossEnemyShooting : MonoBehaviour
     public float shootDistance = 10.0f;
 
     private bool canShoot = true;
+    public AudioClip attack;
+    public AudioClip roar;
+
 
     public Animator animator;
 
@@ -45,6 +48,7 @@ public class BossEnemyShooting : MonoBehaviour
         rand = Random.Range(8, 16);
         health = player.GetComponent<PlayerHealth>();
         move = false;
+        StartCoroutine(MonsterRoar());
     }
 
     
@@ -104,15 +108,26 @@ public class BossEnemyShooting : MonoBehaviour
         {
             yield return new WaitForSeconds(rand);
             animator.SetTrigger("attack");
+            AudioSource.PlayClipAtPoint(attack, Camera.main.transform.position);
 
         } while (!playerHealth.DieStatus());
+    }
+
+    IEnumerator MonsterRoar()
+    {
+        do
+        {
+            yield return new WaitForSeconds(3);
+            AudioSource.PlayClipAtPoint(roar, Camera.main.transform.position);
+
+        } while (gameObject.activeInHierarchy);
     }
 
     public bool GetInRange()
     {
         float distance = Vector3.Distance(this.transform.position, playerShip.position);
 
-        if (distance >= 15)
+        if (distance >= 20)
         {
             animator.enabled = false;
             transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
