@@ -49,7 +49,7 @@ public class RewardBadgeController : MonoBehaviour
     {
         while (Vector3.Distance(reward.transform.position, player.position) > 0.01f)
         {
-            reward.transform.position = Vector3.MoveTowards(reward.transform.position, player.position, speed * Time.deltaTime);
+            reward.transform.position =Vector3.MoveTowards(reward.transform.position, player.position, speed * Time.deltaTime);
             yield return null;
         }
 

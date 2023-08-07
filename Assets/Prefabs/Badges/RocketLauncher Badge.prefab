@@ -118,7 +118,7 @@ RectTransform:
   m_GameObject: {fileID: 6847550733795955191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2359, y: 1.5241, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6847550732838561389}
@@ -127,8 +127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.27, y: 6.77}
-  m_SizeDelta: {x: 6.4839, y: 5.8343}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &6847550733795955188
 SpriteRenderer:
@@ -202,7 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4660de4daa81ff442a39754ac975a129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: {fileID: 0}
   rewardSound: {fileID: 8300000, guid: d373695c49945b04ca5bca7a9b227ecd, type: 3}
   currentWeaponState: 2
 --- !u!61 &285597207290787601

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerBoatBehaviour : MonoBehaviour
 {
-    public float rotationRange = 5f; // Range of rotation motion
-    public float rotationSpeed = 2f; // Speed at which the boat rotates
+    public float rotationRange = 5f; 
+    public float rotationSpeed = 2f; 
 
     public Transform enemyShip;
     public Transform seaMonster;
@@ -15,6 +15,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
     public float driftSpeed = 1f;
 
     private float startingRotation;
+
 
     private void Start()
     {
@@ -26,7 +27,9 @@ public class PlayerBoatBehaviour : MonoBehaviour
         float rotationOffset = Mathf.Sin(Time.time * driftSpeed) * rotationRange;
         float newRotation = startingRotation + rotationOffset;
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
-
+        transform.Translate(Vector2.right *movementSpeed * Time.deltaTime);
     }
+
+  
 
 }

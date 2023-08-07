@@ -22,16 +22,32 @@ public class MonsterHealth : MonoBehaviour
 
             if (!died && damage > 0)
             {
-                animator.SetTrigger("damage");
-                TakeDamage(1);
+                StartCoroutine(ChangeColorAndTakeDamage(0.5f, 1f));
             }
 
             else
             {
-
                 EnemyDie();
             }
 
+        }
+    }
+
+   
+    private IEnumerator ChangeColorAndTakeDamage(float colorDuration, float hurtAmount)
+    {
+
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.yellow;
+
+        yield return new WaitForSeconds(colorDuration);
+
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
+
+        TakeDamage(hurtAmount);
+
+        if (damage <= 0 && !died)
+        {
+            EnemyDie();
         }
     }
 

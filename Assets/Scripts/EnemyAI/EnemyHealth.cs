@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     public GameObject shootingMechanism;
 
     public RewardBadgeController rewardController;
+    Color[] originalColors;
+
     bool died;
 
 
@@ -51,8 +53,8 @@ public class EnemyHealth : MonoBehaviour
 
             if (!died)
             {
-                animator.SetTrigger("damage");
-                TakeDamage(1);
+                StartCoroutine(ChangeColorAndTakeDamage(0.5f, 1f));
+
             }
 
         }
@@ -104,6 +106,32 @@ public class EnemyHealth : MonoBehaviour
         shootingMechanism.SetActive(false);
 
     }
+
+    private IEnumerator ChangeColorAndTakeDamage(float colorDuration, float hurtAmount)
+    {
+        SpriteRenderer[] spriteRenderers = transform.GetComponentsInChildren<SpriteRenderer>();
+        originalColors = new Color[spriteRenderers.Length];
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            originalColors[i] = spriteRenderers[i].color ;
+            spriteRenderers[i].color = Color.red; 
+        }
+
+        yield return new WaitForSeconds(colorDuration);
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            spriteRenderers[i].color = originalColors[i];
+        }
+
+        TakeDamage(hurtAmount);
+
+        if (damage <= 0 && !died)
+        {
+            EnemyDie();
+        }
+    }
+   
 
     public bool GetInRange()
     {
