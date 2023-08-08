@@ -12,6 +12,7 @@ TagManager:
   - bullet
   - enemyBullet
   - Attacker
+  - Grenade
   layers:
   - Default
   - TransparentFX

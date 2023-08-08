@@ -33,6 +33,14 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(1);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Grenade"))
+        {
+            if (!died)
+            {
+                Invoke("FinishThePlayer", 0.5f);
+            }
+        }
     }
 
     public void TakeDamage(int hurt)

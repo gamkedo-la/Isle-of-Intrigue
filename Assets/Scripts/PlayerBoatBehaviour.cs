@@ -40,7 +40,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
         if (movementSpeed != 0)
         {
-            // Move the ship only if the movementSpeed is not zero
             transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
         }
 
@@ -49,8 +48,8 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
     private void CheckEnemyBoatDistance()
     {
-        anyAttackerClose = false; // Reset the flag before checking each attacker
-        attackersToRemove.Clear(); // Clear the list of attackers to remove
+        anyAttackerClose = false; 
+        attackersToRemove.Clear(); 
 
         for (int i = 0; i < attackers.Count; i++)
         {
@@ -58,7 +57,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
             if (attacker == null)
             {
-                attackersToRemove.Add(attacker); // Collect attackers to remove
+                attackersToRemove.Add(attacker); 
                 continue;
             }
 
@@ -70,7 +69,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
             }
         }
 
-        // Remove attackers marked for removal
         foreach (Transform attackerToRemove in attackersToRemove)
         {
             attackers.Remove(attackerToRemove);
