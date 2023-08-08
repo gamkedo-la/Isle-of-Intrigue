@@ -14,11 +14,10 @@ public class EnemyHealth : MonoBehaviour
     public GameObject shootingMechanism;
 
     public RewardBadgeController rewardController;
+    Coroutine colorRoutine;
     Color[] originalColors;
 
     bool died;
-
-
 
 
     private int deathCounter;
@@ -33,11 +32,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
-        if (damage <= 0)
-        {
-            EnemyDie();
-        }
-
         if (!GetInRange())
         {
             shootingMechanism.SetActive(true);
@@ -53,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
 
             if (!died)
             {
-                StartCoroutine(ChangeColorAndTakeDamage(0.5f, 1f));
+                colorRoutine = StartCoroutine(ChangeColorAndTakeDamage(0.5f, 1f));
 
             }
 
@@ -128,6 +122,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (damage <= 0 && !died)
         {
+            StopCoroutine(colorRoutine);
             EnemyDie();
         }
     }
