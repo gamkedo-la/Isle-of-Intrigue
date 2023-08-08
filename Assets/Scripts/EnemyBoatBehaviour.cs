@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBoatBehaviour : MonoBehaviour
 {
     public float rotationRange = 5f; 
-    public float rotationSpeed = 2f; 
+    public float rotationSpeed = 2f;
 
     public Transform playerShip;
 
@@ -29,29 +29,9 @@ public class EnemyBoatBehaviour : MonoBehaviour
         float newRotation = startingRotation + rotationOffset;
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
-
-        GetInRange();
     }
 
 
-    public bool GetInRange()
-    {
-        float distance = Vector3.Distance(this.transform.position, playerShip.position);
-
-        if (distance >= 25)
-        {
-            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
-            move = true;
-        }
-
-        else
-        {
-
-            move = false;
-        }
-
-        return move;
-
-    }
+   
 
 }

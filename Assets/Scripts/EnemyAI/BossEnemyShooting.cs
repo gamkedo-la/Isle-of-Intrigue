@@ -57,11 +57,10 @@ public class BossEnemyShooting : MonoBehaviour
     {
         if (canShoot && !monsterHealth.EnemyDieIndicator())
         {
-            if (!GetInRange())
-            {
+            
                 Shoot();
                 StartCoroutine(ShootCooldownTimer());
-            }
+            
           
         }
 
@@ -123,25 +122,6 @@ public class BossEnemyShooting : MonoBehaviour
         } while (gameObject.activeInHierarchy);
     }
 
-    public bool GetInRange()
-    {
-        float distance = Vector3.Distance(this.transform.position, playerShip.position);
-
-        if (distance >= 20)
-        {
-            animator.enabled = false;
-            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
-            move = true;
-        }
-        else
-        {
-            animator.enabled = true;
-            move = false;
-        }
-
-        return move;
-
-    }
-
+    
 
 }

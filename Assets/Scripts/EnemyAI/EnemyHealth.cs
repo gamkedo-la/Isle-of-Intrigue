@@ -138,7 +138,7 @@ public class EnemyHealth : MonoBehaviour
         float distance = Vector3.Distance(this.transform.position, playerShip.position);
 
 
-        if (distance >= 45)
+        if (distance >= 20)
         {
             move = true;
         }

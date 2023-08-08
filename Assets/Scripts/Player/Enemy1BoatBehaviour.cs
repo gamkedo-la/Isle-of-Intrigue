@@ -29,21 +29,6 @@ public class Enemy1BoatBehaviour : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, newRotation);
 
-        GetInRange();
-
-    }
-
-    public float GetInRange()
-    {
-        float distance = Vector3.Distance(this.transform.position, playerShip.position);
-
-        if (distance >= 7)
-        {
-            transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);
-        }
-
-        return distance;
-
     }
 
 
