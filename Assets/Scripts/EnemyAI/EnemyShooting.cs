@@ -7,6 +7,7 @@ public class EnemyShooting : MonoBehaviour
     public Transform player;
     public GameObject bulletPrefab;
     public Transform shootingPoint;
+    public Transform enemy;
 
     public PlayerHealth playerHealth;
 
@@ -45,7 +46,7 @@ public class EnemyShooting : MonoBehaviour
     private void Shoot()
     {
         Vector3 playerPosition = player.position;
-        float distance = Vector3.Distance(playerPosition, shootingPoint.position);
+        float distance = Vector3.Distance(playerPosition, enemy.position);
         if (distance <= shootDistance)
         {
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);

@@ -10,6 +10,7 @@ public class EnemyThrowingBomb : MonoBehaviour
     public GameObject bombPrefab;
 
     public Transform throwingPoint;
+    public Transform enemy;
 
     public Animator animator;
     public float throwForce = 10f;
@@ -42,7 +43,7 @@ public class EnemyThrowingBomb : MonoBehaviour
     public void ThrowBombTowardsPlayer()
     {
 
-        Vector2 directionToPlayer = player.position - transform.position;
+        Vector2 directionToPlayer = player.position - enemy.transform.position;
         directionToPlayer.Normalize();
 
         GameObject bomb = Instantiate(bombPrefab, throwingPoint.position, Quaternion.identity);
