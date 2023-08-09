@@ -28,13 +28,22 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
+    // FIXME: this never gets run?!
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("Projectile hit "+other.gameObject.name);
+
         if (other.gameObject.CompareTag("enemy"))
         {
             Destroy(this.gameObject);
         }
+        if (other.gameObject.CompareTag("destroyable"))
+        {
+            Debug.Log("Destroyable hit by bullet!");
+            Destroy(this.gameObject);
+        }
     }
+
 
 }
 

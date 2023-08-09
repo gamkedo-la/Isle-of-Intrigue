@@ -13,6 +13,7 @@ TagManager:
   - enemyBullet
   - Attacker
   - Grenade
+  - Destroyable
   layers:
   - Default
   - TransparentFX
