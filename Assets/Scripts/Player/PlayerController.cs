@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     public Light2D light;
 
     private int move = 0;
-    private bool isGrounded;
     private int jumpCounter;
     public PlayerHealth playerHealth;
 
@@ -66,6 +65,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip rocketSound;
 
 
+
     void Start()
     {
         right = true;
@@ -80,7 +80,6 @@ public class PlayerController : MonoBehaviour
             this.weaponToShakePivot = this.weaponToShake.transform.localPosition;
         }
 
-        isGrounded = true;
 
         pistol = true;
 
@@ -136,16 +135,7 @@ public class PlayerController : MonoBehaviour
             move = (float)context.ReadValueAsObject() > 0.0f ? 1 : -1;
     }
 
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (context.performed && isGrounded)
-        {
-            Vector2 velocity = rb.velocity;
-            velocity.y = jumpForce * Time.fixedDeltaTime;
-            rb.velocity = velocity;
-            isGrounded = false;
-        }
-    }
+
 
     public void Crouch(InputAction.CallbackContext context)
     {
@@ -243,6 +233,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
+
     public void BulletAudio()
     {
         if (pistol == true)
@@ -318,12 +310,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
+
 
 }

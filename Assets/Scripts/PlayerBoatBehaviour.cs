@@ -57,7 +57,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
             if (attacker == null)
             {
-                attackersToRemove.Add(attacker); 
+                attackersToRemove.Add(attacker);
                 continue;
             }
 
@@ -75,11 +75,21 @@ public class PlayerBoatBehaviour : MonoBehaviour
         }
 
         if (anyAttackerClose)
-        {
+        {   
+            if(movementSpeed !=0f )
+            {
+                Debug.Log("Stopping");
+            }
+
             movementSpeed = 0;
         }
         else
         {
+            if (movementSpeed != 2f)
+            {
+                Debug.Log("Moving");
+            }
+
             movementSpeed = 2f;
         }
     }
