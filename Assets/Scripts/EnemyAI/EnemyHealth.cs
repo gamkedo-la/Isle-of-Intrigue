@@ -37,6 +37,8 @@ public class EnemyHealth : MonoBehaviour
             shootingMechanism.SetActive(true);
         }
 
+
+
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -54,33 +56,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float hurtAmmount)
-    {
-        damage -= hurtAmmount;
-    }
-
-    private void EnemyDie()
-    {
-        if (weapon == null)
-        {
-            return;
-        }
-
-        else
-        {
-            if (!died)
-            {
-                died = true;
-                AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
-                weapon.SetActive(false);
-                animator.SetTrigger("die");
-                Invoke("Destroy", 2f);
-                StopShooting();
-            }
-        }
-
-
-    }
+   
 
     public void Destroy()
     {
@@ -117,7 +93,7 @@ public class EnemyHealth : MonoBehaviour
         {
             spriteRenderers[i].color = originalColors[i];
         }
-
+        
         TakeDamage(hurtAmount);
 
         if (damage <= 0 && !died)
@@ -125,8 +101,36 @@ public class EnemyHealth : MonoBehaviour
             StopCoroutine(colorRoutine);
             EnemyDie();
         }
+
     }
-   
+
+
+    private void TakeDamage(float hurtAmmount)
+    {
+        damage -= hurtAmmount;
+    }
+
+    private void EnemyDie()
+    {
+        if (weapon == null)
+        {
+            return;
+        }
+
+        else
+        {
+            if (!died)
+            {
+                died = true;
+                AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
+                weapon.SetActive(false);
+                animator.SetTrigger("die");
+                Invoke("Destroy", 2f);
+                StopShooting();
+            }
+        }
+    }
+
 
     public bool GetInRange()
     {

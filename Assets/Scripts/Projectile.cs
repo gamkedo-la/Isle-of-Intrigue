@@ -19,7 +19,6 @@ public class Projectile : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 directionToMouse = (mousePosition - transform.position).normalized;
-        float distanceToMouse = Vector2.Distance(transform.position, mousePosition);
         float randAngleOffset = Random.Range(-0.5f, 0.5f) * bulletSpray;
         Quaternion inaccuracyQuat = Quaternion.AngleAxis(randAngleOffset, Vector3.forward);
         Vector2 inaccuracyDirection = inaccuracyQuat * directionToMouse;
