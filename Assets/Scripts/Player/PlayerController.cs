@@ -100,15 +100,21 @@ public class PlayerController : MonoBehaviour
 
         switch (weaponManager.currentWeaponType)
         {
+            case WeaponType.WeaponState.Pistol:
+                pistol = true;
+                rocket = false;
+                machineGunFlag = false;
+                bulletPrefab = weaponManager.pistolPrefab;
+                firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
+                break;
+
+
             case WeaponType.WeaponState.MachineGun:
                 pistol = false;
                 rocket = false;
                 machineGunFlag = true;
                 bulletPrefab = weaponManager.riflePrefab;
                 firePoint = weaponManager.weapons[1].transform.GetChild(0).gameObject;
-
-
-
                 break;
 
             case WeaponType.WeaponState.RocketLauncher:
