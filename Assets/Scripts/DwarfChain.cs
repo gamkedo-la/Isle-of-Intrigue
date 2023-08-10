@@ -37,11 +37,6 @@ public class DwarfChain : MonoBehaviour
             StartCoroutine(Glow());
 
         }
-
-        if (other.gameObject.CompareTag("missile"))
-        {
-            chainHealth = 0;
-        }
     }
 
     IEnumerator Glow()
