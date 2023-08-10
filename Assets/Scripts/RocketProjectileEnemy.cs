@@ -15,17 +15,36 @@ public class RocketProjectileEnemy : MonoBehaviour
 
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        missileRigidbody = GetComponent<Rigidbody2D>();
+        if(playerTransform == null)
+        {
+            missileRigidbody = GetComponent<Rigidbody2D>();
+        }
+        else
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            missileRigidbody = GetComponent<Rigidbody2D>();
+        }
+
     }
 
     void Update()
     {
         if (missileRigidbody != null)
-
         {
-            Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-            missileRigidbody.velocity = directionToPlayer * missileSpeed;
+            Vector3 missileVelocity;
+
+            if (playerTransform != null)
+            {
+                Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
+                missileVelocity = new Vector3(-directionToPlayer.x, -directionToPlayer.y, 0) * missileSpeed;
+            }
+
+            else
+            {
+                missileVelocity = Vector3.left * missileSpeed;
+            }
+
+            missileRigidbody.velocity = missileVelocity;
         }
 
     }
