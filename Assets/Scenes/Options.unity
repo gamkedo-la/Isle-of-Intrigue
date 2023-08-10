@@ -15707,10 +15707,10 @@ MonoBehaviour:
     background scene (sea, clouds, boulders, rain, fog, waves), inverse kinematic
     hookup with idle and run animations\r\n\n\nPatrick McKeown: Intro music, sounds
     (scream variations, water pouring, pistol, rocket firing, thunder, explosion,
-    reward badge pickup, island nature, sea monster roar and attack)\r\n\nJohan \xD6stling:
-    Pistol art, sounds (rain, storm, machine gun variations), badge bug fix\r\nPaul
-    Naser: Tuneable inaccuracy, shots self manage in memory\r\n\nJason Timms: Sound
-    effects (laugh, boat)"
+    reward badge pickup, island nature, sea monster roar and attack)\r\n\n\nJohan
+    \xD6stling: Pistol art, sounds (rain, storm, machine gun variations), badge bug
+    fix\r\nPaul Naser: Tuneable inaccuracy, shots self manage in memory\r\n\nJason
+    Timms: Sound effects (laugh, boat)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4bf4de6cc1dee2b47826eb7336513307, type: 2}
   m_sharedMaterial: {fileID: 69860209586322396, guid: 4bf4de6cc1dee2b47826eb7336513307, type: 2}

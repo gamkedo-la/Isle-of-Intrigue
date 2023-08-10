@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float damage = 3f;
-    public GameObject weapon;
     public AudioClip enemyDamageSound;
     public Transform playerShip;
     public bool move;
@@ -112,23 +111,19 @@ public class EnemyHealth : MonoBehaviour
 
     private void EnemyDie()
     {
-        if (weapon == null)
-        {
-            return;
-        }
+       
 
-        else
-        {
+        
             if (!died)
             {
                 died = true;
                 AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
-                weapon.SetActive(false);
+                //weapon.SetActive(false);
                 animator.SetTrigger("die");
                 Invoke("Destroy", 2f);
                 StopShooting();
             }
-        }
+        
     }
 
 
