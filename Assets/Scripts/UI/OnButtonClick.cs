@@ -33,6 +33,7 @@ public class OnButtonClick : MonoBehaviour
 
     void Play()
     {
+        Cursor.visible = false;
         SceneManager.LoadScene("Level 1");
     }
 
