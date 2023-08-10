@@ -15,7 +15,6 @@ TagManager:
   - Grenade
   - Destroyable
   - point
-  - missile
   layers:
   - Default
   - TransparentFX

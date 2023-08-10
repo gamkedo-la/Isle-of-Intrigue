@@ -34,11 +34,11 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Grenade") || other.gameObject.CompareTag("missile"))
+        if (other.gameObject.CompareTag("Grenade"))
         {
             if (!died)
             {
-                Invoke("FinishThePlayer", 0.1f);
+                Invoke("FinishThePlayer", 0.5f);
             }
         }
     }
