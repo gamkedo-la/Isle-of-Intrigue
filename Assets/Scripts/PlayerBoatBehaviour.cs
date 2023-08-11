@@ -14,6 +14,8 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
     public float driftSpeed = 1f;
 
+    public AudioSource src;
+
     private float startingRotation;
 
     public float stoppingDistance = 2f;
@@ -82,6 +84,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
             }
 
             movementSpeed = 0;
+            src.mute = true;
         }
         else
         {
@@ -91,6 +94,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
             }
 
             movementSpeed = 2f;
+            src.mute = false;
         }
     }
 }

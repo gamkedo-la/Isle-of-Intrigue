@@ -9,7 +9,6 @@ public class EnemyShooting : MonoBehaviour
     public Transform shootingPoint;
     public Transform enemy;
 
-    public PlayerHealth playerHealth;
 
     Rigidbody2D rigid;
 
@@ -23,7 +22,7 @@ public class EnemyShooting : MonoBehaviour
 
     public EnemyHealth enemyHealth;
     public float shootCooldown = 1.0f;
-    public float shootDistance = 10.0f;
+    public float shootDistance = 20f;
 
     private bool canShoot = true;
 
@@ -35,7 +34,7 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        if (canShoot && !playerHealth.DieStatus())
+        if (canShoot)
         {
             Shoot();
             StartCoroutine(ShootCooldownTimer());
@@ -47,6 +46,7 @@ public class EnemyShooting : MonoBehaviour
     {
         Vector3 playerPosition = player.position;
         float distance = Vector3.Distance(playerPosition, enemy.position);
+        Debug.Log(distance);
         if (distance <= shootDistance)
         {
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
@@ -67,7 +67,7 @@ public class EnemyShooting : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(shootCooldown);
 
-        if (enemyHealth.EnemyDieIndicator() == false)
+        if (!enemyHealth.EnemyDieIndicator())
         {
             canShoot = true;
         }

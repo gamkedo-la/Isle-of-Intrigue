@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Animator animator;
     public PlayerSpawner spawner;
+    public List<GameObject> enemyShooting = new List<GameObject>();
 
     private int deathCounter;
 
@@ -60,9 +61,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void FinishThePlayer()
     {
-        died = true;
 
-        if (died)
+        if (!died)
         {
             deathCounter++;
             animator.SetBool("die", true);
@@ -75,8 +75,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void Spawn()
     {
+        died = true;
+
         if (deathCounter >= 3)
         {
+            foreach(GameObject enemy in enemyShooting )
+            {
+                enemy.SetActive(false);
+            }
 
             for (var i = 0; i < animator.layerCount; i++)
             {

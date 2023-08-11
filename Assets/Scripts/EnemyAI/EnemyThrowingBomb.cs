@@ -6,7 +6,6 @@ public class EnemyThrowingBomb : MonoBehaviour
 {
     public Transform player;
 
-    public PlayerHealth playerHealth;
     public GameObject bombPrefab;
 
     public Transform throwingPoint;
@@ -34,7 +33,7 @@ public class EnemyThrowingBomb : MonoBehaviour
             animator.SetTrigger("bomb");
 
 
-        } while (!playerHealth.DieStatus());
+        } while (gameObject.activeInHierarchy);
 
 
     }
