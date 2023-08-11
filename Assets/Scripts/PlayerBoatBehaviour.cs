@@ -9,12 +9,14 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
     public Transform enemyShip;
     public Transform seaMonster;
+   
 
     public float movementSpeed;
 
     public float driftSpeed = 1f;
 
     public AudioSource src;
+  
 
     private float startingRotation;
 

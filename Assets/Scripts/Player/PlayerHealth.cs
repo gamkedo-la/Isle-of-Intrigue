@@ -7,6 +7,10 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Animator animator;
     public PlayerSpawner spawner;
+    public Animator shipAnimator;
+    public AudioClip waterSplash;
+    public AudioClip playerDie;
+    public GameObject GameOverMenu;
     public List<GameObject> enemyShooting = new List<GameObject>();
 
     private int deathCounter;
@@ -59,36 +63,13 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    private void FinishThePlayer()
-    {
-
-        if (!died)
-        {
-            deathCounter++;
-            animator.SetBool("die", true);
-            Invoke("Spawn", 2);
-            currentHealth = 10;
-            Debug.Log(deathCounter);
-        }
-
-    }
-
     private void Spawn()
     {
         died = true;
 
         if (deathCounter >= 3)
         {
-            foreach(GameObject enemy in enemyShooting )
-            {
-                enemy.SetActive(false);
-            }
-
-            for (var i = 0; i < animator.layerCount; i++)
-            {
-                animator.SetLayerWeight(i, 0);
-            }
-
+            GameEnd();
         }
 
         else
@@ -98,6 +79,38 @@ public class PlayerHealth : MonoBehaviour
             animator.SetBool("die", false);
             spawner.SpawnPlayer();
         }
+    }
+
+    private void FinishThePlayer()
+    {
+
+        if (!died)
+        {
+            deathCounter++;
+            animator.SetBool("die", true);
+            Invoke("Spawn", 2);
+            currentHealth = 10;
+            AudioSource.PlayClipAtPoint(playerDie,Camera.main.transform.position);
+
+        }
+
+    }
+
+    public void GameEnd() {
+
+        foreach (GameObject enemy in enemyShooting)
+        {
+            enemy.SetActive(false);
+        }
+
+        for (var i = 0; i < animator.layerCount; i++)
+        {
+            animator.SetLayerWeight(i, 0);
+        }
+
+        shipAnimator.SetTrigger("sink");
+        AudioSource.PlayClipAtPoint(waterSplash, Camera.main.transform.position);
+        GameOverMenu.SetActive(true);
     }
 
 

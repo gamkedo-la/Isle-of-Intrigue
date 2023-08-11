@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private GameObject firePoint;
     public Light2D muzzleFlashLight;
     public Transform shotContainer;
-
+   
     public Animator animator;
     public GameObject bombPrefab; // Prefab of the bomb object
     public float throwForce = 10f; // Force applied to the thrown bomb
@@ -239,8 +239,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
-
+   
     public void BulletAudio()
     {
         if (pistol == true)

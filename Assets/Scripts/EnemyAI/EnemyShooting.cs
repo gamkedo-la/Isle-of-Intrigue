@@ -44,11 +44,8 @@ public class EnemyShooting : MonoBehaviour
 
     private void Shoot()
     {
-        Vector3 playerPosition = player.position;
-        float distance = Vector3.Distance(playerPosition, enemy.position);
-        Debug.Log(distance);
-        if (distance <= shootDistance)
-        {
+        
+      
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
             AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position);
             float randAngleOffset = Random.Range(-0.5f, 0.5f) * bulletSpray;
@@ -59,7 +56,7 @@ public class EnemyShooting : MonoBehaviour
             bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
             bullet.transform.parent = container;
-        }
+        
     }
 
     private IEnumerator ShootCooldownTimer()

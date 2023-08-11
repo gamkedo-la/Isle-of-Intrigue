@@ -8,6 +8,7 @@ public class DwarfController : MonoBehaviour
     public Animator animator;
     public Animator ship1Animator;
     public Animator ship2Animator;
+    public AudioClip sinkAudio;
 
     public void StartCelebrating()
     {
@@ -34,6 +35,7 @@ public class DwarfController : MonoBehaviour
     {
 
         ship1Animator.SetTrigger("sink");
+        AudioSource.PlayClipAtPoint(sinkAudio, Camera.main.transform.position);
         Destroy(ship1Animator.gameObject, 5f);
     }
 
@@ -41,6 +43,7 @@ public class DwarfController : MonoBehaviour
     {
 
         ship2Animator.SetTrigger("sink");
+        AudioSource.PlayClipAtPoint(sinkAudio, Camera.main.transform.position);
         Destroy(ship2Animator.gameObject, 5f);
 
     }
