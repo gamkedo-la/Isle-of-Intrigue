@@ -74,6 +74,5 @@ public class WeaponType : MonoBehaviour
         int layerIndex = animator.GetLayerIndex(layerName);
         animator.SetLayerWeight(0, 0);
         animator.SetLayerWeight(layerIndex, weight);
-        Debug.Log(layerName + " " + weight);
     }
 }

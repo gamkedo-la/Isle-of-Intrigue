@@ -65,7 +65,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Spawn()
     {
-        died = true;
 
         if (deathCounter >= 3)
         {
@@ -86,10 +85,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (!died)
         {
+            died = true;
             deathCounter++;
             animator.SetBool("die", true);
             Invoke("Spawn", 2);
-            currentHealth = 10;
             AudioSource.PlayClipAtPoint(playerDie,Camera.main.transform.position);
 
         }

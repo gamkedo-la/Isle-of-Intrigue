@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerInvisibilityController : MonoBehaviour
 {
     public GameObject player;
+    public PlayerHealth health;
     private bool isTogglingVisibility;
 
 
@@ -16,28 +17,32 @@ public class PlayerInvisibilityController : MonoBehaviour
 
     public void OnDodge(InputAction.CallbackContext context)
     {
-
-        if (isTogglingVisibility)
+        if (!health.DieStatus())
         {
-            Debug.Log(context);
-            if (context.started)
+            if (isTogglingVisibility)
             {
-                player.SetActive(false);
-                isTogglingVisibility = false;
+                Debug.Log(context);
+                if (context.started)
+                {
+                    player.SetActive(false);
+                    isTogglingVisibility = false;
+                }
+
             }
 
-        }
-
-        if (!isTogglingVisibility)
-        {
-            if (context.canceled)
+            if (!isTogglingVisibility)
             {
-                Debug.Log("check");
+                if (context.canceled)
+                {
+                    Debug.Log("check");
 
-                player.SetActive(true);
-                isTogglingVisibility = true;
+                    player.SetActive(true);
+                    isTogglingVisibility = true;
+                }
             }
         }
+
+      
     }
 
 }

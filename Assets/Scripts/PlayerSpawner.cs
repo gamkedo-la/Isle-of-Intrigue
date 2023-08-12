@@ -9,7 +9,7 @@ public class PlayerSpawner : MonoBehaviour
     private Transform initialPos;
     Rigidbody2D rb;
 
-    private void Awake()
+    private void Start()
     {
         rb = player.gameObject.GetComponent<Rigidbody2D>();
         initialPos = player.transform;
@@ -18,10 +18,13 @@ public class PlayerSpawner : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        player.position += Vector3.up * 10.0f;
-        AudioSource.PlayClipAtPoint(spawnSound, Camera.main.transform.position);
-        rb.isKinematic = false;
-        Invoke("StaticPlayer", 2f);
+       
+            player.position += Vector3.up * 10.0f;
+            AudioSource.PlayClipAtPoint(spawnSound, Camera.main.transform.position);
+            rb.isKinematic = false;
+            Invoke("StaticPlayer", 2f);
+        
+      
     }
 
     private void StaticPlayer()
@@ -29,10 +32,5 @@ public class PlayerSpawner : MonoBehaviour
         rb.isKinematic = true;
         player.position = initialPos.position;
     }
-
- 
-
-   
-
 
 }
