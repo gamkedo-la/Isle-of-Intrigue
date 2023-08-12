@@ -39,6 +39,7 @@ public class BossEnemyShooting : MonoBehaviour
     public MonsterHealth monsterHealth;
 
     Coroutine AttackRoutine;
+    Coroutine RoarRoutine;
 
     private bool move;
 
@@ -61,7 +62,7 @@ public class BossEnemyShooting : MonoBehaviour
         rand = Random.Range(8, 16);
         health = player.GetComponent<PlayerHealth>();
         move = false;
-        StartCoroutine(MonsterRoar());
+        RoarRoutine = StartCoroutine(MonsterRoar());
     }
 
     
@@ -81,6 +82,7 @@ public class BossEnemyShooting : MonoBehaviour
         {
 
             StopCoroutine(AttackRoutine);
+            StopCoroutine(RoarRoutine);
         }
 
     }
