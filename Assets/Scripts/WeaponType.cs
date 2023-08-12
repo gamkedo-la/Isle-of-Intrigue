@@ -29,7 +29,7 @@ public class WeaponType : MonoBehaviour
     private void Awake()
     {
         CleanAnimatorLayersWeight();
-        animator.SetLayerWeight(2, 1);
+        animator.SetLayerWeight(1, 1);
 
     }
 
@@ -39,7 +39,6 @@ public class WeaponType : MonoBehaviour
         currentWeaponType = targetWeaponState;
 
         player.SetActiveBulletPrefab();
-
 
 
         foreach (GameObject weapon in weapons)
@@ -63,9 +62,8 @@ public class WeaponType : MonoBehaviour
 
     private void CleanAnimatorLayersWeight()
     {
-        animator.SetLayerWeight(1, 0);
 
-        for (var i = 2; i < animator.layerCount; i++)
+        for (var i = 0; i < animator.layerCount; i++)
         {
             animator.SetLayerWeight(i, 0);
         }
@@ -76,5 +74,6 @@ public class WeaponType : MonoBehaviour
         int layerIndex = animator.GetLayerIndex(layerName);
         animator.SetLayerWeight(0, 0);
         animator.SetLayerWeight(layerIndex, weight);
+        Debug.Log(layerName + " " + weight);
     }
 }

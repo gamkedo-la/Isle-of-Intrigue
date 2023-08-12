@@ -81,10 +81,10 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        pistol = true;
 
         if (weaponManager == null) return;
 
+        pistol = true;
         bulletPrefab = weaponManager.pistolPrefab;
         firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
     }

@@ -13,7 +13,6 @@ public class DestroyableObject : MonoBehaviour
 
         if (other.gameObject.CompareTag("bullet"))
         {
-            Debug.Log("Destroyable object got hit by a bullet!");
             if (blastVfx) {
                 GameObject vfx = Instantiate(blastVfx, other.transform.position, Quaternion.identity);
                 Destroy(vfx, 3f);
