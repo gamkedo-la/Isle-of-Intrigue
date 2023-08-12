@@ -10,7 +10,7 @@ public class OnButtonClick : MonoBehaviour
     public enum ButtonFunctions
     {
         PLAY,
-        OPTIONS,
+        BACK,
         CREDITS
     }
     public ButtonFunctions function;
@@ -22,8 +22,8 @@ public class OnButtonClick : MonoBehaviour
             case ButtonFunctions.PLAY:
                 GetComponent<Button>().onClick.AddListener(Play);
                 break;
-            case ButtonFunctions.OPTIONS:
-                GetComponent<Button>().onClick.AddListener(Options);
+            case ButtonFunctions.BACK:
+                GetComponent<Button>().onClick.AddListener(BACK);
                 break;
             case ButtonFunctions.CREDITS:
                 GetComponent<Button>().onClick.AddListener(Credits);
@@ -33,16 +33,15 @@ public class OnButtonClick : MonoBehaviour
 
     void Play()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level");
     }
-
-    void Options()
-    {
-        Debug.Log("Clicked Options");
-    }
-
     void Credits()
     {
-        Debug.Log("Clicked Credits");
+        SceneManager.LoadScene("Credits");
+    }
+
+    void BACK()
+    {
+        SceneManager.LoadScene(0);
     }
 }
