@@ -23,8 +23,13 @@ public class BossEnemyShooting : MonoBehaviour
     public float shootDistance = 10.0f;
 
     private bool canShoot = true;
-    public AudioClip attack;
-    public AudioClip roar;
+    public AudioClip attack1;
+    public AudioClip attack2;
+    private AudioClip[] attacks;
+    public AudioClip roar1;
+    public AudioClip roar2;
+    public AudioClip roar3;
+    private AudioClip[] roars;
 
 
     public Animator animator;
@@ -43,6 +48,14 @@ public class BossEnemyShooting : MonoBehaviour
 
     void Start()
     {
+        attacks = new AudioClip[2];
+        attacks[0] = attack1;
+        attacks[1] = attack2;
+        roars = new AudioClip[3];
+        roars[0] = roar1;
+        roars[1] = roar2;
+        roars[2] = roar3;
+
         rigid = bulletPrefab.GetComponent<Rigidbody2D>();
         AttackRoutine = StartCoroutine(BossAttack());
         rand = Random.Range(8, 16);
@@ -107,7 +120,7 @@ public class BossEnemyShooting : MonoBehaviour
         {
             yield return new WaitForSeconds(rand);
             animator.SetTrigger("attack");
-            AudioSource.PlayClipAtPoint(attack, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(getNextAttackSound(), Camera.main.transform.position);
 
         } while (!playerHealth.DieStatus());
     }
@@ -117,11 +130,19 @@ public class BossEnemyShooting : MonoBehaviour
         do
         {
             yield return new WaitForSeconds(3);
-            AudioSource.PlayClipAtPoint(roar, Camera.main.transform.position);
-
+            AudioSource.PlayClipAtPoint(getNextRoarSound(), Camera.main.transform.position);
         } while (gameObject.activeInHierarchy);
     }
 
+    private AudioClip getNextAttackSound()
+    {
+        return attacks[Random.Range(0, attacks.Length)];
+    }
+    
+    private AudioClip getNextRoarSound()
+    {
+        return roars[Random.Range(0, roars.Length)];
+    }
     
 
 }
