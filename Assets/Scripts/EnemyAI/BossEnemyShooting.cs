@@ -43,8 +43,13 @@ public class BossEnemyShooting : MonoBehaviour
 
     private bool move;
 
-    int rand;
+    int randomAttackWaitTime;
 
+
+    private int getAttackInterval()
+    {
+        return Random.Range(8, 16);
+    }
 
 
     void Start()
@@ -59,7 +64,7 @@ public class BossEnemyShooting : MonoBehaviour
 
         rigid = bulletPrefab.GetComponent<Rigidbody2D>();
         AttackRoutine = StartCoroutine(BossAttack());
-        rand = Random.Range(8, 16);
+        randomAttackWaitTime = getAttackInterval();
         health = player.GetComponent<PlayerHealth>();
         move = false;
         RoarRoutine = StartCoroutine(MonsterRoar());
@@ -120,7 +125,8 @@ public class BossEnemyShooting : MonoBehaviour
     {
         do
         {
-            yield return new WaitForSeconds(rand);
+            yield return new WaitForSeconds(randomAttackWaitTime);
+            randomAttackWaitTime = getAttackInterval();
             animator.SetTrigger("attack");
             AudioSource.PlayClipAtPoint(getNextAttackSound(), Camera.main.transform.position);
 
