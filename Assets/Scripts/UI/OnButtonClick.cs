@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class OnButtonClick : MonoBehaviour
 {
+    public GameObject PauseMenu;
 
     public enum ButtonFunctions
     {
         PLAY,
         BACK,
-        CREDITS
+        CREDITS,
+        RESUME
     }
     public ButtonFunctions function;
 
@@ -28,6 +30,9 @@ public class OnButtonClick : MonoBehaviour
             case ButtonFunctions.CREDITS:
                 GetComponent<Button>().onClick.AddListener(Credits);
                 break;
+            case ButtonFunctions.RESUME:
+                GetComponent<Button>().onClick.AddListener(RESUME);
+                break;
         }
     }
 
@@ -43,5 +48,11 @@ public class OnButtonClick : MonoBehaviour
     void BACK()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void RESUME()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

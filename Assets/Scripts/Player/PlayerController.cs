@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Composites;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 
 
@@ -64,6 +65,10 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip rocketSound;
 
+    public GameObject pauseMenu;
+
+
+
 
 
     void Start()
@@ -73,7 +78,7 @@ public class PlayerController : MonoBehaviour
         machineGunFlag = false;
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
-        if (hideMouseCursor) Cursor.lockState = CursorLockMode.Locked;
+        CursorManagement();
 
         if (this.weaponToShake)
         {
@@ -87,6 +92,22 @@ public class PlayerController : MonoBehaviour
         pistol = true;
         bulletPrefab = weaponManager.pistolPrefab;
         firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
+    }
+
+    private void CursorManagement()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1 && !pauseMenu.activeInHierarchy)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
     }
 
     private void FixedUpdate()
