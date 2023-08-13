@@ -20,13 +20,12 @@ public class PauseHandling : MonoBehaviour
         {
             pauseMenu.SetActive(true);
             pauseFlag = true;
-            Time.timeScale = 0;
         }
         else
         {
             pauseMenu.SetActive(false);
             pauseFlag = false;
-            Time.timeScale = 1;
+            Time.timeScale = 0;
 
         }
     }

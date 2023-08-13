@@ -4993,7 +4993,6 @@ GameObject:
   - component: {fileID: 371528907}
   - component: {fileID: 371528906}
   - component: {fileID: 371528905}
-  - component: {fileID: 371528909}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5083,26 +5082,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!95 &371528909
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371528904}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c93e76303a506e343af8e6865e02ce17, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &441930623
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,6 +5183,7 @@ GameObject:
   - component: {fileID: 469598746}
   - component: {fileID: 469598749}
   - component: {fileID: 469598750}
+  - component: {fileID: 469598751}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -5355,7 +5335,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dffe52af01b644a94a21e6b453437b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
   function: 2
+--- !u!95 &469598751
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469598744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27d3b913769d46a46bed3f66dca3cff4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &483980428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5601,6 +5602,7 @@ GameObject:
   - component: {fileID: 638548734}
   - component: {fileID: 638548737}
   - component: {fileID: 638548738}
+  - component: {fileID: 638548739}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -5752,7 +5754,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dffe52af01b644a94a21e6b453437b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
   function: 0
+--- !u!95 &638548739
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638548732}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 176b959cd3ca0cc4ab865052c424f920, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &709300571
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,6 +53,5 @@ public class OnButtonClick : MonoBehaviour
     void RESUME()
     {
         PauseMenu.SetActive(false);
-        Time.timeScale = 1;
     }
 }
