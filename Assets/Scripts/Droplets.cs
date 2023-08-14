@@ -17,7 +17,7 @@ public class Droplets : MonoBehaviour
         GameObject tempDrop = Instantiate(dropsPrefab, transform.position, transform.rotation);
         Destroy(tempDrop, 1.0f); 
         StartCoroutine(StartDropTimer());
-        Cursor.visible = false;
+        // Cursor.visible = false;
     }
 
     void Update()

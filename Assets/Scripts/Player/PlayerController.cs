@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         machineGunFlag = false;
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
-        CursorManagement();
+        // CursorManagement();
 
         if (this.weaponToShake)
         {
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
     }
 
-    private void CursorManagement()
+    /*private void CursorManagement()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1 && !pauseMenu.activeInHierarchy)
         {
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = true;
         }
 
-    }
+    }*/
 
     private void FixedUpdate()
     {
