@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Composites;
@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
     private GameObject firePoint;
     public Light2D muzzleFlashLight;
     public Transform shotContainer;
-   
+    public float gravityStrength = 9.81f;
+
+
     public Animator animator;
     public GameObject bombPrefab; // Prefab of the bomb object
     public float throwForce = 10f; // Force applied to the thrown bomb
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     bool pistol;
     bool rocket;
+    bool isGrounded;
 
     private float weaponShakeTimeLeft = 0f;
     private Vector3 weaponToShakePivot;
@@ -312,7 +315,6 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("IdleInput", right ? 1 : -1);
     }
 
-
     // wiggle the player and weapon - "kickback"
     private void WeaponShake()
     {
@@ -335,7 +337,5 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
-
 
 }

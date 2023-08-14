@@ -21,15 +21,13 @@ public class PlayerSpawner : MonoBehaviour
        
             player.position += Vector3.up * 10.0f;
             AudioSource.PlayClipAtPoint(spawnSound, Camera.main.transform.position);
-            rb.isKinematic = false;
+            rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
             Invoke("StaticPlayer", 2f);
-        
-      
     }
 
     private void StaticPlayer()
     {
-        rb.isKinematic = true;
+        rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
         player.position = initialPos.position;
     }
 
