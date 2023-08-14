@@ -31,6 +31,14 @@ public class WeaponAiming : MonoBehaviour
 
     private void Update()
     {
+        if(Time.timeScale != 0)
+        {
+            WeaponMovement();
+        }
+    }
+
+    private void WeaponMovement()
+    {
         // old way which doesn't include z so the world pos is far away
         // Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // mousePosition.z = 0f;
@@ -43,7 +51,7 @@ public class WeaponAiming : MonoBehaviour
         firePosition.x -= 0.25f;
 
         // the 10f is "units from the camera" to match the camera position
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,0f));//firePosition.z)); 
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f));//firePosition.z)); 
         mousePosition.z = firePosition.z;
 
         Vector3 lookDirection = mousePosition - firePosition;
@@ -56,10 +64,10 @@ public class WeaponAiming : MonoBehaviour
         // Calculate the normalized aiming angle for the hands
         float normalizedHandAimAngle = Mathf.InverseLerp(minHeadAngle, maxHeadAngle, currentHeadRotationAngle);
         currentHandRotationAngle = Mathf.Lerp(minHandAngle, maxHandAngle, normalizedHandAimAngle);
-        handsBone.localRotation = Quaternion.Euler(0f, 0f, currentHandRotationAngle+(45f*Mathf.Deg2Rad));
+        handsBone.localRotation = Quaternion.Euler(0f, 0f, currentHandRotationAngle + (45f * Mathf.Deg2Rad));
 
         //handsBone.rotation = Quaternion.Euler(0f, 0f, currentHeadRotationAngle+(90f*Mathf.Deg2Rad));
-        
+
         // lol silly but effective! just oriented strangely doe to handbone being at feet pos
         // handsBone.transform.LookAt(mousePosition);
 
@@ -67,8 +75,7 @@ public class WeaponAiming : MonoBehaviour
         if (aimer) aimer.transform.position = mousePosition;
 
         // for debug only
-        Color color = new Color(1f,0f,0f,1f);
+        Color color = new Color(1f, 0f, 0f, 1f);
         Debug.DrawLine(firePosition, mousePosition, color);
-
     }
 }

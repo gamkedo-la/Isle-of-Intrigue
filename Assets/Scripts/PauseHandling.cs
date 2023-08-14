@@ -7,26 +7,10 @@ using UnityEngine.InputSystem;
 public class PauseHandling : MonoBehaviour
 {
     public GameObject pauseMenu;
-    bool pauseFlag;
-
-    private void Start()
-    {
-        pauseFlag = false; 
-    }
-
+    
     public void Pause(InputAction.CallbackContext context)
     {
-        if (!pauseFlag)
-        {
-            pauseMenu.SetActive(true);
-            pauseFlag = true;
-        }
-        else
-        {
-            pauseMenu.SetActive(false);
-            pauseFlag = false;
-            Time.timeScale = 0;
-
-        }
+       pauseMenu.SetActive(true); 
+        Time.timeScale = 0f;
     }
 }
