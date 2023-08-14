@@ -6,6 +6,7 @@ public class MonsterHealth : MonoBehaviour
 {
     public float damage = 3f;
     public GameObject gameOver;
+    public AudioClip playerLaugh;
     public Animator animator;
     bool died;
 
@@ -77,7 +78,14 @@ public class MonsterHealth : MonoBehaviour
     {
         died = true;
         animator.SetTrigger("die");
+        StartCoroutine(PlayerLaugh());
+    }
+
+    IEnumerator PlayerLaugh()
+    {
+        yield return new WaitForSeconds(1);
         gameOver.SetActive(true);
+        AudioSource.PlayClipAtPoint(playerLaugh,Camera.main.transform.position);
     }
 
 

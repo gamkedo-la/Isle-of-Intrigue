@@ -9,7 +9,6 @@ public class BossEnemyShooting : MonoBehaviour
     public Transform playerShip;
     public float movementSpeed;
     public Transform shootingPoint;
-
     public PlayerHealth playerHealth;
 
     Rigidbody2D rigid;

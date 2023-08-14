@@ -7,12 +7,14 @@ public class PlayerSpawner : MonoBehaviour
     public Transform player;
     public AudioClip spawnSound;
     private Transform initialPos;
+    bool playerActive;
     Rigidbody2D rb;
 
     private void Start()
     {
         rb = player.gameObject.GetComponent<Rigidbody2D>();
         initialPos = player.transform;
+        playerActive = true;
     }
 
 
@@ -27,8 +29,24 @@ public class PlayerSpawner : MonoBehaviour
 
     private void StaticPlayer()
     {
-        rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
-        player.position = initialPos.position;
+        StartCoroutine(CheckPlayer());
+    }
+
+    IEnumerator CheckPlayer()
+    {
+        do
+        {
+            yield return new WaitForSeconds(0.1f);
+
+            if (player.gameObject.activeInHierarchy)
+            {
+                playerActive = false;
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+                player.position = initialPos.position;
+            }
+
+        } while (playerActive);
+       
     }
 
 }
