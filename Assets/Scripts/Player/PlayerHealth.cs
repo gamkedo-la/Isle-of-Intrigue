@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Grenade"))
+        if (other.gameObject.CompareTag("Grenade") || other.gameObject.CompareTag("enemyMissile"))
         {
             if (!died)
             {

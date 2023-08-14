@@ -53,6 +53,11 @@ public class EnemyHealth : MonoBehaviour
             }
 
         }
+
+        if (other.gameObject.CompareTag("playerMissile"))
+        {
+            EnemyDie();
+        }
     }
 
    

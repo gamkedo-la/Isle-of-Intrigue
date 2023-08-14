@@ -32,6 +32,22 @@ public class MonsterHealth : MonoBehaviour
             }
 
         }
+
+        if (other.gameObject.CompareTag("playerMissile"))
+        {
+            Destroy(other.gameObject);
+
+            if (!died && damage > 0)
+            {
+                StartCoroutine(ChangeColorAndTakeDamage(0.5f, 5f));
+            }
+
+            else
+            {
+                EnemyDie();
+            }
+
+        }
     }
 
    
