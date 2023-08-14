@@ -9,6 +9,7 @@ public class RewardBadgeController : MonoBehaviour
     public List<GameObject> weapons = new List<GameObject>();
     public float speed;
     public Transform player;
+    public PlayerHealth health;
     int rand;
 
     public void TakeReward(Transform pos)
@@ -22,8 +23,17 @@ public class RewardBadgeController : MonoBehaviour
 
             if (reward.name != currentWeaponName)
             {
-                StartCoroutine(MoveRewardTowardsPlayer(reward));
-                break;
+                if (health.DieStatus())
+                {
+                    return;
+                }
+
+                else
+                {
+                    StartCoroutine(MoveRewardTowardsPlayer(reward));
+                    break;
+                }
+                
             }
             else
             {

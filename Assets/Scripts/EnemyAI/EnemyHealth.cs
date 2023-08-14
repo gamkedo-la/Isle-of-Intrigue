@@ -13,6 +13,8 @@ public class EnemyHealth : MonoBehaviour
     public GameObject shootingMechanism;
 
     public RewardBadgeController rewardController;
+    private List<Coroutine> colorCoroutines = new List<Coroutine>(); 
+
     Coroutine colorRoutine;
     Color[] originalColors;
 
@@ -49,6 +51,7 @@ public class EnemyHealth : MonoBehaviour
             if (!died)
             {
                 colorRoutine = StartCoroutine(ChangeColorAndTakeDamage(0.5f, 1f));
+                colorCoroutines.Add(colorRoutine);
 
             }
 
@@ -87,7 +90,6 @@ public class EnemyHealth : MonoBehaviour
         originalColors = new Color[spriteRenderers.Length];
         for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            originalColors[i] = spriteRenderers[i].color ;
             spriteRenderers[i].color = Color.red; 
         }
 
@@ -95,14 +97,14 @@ public class EnemyHealth : MonoBehaviour
 
         for (int i = 0; i < spriteRenderers.Length; i++)
         {
-            spriteRenderers[i].color = originalColors[i];
+            spriteRenderers[i].color = Color.white;
         }
         
         TakeDamage(hurtAmount);
 
         if (damage <= 0 && !died)
         {
-            StopCoroutine(colorRoutine);
+            StopColorCoroutines(); // Stop all active color coroutines
             EnemyDie();
         }
 
@@ -151,4 +153,17 @@ public class EnemyHealth : MonoBehaviour
         return move;
 
     }
+
+    private void StopColorCoroutines()
+    {
+        foreach (Coroutine coroutine in colorCoroutines)
+        {
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+            }
+        }
+        colorCoroutines.Clear(); 
+    }
+
 }
