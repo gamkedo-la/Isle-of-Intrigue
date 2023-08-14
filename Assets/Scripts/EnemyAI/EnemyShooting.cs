@@ -44,7 +44,6 @@ public class EnemyShooting : MonoBehaviour
 
     private void Shoot()
     {
-        
       
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
             AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position);
