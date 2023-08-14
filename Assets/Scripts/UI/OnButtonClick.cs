@@ -11,7 +11,7 @@ public class OnButtonClick : MonoBehaviour
     public enum ButtonFunctions
     {
         PLAY,
-        BACK,
+        MENU,
         CREDITS,
         RESUME
     }
@@ -24,8 +24,8 @@ public class OnButtonClick : MonoBehaviour
             case ButtonFunctions.PLAY:
                 GetComponent<Button>().onClick.AddListener(Play);
                 break;
-            case ButtonFunctions.BACK:
-                GetComponent<Button>().onClick.AddListener(BACK);
+            case ButtonFunctions.MENU:
+                GetComponent<Button>().onClick.AddListener(MENU);
                 break;
             case ButtonFunctions.CREDITS:
                 GetComponent<Button>().onClick.AddListener(Credits);
@@ -38,6 +38,7 @@ public class OnButtonClick : MonoBehaviour
 
     void Play()
     {
+        SettleTimeScale();
         SceneManager.LoadScene("Level");
     }
     void Credits()
@@ -45,13 +46,23 @@ public class OnButtonClick : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
-    void BACK()
+    void MENU()
     {
-        SceneManager.LoadScene(0);
+        SettleTimeScale();
+        SceneManager.LoadScene("Menu");
     }
 
     void RESUME()
     {
         menu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    private void SettleTimeScale()
+    {
+        if (Time.timeScale <= 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 }
