@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class OnButtonClick : MonoBehaviour
 {
-    public GameObject PauseMenu;
+    public GameObject menu;
 
     public enum ButtonFunctions
     {
@@ -52,6 +52,6 @@ public class OnButtonClick : MonoBehaviour
 
     void RESUME()
     {
-        PauseMenu.SetActive(false);
+        menu.SetActive(false);
     }
 }

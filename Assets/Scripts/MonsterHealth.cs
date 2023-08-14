@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterHealth : MonoBehaviour
 {
     public float damage = 3f;
+    public GameObject gameOver;
     public Animator animator;
     bool died;
 
@@ -60,6 +61,7 @@ public class MonsterHealth : MonoBehaviour
     {
         died = true;
         animator.SetTrigger("die");
+        gameOver.SetActive(true);
     }
 
 
