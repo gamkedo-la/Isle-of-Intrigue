@@ -25,7 +25,7 @@ public class RewardBadgeController : MonoBehaviour
             {
                 if (health.DieStatus())
                 {
-                    return;
+                    Destroy(reward);
                 }
 
                 else

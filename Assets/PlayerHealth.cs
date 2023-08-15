@@ -82,18 +82,35 @@ public class PlayerHealth : MonoBehaviour
 
     private void FinishThePlayer()
     {
-
         if (!died)
         {
-            died = true;
-            deathCounter++;
-            animator.SetBool("die", true);
-            Invoke("Spawn", 2);
-            AudioSource.PlayClipAtPoint(playerDie,Camera.main.transform.position);
-
+            
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(CheckPlayer());
+            }
         }
+    }
+
+    IEnumerator CheckPlayer()
+    {
+        do
+        {
+            yield return null;
+
+            if ((gameObject.activeInHierarchy))
+            {
+                died = true;
+                deathCounter++;
+                animator.SetBool("die", true);
+                Invoke("Spawn", 2);
+                AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+            }
+
+        } while (!died);
 
     }
+
 
     public void GameEnd() {
 
