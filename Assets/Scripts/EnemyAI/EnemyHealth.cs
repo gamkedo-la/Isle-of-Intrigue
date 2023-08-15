@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     public Transform playerShip;
     public bool move;
     public Animator animator;
+    public GameObject rocketVfx;
 
     public GameObject shootingMechanism;
 
@@ -59,6 +60,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("playerMissile"))
         {
+            Destroy(other.gameObject, 1f);
             EnemyDie();
         }
     }
@@ -118,14 +120,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void EnemyDie()
     {
-       
-
         
             if (!died)
             {
                 died = true;
                 AudioSource.PlayClipAtPoint(enemyDamageSound, Camera.main.transform.position);
-                //weapon.SetActive(false);
                 animator.SetTrigger("die");
                 Invoke("Destroy", 2f);
                 StopShooting();

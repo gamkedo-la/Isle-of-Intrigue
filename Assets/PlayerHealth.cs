@@ -41,6 +41,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("Grenade") || other.gameObject.CompareTag("enemyMissile"))
         {
+            Destroy(other.gameObject);
+
             if (!died)
             {
                 Invoke("FinishThePlayer", 0.5f);
