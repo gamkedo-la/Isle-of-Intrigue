@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip playerDie;
     public GameObject GameOverMenu;
     public List<GameObject> enemyShooting = new List<GameObject>();
+    public List<GameObject> weapons = new List<GameObject>();
 
     private int deathCounter;
 
@@ -96,20 +97,23 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator CheckPlayer()
     {
-        do
+        while(!died) 
         {
             yield return null;
 
-            if ((gameObject.activeInHierarchy))
+            if ((!gameObject.activeInHierarchy))
             {
-                died = true;
-                deathCounter++;
-                animator.SetBool("die", true);
-                Invoke("Spawn", 2);
-                AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+                yield return new WaitForSeconds(1.0f); 
+                continue;
             }
 
-        } while (!died);
+            died = true;
+            deathCounter++;
+            animator.SetBool("die", true);
+            Invoke("Spawn", 2);
+            AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+
+        }
 
     }
 
@@ -121,14 +125,15 @@ public class PlayerHealth : MonoBehaviour
             enemy.SetActive(false);
         }
 
-        for (var i = 0; i < animator.layerCount; i++)
+        foreach (GameObject weapon in weapons)
         {
-            animator.SetLayerWeight(i, 0);
+           weapon.GetComponent<SpriteRenderer>().enabled = false;
         }
 
         shipAnimator.SetTrigger("sink");
         AudioSource.PlayClipAtPoint(waterSplash, Camera.main.transform.position);
         GameOverMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 
 

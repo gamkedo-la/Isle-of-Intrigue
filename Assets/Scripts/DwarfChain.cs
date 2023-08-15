@@ -37,6 +37,12 @@ public class DwarfChain : MonoBehaviour
             StartCoroutine(Glow());
 
         }
+
+        if (other.gameObject.CompareTag("playerMissile"))
+        {
+            chainHealth = 0;
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator Glow()

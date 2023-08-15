@@ -275,7 +275,7 @@ public class PlayerController : MonoBehaviour
 
         if (machineGunFlag == true)
         {
-            AudioSource.PlayClipAtPoint(rifleSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(rifleSound, Camera.main.transform.position,0.2f);
         }
 
         if (rocket == true)

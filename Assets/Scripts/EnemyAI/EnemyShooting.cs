@@ -46,7 +46,7 @@ public class EnemyShooting : MonoBehaviour
     {
       
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, transform.rotation);
-            AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(rifleShootingAudio, Camera.main.transform.position,0.1f);
             float randAngleOffset = Random.Range(-0.5f, 0.5f) * bulletSpray;
             Vector2 direction = (player.transform.position - transform.position).normalized;
             Quaternion inaccuracyQuat = Quaternion.AngleAxis(randAngleOffset, Vector3.forward);

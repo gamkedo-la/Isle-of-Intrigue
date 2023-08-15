@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (other.gameObject.CompareTag("playerMissile"))
         {
-            Destroy(other.gameObject, 1f);
+            Destroy(other.gameObject);
             EnemyDie();
         }
     }
