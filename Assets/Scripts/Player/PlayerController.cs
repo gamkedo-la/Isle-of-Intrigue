@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip rocketSound;
 
-    public GameObject pauseMenu;
+    public Cursor invisibleCursor;
 
 
 
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
         machineGunFlag = false;
         rb = GetComponent<Rigidbody2D>();
         jumpCounter = 0;
-        CursorManagement();
+        
 
         if (this.weaponToShake)
         {
@@ -97,20 +97,22 @@ public class PlayerController : MonoBehaviour
         firePoint = weaponManager.weapons[0].transform.GetChild(0).gameObject;
     }
 
+    private void Update()
+    {
+        CursorManagement();
+    }
+
     private void CursorManagement()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1 && !pauseMenu.activeInHierarchy)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && Time.timeScale !=0)
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
+            invisibleCursor.Set();
         }
 
-        else
+        if(Time.timeScale == 0)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            Cursor.Unset();
         }
-
     }
 
     private void FixedUpdate()

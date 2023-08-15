@@ -44,6 +44,7 @@ public class WeaponType : MonoBehaviour
         foreach (GameObject weapon in weapons)
         {
             weapon.SetActive(false);
+            weapon.GetComponent<SpriteRenderer>().enabled = false;
         }
 
         string currentWeaponTag = currentWeaponType.ToString();
@@ -53,6 +54,7 @@ public class WeaponType : MonoBehaviour
             if (weapon.CompareTag(currentWeaponTag))
             {
                 SetAnimationLayerWeight(currentWeaponTag, 1);
+                weapon.GetComponent<SpriteRenderer>().enabled = true;
                 break;
             }
         }

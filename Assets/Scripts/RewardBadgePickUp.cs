@@ -25,10 +25,4 @@ public class RewardBadgePickUp : MonoBehaviour
 
     }
 
-    private void ChangeWeapon()
-    {
-
-    }
-
-
 }
