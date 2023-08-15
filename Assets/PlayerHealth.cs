@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip waterSplash;
     public AudioClip playerDie;
     public GameObject GameOverMenu;
+    public GameObject monster;
     public List<GameObject> enemyShooting = new List<GameObject>();
     public List<GameObject> weapons = new List<GameObject>();
 
@@ -110,8 +111,19 @@ public class PlayerHealth : MonoBehaviour
             died = true;
             deathCounter++;
             animator.SetBool("die", true);
-            Invoke("Spawn", 2);
             AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+
+
+            if (!monster.activeInHierarchy)
+            {
+                Invoke("Spawn", 2);
+            }
+
+            else
+            {
+                Invoke("GameEnd", 2);
+
+            }
 
         }
 

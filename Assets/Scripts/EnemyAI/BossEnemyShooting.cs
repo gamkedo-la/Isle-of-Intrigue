@@ -29,6 +29,7 @@ public class BossEnemyShooting : MonoBehaviour
     public AudioClip roar2;
     public AudioClip roar3;
     private AudioClip[] roars;
+    private bool attack;
 
 
     public Animator animator;
@@ -60,6 +61,7 @@ public class BossEnemyShooting : MonoBehaviour
         roars[0] = roar1;
         roars[1] = roar2;
         roars[2] = roar3;
+        attack = false;
 
         rigid = bulletPrefab.GetComponent<Rigidbody2D>();
         AttackRoutine = StartCoroutine(BossAttack());
@@ -117,7 +119,11 @@ public class BossEnemyShooting : MonoBehaviour
 
     public void PlayerDamage()
     {
-        playerHealth.TakeDamage(3);
+        if (attack)
+        {
+            playerHealth.TakeDamage(3);
+            attack = false;
+        }
     }
 
     public IEnumerator BossAttack()
@@ -129,7 +135,7 @@ public class BossEnemyShooting : MonoBehaviour
             animator.SetTrigger("attack");
             AudioSource.PlayClipAtPoint(getNextAttackSound(), Camera.main.transform.position);
 
-        } while (!playerHealth.DieStatus());
+        } while (gameObject.activeInHierarchy);
     }
 
     IEnumerator MonsterRoar()
@@ -150,6 +156,14 @@ public class BossEnemyShooting : MonoBehaviour
     {
         return roars[Random.Range(0, roars.Length)];
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            attack = true;
+        }
+    }
+
 
 }

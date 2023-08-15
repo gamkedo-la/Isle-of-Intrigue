@@ -83,9 +83,10 @@ public class MonsterHealth : MonoBehaviour
 
     IEnumerator PlayerLaugh()
     {
+        yield return new WaitForSeconds(3);
         AudioSource.PlayClipAtPoint(playerLaugh, Camera.main.transform.position);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         gameOver.SetActive(true);
         Time.timeScale = 0;
     }
