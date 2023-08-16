@@ -76,7 +76,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Spawn()
     {
-
         if (deathCounter >= 3)
         {
             GameEnd();
@@ -95,15 +94,21 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!died)
         {
-            while (!died)
+            died = true;
+            deathCounter++;
+            animator.SetBool("die", true);
+            AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+
+            if (!monster.activeInHierarchy)
             {
-                died = true;
-                deathCounter++;
-                animator.SetBool("die", true);
-                AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
                 Invoke("Spawn", 2);
+
             }
 
+            else
+            {
+                Invoke("GameEnd", 2f);
+            }
         }
     }
 
