@@ -21,8 +21,7 @@ public class PlayerInvisibilityController : MonoBehaviour
 
     public void OnDodge(InputAction.CallbackContext context)
     {
-        if (!health.DieStatus())
-        {
+        
             if (isTogglingVisibility)
             {
                 Debug.Log(context);
@@ -62,7 +61,6 @@ public class PlayerInvisibilityController : MonoBehaviour
                     isTogglingVisibility = true;
                 }
             }
-        }
     }
 
     public bool GetInvisibility()

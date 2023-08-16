@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
 
 
-    private void Awake()
+    private void Start()
     {
         deathCounter = 0;
         died = false;
@@ -76,6 +76,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Spawn()
     {
+
         if (deathCounter >= 3)
         {
             GameEnd();
