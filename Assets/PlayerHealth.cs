@@ -88,38 +88,16 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!died)
         {
-           
-           StartCoroutine(CheckPlayer());
-            
-        }
-    }
-
-    IEnumerator CheckPlayer()
-    {
-        yield return null;
-
-        while (!died) 
-        {
-            died = true;
-            deathCounter++;
-            animator.SetBool("die", true);
-            AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
-
-
-            if (!monster.activeInHierarchy)
+            while (!died)
             {
+                died = true;
+                deathCounter++;
+                animator.SetBool("die", true);
+                AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
                 Invoke("Spawn", 2);
-
-            }
-
-            else
-            {
-                Invoke("GameEnd", 2);
-
             }
 
         }
-
     }
 
 
