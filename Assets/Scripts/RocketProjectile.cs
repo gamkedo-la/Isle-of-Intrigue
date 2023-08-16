@@ -16,6 +16,6 @@ public class RocketProjectile : MonoBehaviour
     {
         GameObject vfx = Instantiate(blastVfx, collision.transform.position, Quaternion.identity);
         Destroy(vfx, 1f);
-        //gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
     }
 }

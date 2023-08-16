@@ -29,24 +29,10 @@ public class PlayerSpawner : MonoBehaviour
 
     private void StaticPlayer()
     {
-        StartCoroutine(CheckPlayer());
+        rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+        player.position = initialPos.position;
     }
 
-    IEnumerator CheckPlayer()
-    {
-        do
-        {
-            yield return new WaitForSeconds(0.1f);
 
-            if (player.gameObject.activeInHierarchy)
-            {
-                playerActive = false;
-                rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
-                player.position = initialPos.position;
-            }
-
-        } while (playerActive);
-       
-    }
 
 }

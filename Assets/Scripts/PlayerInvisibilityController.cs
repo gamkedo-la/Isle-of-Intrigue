@@ -7,11 +7,13 @@ public class PlayerInvisibilityController : MonoBehaviour
 {
     public GameObject player;
     public PlayerHealth health;
+    private SpriteRenderer[] spriteRenderers;
     private bool isTogglingVisibility;
 
 
-    void Awake()
+    void Start()
     {
+        spriteRenderers = player.GetComponentsInChildren<SpriteRenderer>();
         isTogglingVisibility = true;
     }
 
@@ -24,25 +26,29 @@ public class PlayerInvisibilityController : MonoBehaviour
                 Debug.Log(context);
                 if (context.started)
                 {
-                    player.SetActive(false);
+                    foreach (var renderer in spriteRenderers)
+                    {
+                        renderer.enabled = false;
+                    }
+
+                    player.GetComponent<Collider2D>().enabled = false;
                     isTogglingVisibility = false;
                 }
-
             }
-
-            if (!isTogglingVisibility)
+            else
             {
                 if (context.canceled)
                 {
-                    Debug.Log("check");
+                    foreach (var renderer in spriteRenderers)
+                    {
+                        renderer.enabled = true;
+                    }
 
-                    player.SetActive(true);
+                    player.GetComponent<Collider2D>().enabled = true;
                     isTogglingVisibility = true;
                 }
             }
         }
-
-      
     }
-
 }
+

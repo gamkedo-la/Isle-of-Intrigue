@@ -88,26 +88,18 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!died)
         {
+           
+           StartCoroutine(CheckPlayer());
             
-            if (gameObject.activeInHierarchy)
-            {
-                StartCoroutine(CheckPlayer());
-            }
         }
     }
 
     IEnumerator CheckPlayer()
     {
-        while(!died) 
+        yield return null;
+
+        while (!died) 
         {
-            yield return null;
-
-            if ((!gameObject.activeInHierarchy))
-            {
-                yield return new WaitForSeconds(1.0f); 
-                continue;
-            }
-
             died = true;
             deathCounter++;
             animator.SetBool("die", true);
@@ -117,6 +109,7 @@ public class PlayerHealth : MonoBehaviour
             if (!monster.activeInHierarchy)
             {
                 Invoke("Spawn", 2);
+
             }
 
             else
