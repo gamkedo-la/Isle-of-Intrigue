@@ -15725,9 +15725,9 @@ MonoBehaviour:
     and movement, weapon enhancements (shell casings, kickback, muzzle flash, player
     aim)\r\n\nBilal A. Cheema: Player character rigging and character art improvements,
     background scene (sea, clouds, boulders, rain, fog, waves), inverse kinematic
-    hookup with idle and run animations\r\nPatrick McKeown: Intro music, sounds (scream
-    variations, water pouring, pistol, rocket firing, thunder, explosion, reward
-    badge pickup, island nature, sea monster roar and attack)\r\n\nJohan \xD6stling:
+    hookup with idle and run animations\r\n\nPatrick McKeown: Intro music, sounds
+    (scream variations, water pouring, pistol, rocket firing, thunder, explosion,
+    reward badge pickup, island nature, sea monster roar and attack)\r\n\nJohan \xD6stling:
     Pistol art, sounds (rain, storm, machine gun variations), badge bug fix\r\n\nPaul
     Naser: Tuneable inaccuracy, shots self manage in memory\r\n\nJason Timms: Sound
     effects (laugh, boat)\n\nJesmine Hegman: SeaMonster/Barrels  sound tunning and
@@ -15758,7 +15758,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.15
+  m_fontSize: 17.2
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
