@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletShellPrefab;
     private GameObject firePoint;
     public Light2D muzzleFlashLight;
+    public PlayerInvisibilityController controller;
     public Transform shotContainer;
     public float gravityStrength = 9.81f;
 
@@ -193,67 +194,66 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (bulletPrefab != null && !playerHealth.DieStatus())
+            if (!controller.GetInvisibility())
             {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-                Vector2 directionToMouse = (mousePosition - transform.position).normalized;
-
-                float distanceToMouse = Vector2.Distance(transform.position, mousePosition);
-                float angleToMouse = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
-
-                // Only allow shooting in the right half of the player's direction
-                if (angleToMouse < -90f || angleToMouse > 90f)
+                if (bulletPrefab != null && !playerHealth.DieStatus())
                 {
-                    return;
-                }
+                    Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                    Vector2 directionToMouse = (mousePosition - transform.position).normalized;
 
-                if (distanceToMouse >= 1f )
-                {
-                    GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
-                    bullet.transform.SetParent(shotContainer);
-                    light.intensity = 4;
-                    BulletAudio();
-                }
+                    float distanceToMouse = Vector2.Distance(transform.position, mousePosition);
+                    float angleToMouse = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
 
-                if (machineGunFlag == true)
-                {
-                    if (muzzleFlashPrefab)
+                    // Only allow shooting in the right half of the player's direction
+                    if (angleToMouse < -90f || angleToMouse > 90f)
                     {
-                        GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
-                        muzzleFlash.transform.SetParent(firePoint.transform); 
-                        muzzleFlash.transform.Rotate(0, 90, 90); 
-                        muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f); 
-
-                        muzzleFlashLight.enabled = true;
-                        Invoke(nameof(DisableMuzzleLight), 0.1f);
+                        return;
                     }
 
-
-                    if (bulletShellPrefab)
+                    if (distanceToMouse >= 1f)
                     {
-                        GameObject shell = Instantiate(bulletShellPrefab, firePoint.transform.position, firePoint.transform.rotation);
-                        shell.transform.SetParent(shotContainer);
-                        Debug.Log("eject! " + shell.transform.localPosition);
+                        GameObject bullet = Instantiate(bulletPrefab, firePoint.transform.position, Quaternion.identity);
+                        bullet.transform.SetParent(shotContainer);
+                        light.intensity = 4;
+                        BulletAudio();
                     }
 
-                    this.weaponShakeTimeLeft = this.weaponShakeTimespan;
+                    if (machineGunFlag == true)
+                    {
+                        if (muzzleFlashPrefab)
+                        {
+                            GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                            muzzleFlash.transform.SetParent(firePoint.transform);
+                            muzzleFlash.transform.Rotate(0, 90, 90);
+                            muzzleFlash.transform.localPosition = new Vector3(4.0f, 0.5f, 0f);
+
+                            muzzleFlashLight.enabled = true;
+                            Invoke(nameof(DisableMuzzleLight), 0.1f);
+                        }
+
+
+                        if (bulletShellPrefab)
+                        {
+                            GameObject shell = Instantiate(bulletShellPrefab, firePoint.transform.position, firePoint.transform.rotation);
+                            shell.transform.SetParent(shotContainer);
+                            Debug.Log("eject! " + shell.transform.localPosition);
+                        }
+
+                        this.weaponShakeTimeLeft = this.weaponShakeTimespan;
+
+                    }
 
                 }
 
             }
 
-            if (bulletPrefab == null)
+            else
             {
-                animator.SetTrigger("attack");
+
+                light.intensity = 0;
             }
-
         }
-
-        else
-        {
-
-            light.intensity = 0;
-        }
+          
     }
 
     public void ThrowingBomb(InputAction.CallbackContext context)

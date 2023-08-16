@@ -8,7 +8,9 @@ public class PlayerInvisibilityController : MonoBehaviour
     public GameObject player;
     public PlayerHealth health;
     private SpriteRenderer[] spriteRenderers;
+    public List<GameObject> weapons = new List<GameObject>();
     private bool isTogglingVisibility;
+    private bool invisible;
 
 
     void Start()
@@ -29,9 +31,15 @@ public class PlayerInvisibilityController : MonoBehaviour
                     foreach (var renderer in spriteRenderers)
                     {
                         renderer.enabled = false;
+                        invisible = true;
                     }
 
-                    player.GetComponent<Collider2D>().enabled = false;
+                    foreach (GameObject weapon in weapons)
+                    {
+                        weapon.GetComponentInChildren<SpriteRenderer>().enabled = false;
+                    }
+
+
                     isTogglingVisibility = false;
                 }
             }
@@ -42,13 +50,24 @@ public class PlayerInvisibilityController : MonoBehaviour
                     foreach (var renderer in spriteRenderers)
                     {
                         renderer.enabled = true;
+                        invisible = false;
                     }
 
-                    player.GetComponent<Collider2D>().enabled = true;
+                    foreach (GameObject weapon in weapons)
+                    {
+                        weapon.GetComponentInChildren<SpriteRenderer>().enabled = true;
+
+                    }
+
                     isTogglingVisibility = true;
                 }
             }
         }
+    }
+
+    public bool GetInvisibility()
+    {
+        return invisible;
     }
 }
 

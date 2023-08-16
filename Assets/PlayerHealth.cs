@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public PlayerSpawner spawner;
     public Animator shipAnimator;
     public AudioClip waterSplash;
+    public PlayerInvisibilityController controller;
     public AudioClip playerDie;
     public GameObject GameOverMenu;
     public GameObject monster;
@@ -33,19 +34,25 @@ public class PlayerHealth : MonoBehaviour
         HealthStatus();
     }
 
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("enemyBullet"))
         {
-            TakeDamage(1);
-            Destroy(other.gameObject);
+            if (!controller.GetInvisibility())
+            {
+                TakeDamage(1);
+                Destroy(other.gameObject);
+
+            }
+            
         }
 
         if (other.gameObject.CompareTag("Grenade") || other.gameObject.CompareTag("enemyMissile"))
         {
             Destroy(other.gameObject);
 
-            if (!died)
+            if (!died && !controller.GetInvisibility())
             {
                 Invoke("FinishThePlayer", 0.5f);
             }
