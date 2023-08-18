@@ -14,12 +14,14 @@ public class EnemyThrowingBomb : MonoBehaviour
     public Animator animator;
     public float throwForce = 10f;
 
-    public float throwTimer;
+    private float throwTimer;
+
 
 
 
     void Start()
     {
+        throwTimer = Random.Range(1, 3);
         StartCoroutine(BombAnim());
     }
 

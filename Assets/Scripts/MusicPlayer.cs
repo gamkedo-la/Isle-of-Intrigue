@@ -21,12 +21,12 @@ public class MusicPlayer : MonoBehaviour
 
     IEnumerator LoopMusicWithPause()
     {
-        while (true)
+        while (gameObject.activeInHierarchy)
         {
-            yield return new WaitForSeconds(35);
-            audioSource.mute = true;
+            yield return new WaitForSeconds(audioSource.clip.length);
+            audioSource.Stop();
             yield return new WaitForSeconds(pauseDuration);
-            audioSource.mute = false;
+            audioSource.Play();
         }
     }
 }

@@ -82,7 +82,6 @@ public class PlayerHealth : MonoBehaviour
             animator.SetBool("die", true);
             AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
             Invoke("GameEnd", 2f);
-            
         }
     }
 
