@@ -81,8 +81,31 @@ public class PlayerHealth : MonoBehaviour
             deathCounter++;
             animator.SetBool("die", true);
             AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
-            Invoke("GameEnd", 2f);
+
+            if (!monster.activeInHierarchy)
+            {
+                StartCoroutine(PlayerSpawning());
+            }
+
+            else
+            {
+                StartCoroutine(PlayerDying());
+
+            }
+
         }
+    }
+
+    IEnumerator PlayerSpawning()
+    {
+        yield return new WaitForSeconds(2);
+        Spawn();
+    }
+
+    IEnumerator PlayerDying()
+    {
+        yield return new WaitForSeconds(2);
+        GameEnd();
     }
 
     private void Spawn()

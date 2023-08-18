@@ -24,7 +24,6 @@ public class PlayerInvisibilityController : MonoBehaviour
         
             if (isTogglingVisibility)
             {
-                Debug.Log(context);
                 if (context.started)
                 {
                     foreach (var renderer in spriteRenderers)

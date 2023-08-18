@@ -21,7 +21,7 @@ public class EnemyThrowingBomb : MonoBehaviour
 
     void Start()
     {
-        throwTimer = Random.Range(1, 3);
+        throwTimer = Random.Range(2, 5);
         StartCoroutine(BombAnim());
     }
 
@@ -32,7 +32,11 @@ public class EnemyThrowingBomb : MonoBehaviour
         {
             yield return new WaitForSeconds(throwTimer);
 
-            animator.SetTrigger("bomb");
+            if (animator)
+            {
+                animator.SetTrigger("bomb");
+
+            }
 
 
         } while (gameObject.activeInHierarchy);

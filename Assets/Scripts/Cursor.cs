@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cursor : MonoBehaviour
 {
-    public Texture2D texture;
+    private Texture2D texture;
     public Vector2 offset;
     public CursorMode cursorMode = CursorMode.Auto;
 

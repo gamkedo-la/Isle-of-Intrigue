@@ -47,7 +47,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
             transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
         }
 
-        Debug.Log(movementSpeed);
     }
 
     private void CheckEnemyBoatDistance()
@@ -82,7 +81,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
         {   
             if(movementSpeed !=0f )
             {
-                Debug.Log("Stopping");
             }
 
             movementSpeed = 0;
@@ -92,7 +90,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
         {
             if (movementSpeed != 2f)
             {
-                Debug.Log("Moving");
             }
 
             movementSpeed = 2f;
