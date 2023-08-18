@@ -7,14 +7,12 @@ public class PlayerSpawner : MonoBehaviour
     public Transform player;
     public AudioClip spawnSound;
     private Transform initialPos;
-    bool playerActive;
     Rigidbody2D rb;
 
     private void Start()
     {
         rb = player.gameObject.GetComponent<Rigidbody2D>();
         initialPos = player.transform;
-        playerActive = true;
     }
 
 

@@ -39,20 +39,20 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("enemyBullet"))
         {
+            Destroy(other.gameObject);
+
             if (!controller.GetInvisibility())
             {
                 TakeDamage(1);
-                Destroy(other.gameObject);
-
             }
-            
+
         }
 
         if (other.gameObject.CompareTag("Grenade") || other.gameObject.CompareTag("enemyMissile"))
         {
             Destroy(other.gameObject);
 
-            if (!died && !controller.GetInvisibility())
+            if (!controller.GetInvisibility())
             {
                 Invoke("FinishThePlayer", 0.5f);
             }
@@ -73,6 +73,18 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    private void FinishThePlayer()
+    {
+        if (!died)
+        {
+            died = true;
+            deathCounter++;
+            animator.SetBool("die", true);
+            AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+            Invoke("GameEnd", 2f);
+            
+        }
+    }
 
     private void Spawn()
     {
@@ -88,28 +100,6 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 10;
             animator.SetBool("die", false);
             spawner.SpawnPlayer();
-        }
-    }
-
-    private void FinishThePlayer()
-    {
-        if (!died)
-        {
-            died = true;
-            deathCounter++;
-            animator.SetBool("die", true);
-            AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
-
-            if (!monster.activeInHierarchy)
-            {
-                Invoke("Spawn", 2);
-
-            }
-
-            else
-            {
-                Invoke("GameEnd", 2f);
-            }
         }
     }
 

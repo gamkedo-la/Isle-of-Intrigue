@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7539933332319131979}
   - component: {fileID: -6813943047540196357}
-  - component: {fileID: 7948385856844765914}
   - component: {fileID: 9215529287158657252}
   m_Layer: 14
   m_Name: Machine Gun Bullet 1
@@ -56,19 +55,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7948385856844765914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526907166346097671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fbe1d6b339ad424e8a2f3dcca7ba430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeAlive: 3
 --- !u!61 &9215529287158657252
 BoxCollider2D:
   m_ObjectHideFlags: 0

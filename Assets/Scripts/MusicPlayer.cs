@@ -24,9 +24,9 @@ public class MusicPlayer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(35);
-            audioSource.Pause();
+            audioSource.mute = true;
             yield return new WaitForSeconds(pauseDuration);
-            audioSource.UnPause();
+            audioSource.mute = false;
         }
     }
 }
