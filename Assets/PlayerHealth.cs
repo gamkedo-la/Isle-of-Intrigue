@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (!controller.GetInvisibility())
             {
-                Invoke("FinishThePlayer", 0.5f);
+                currentHealth = 0;
             }
         }
     }
@@ -90,7 +90,6 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 StartCoroutine(PlayerDying());
-
             }
 
         }
@@ -128,6 +127,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void GameEnd() {
 
+        WeaponChecking();
+        GameOver(); 
+    }
+
+    private void WeaponChecking()
+    {
         foreach (GameObject enemy in enemyShooting)
         {
             enemy.SetActive(false);
@@ -135,15 +140,18 @@ public class PlayerHealth : MonoBehaviour
 
         foreach (GameObject weapon in weapons)
         {
-           weapon.GetComponent<SpriteRenderer>().enabled = false;
+            weapon.GetComponent<SpriteRenderer>().enabled = false;
         }
+    }
 
+
+    private void GameOver()
+    {
         shipAnimator.SetTrigger("sink");
         AudioSource.PlayClipAtPoint(waterSplash, Camera.main.transform.position);
         GameOverMenu.SetActive(true);
         Time.timeScale = 0;
     }
-
 
     public bool DieStatus()
     {
