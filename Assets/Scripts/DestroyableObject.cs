@@ -11,7 +11,7 @@ public class DestroyableObject : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
 
-        if (other.gameObject.CompareTag("bullet") || other.gameObject.CompareTag("enemyBullet"))
+        if (other.gameObject.CompareTag("bullet") || other.gameObject.CompareTag("enemyBullet") || other.gameObject.CompareTag("playerMissile"))
         {
             if (blastVfx) {
                 GameObject vfx = Instantiate(blastVfx, other.transform.position, Quaternion.identity);

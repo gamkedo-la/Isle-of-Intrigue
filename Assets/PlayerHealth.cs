@@ -20,20 +20,11 @@ public class PlayerHealth : MonoBehaviour
 
     bool died;
 
-
-
     private void Start()
     {
         deathCounter = 0;
         died = false;
     }
-
-
-    void Update()
-    {
-        HealthStatus();
-    }
-
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -55,20 +46,21 @@ public class PlayerHealth : MonoBehaviour
             if (!controller.GetInvisibility())
             {
                 currentHealth = 0;
+                TakeDamage(1);
             }
         }
     }
 
-    public void TakeDamage(int hurt)
-    {
-        currentHealth -= hurt;
-    }
 
-    private void HealthStatus()
+    public void TakeDamage(int hurt)
     {
         if (currentHealth <= 0 && died == false)
         {
             FinishThePlayer();
+        }
+        else
+        {
+            currentHealth -= hurt;
         }
 
     }
