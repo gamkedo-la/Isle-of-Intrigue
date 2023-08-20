@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -51,6 +52,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void PlayerDying(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            GameEnd();
+        }
+    }
+
+
 
     public void TakeDamage(int hurt)
     {
@@ -74,7 +84,7 @@ public class PlayerHealth : MonoBehaviour
             animator.SetBool("die", true);
             AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
 
-            if (!monster.activeInHierarchy)
+            if (!monster.activeInHierarchy) // Player not spawning correctly near sea Monster
             {
                 StartCoroutine(PlayerSpawning());
             }
