@@ -46,17 +46,8 @@ public class PlayerHealth : MonoBehaviour
 
             if (!controller.GetInvisibility())
             {
-                currentHealth = 0;
-                TakeDamage(1);
+                TakeDamage(5);
             }
-        }
-    }
-
-    public void PlayerDying(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            GameEnd();
         }
     }
 
@@ -82,9 +73,9 @@ public class PlayerHealth : MonoBehaviour
             died = true;
             deathCounter++;
             animator.SetBool("die", true);
-            AudioSource.PlayClipAtPoint(playerDie, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(playerDie,Camera.main.transform.position);
 
-            if (!monster.activeInHierarchy) // Player not spawning correctly near sea Monster
+            if (!monster.activeInHierarchy) 
             {
                 StartCoroutine(PlayerSpawning());
             }

@@ -66,7 +66,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
             if (Vector2.Distance(transform.position, attacker.position) < stoppingDistance)
             {
-                Debug.Log(attacker.gameObject.name);
                 anyAttackerClose = true;
                 break;
             }

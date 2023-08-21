@@ -236,7 +236,6 @@ public class PlayerController : MonoBehaviour
                         {
                             GameObject shell = Instantiate(bulletShellPrefab, firePoint.transform.position, firePoint.transform.rotation);
                             shell.transform.SetParent(shotContainer);
-                            Debug.Log("eject! " + shell.transform.localPosition);
                         }
 
                         this.weaponShakeTimeLeft = this.weaponShakeTimespan;

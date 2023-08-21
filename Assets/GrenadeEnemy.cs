@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrenadeEnemy : MonoBehaviour
-{
-    public GameObject explosionVfx;
-    public float vfxDestroyDelay = 1f;
+{    
 
-    public AudioClip bombSound;
+    private int enemyLayer;
+    private int grenadeLayer;
+    private ExplosionManager explosionObjectPool;
 
-    int enemyLayer;
-    int grenadeLayer;
-
-    void Start()
+    private void Start()
     {
         enemyLayer = LayerMask.NameToLayer("Enemy");
         grenadeLayer = LayerMask.NameToLayer("GrenadeEnemy");
-    }
+        explosionObjectPool = FindObjectOfType<ExplosionManager>();
 
+        if (explosionObjectPool == null)
+        {
+            Debug.LogError("Explosion Object Pool not found in the scene.");
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -27,10 +29,19 @@ public class GrenadeEnemy : MonoBehaviour
         }
 
         Destroy(gameObject);
-        GameObject explosion = Instantiate(explosionVfx, other.contacts[0].point, transform.rotation);
-        AudioSource.PlayClipAtPoint(bombSound, Camera.main.transform.position);
-        Destroy(explosion, vfxDestroyDelay);
 
+        if (explosionObjectPool != null)
+        {
+            GameObject explosionVfx = explosionObjectPool.GetExplosionVFX();
+
+            if (explosionVfx != null)
+            {
+                ContactPoint2D contact = other.contacts[0]; 
+                explosionVfx.transform.position = contact.point; 
+                explosionVfx.transform.rotation = Quaternion.identity; 
+
+            }
+        }
     }
 
 }
