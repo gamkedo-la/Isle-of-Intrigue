@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        deathCounter = 0;
+        deathCounter = 3;
         died = false;
     }
 
@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
         if (!died)
         {
             died = true;
-            deathCounter++;
+            deathCounter--;
             animator.SetBool("die", true);
             AudioSource.PlayClipAtPoint(playerDie,Camera.main.transform.position);
 
@@ -103,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
     private void Spawn()
     {
 
-        if (deathCounter >= 3)
+        if (deathCounter <= 0)
         {
             GameEnd();
         }
@@ -149,6 +149,11 @@ public class PlayerHealth : MonoBehaviour
     public bool DieStatus()
     {
         return died;
+    }
+
+    public int GetLives()
+    {
+        return deathCounter;
     }
 
 

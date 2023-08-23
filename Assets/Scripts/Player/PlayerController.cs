@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Composites;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.UIElements;
+using UnityEngine.WSA;
 
 public class PlayerController : MonoBehaviour
 {
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
 
     private void CursorManagement()
     {
+      
         if (SceneManager.GetActiveScene().buildIndex == 1 && Time.timeScale !=0)
         {
             invisibleCursor.Set();

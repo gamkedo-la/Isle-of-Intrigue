@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.WSA;
 
 public class PlayerBoatBehaviour : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
   
 
     private float startingRotation;
+    Cursor cursor;
 
     public float stoppingDistance = 2f;
 
