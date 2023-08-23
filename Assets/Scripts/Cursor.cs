@@ -12,7 +12,7 @@ public class Cursor : MonoBehaviour
     {
         if (texture == null)
         {
-            texture = InvisibleCursorTexture.CreateInvisibleTexture();
+            texture = InvisibleCursorTexture.CreateCrosshairTexture(32,Color.red);
         }
 
         UnityEngine.Cursor.SetCursor(texture, offset, cursorMode);
