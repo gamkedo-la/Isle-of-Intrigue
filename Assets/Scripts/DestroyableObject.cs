@@ -20,7 +20,7 @@ public class DestroyableObject : MonoBehaviour
             if (blastSfx) {
                 AudioSource.PlayClipAtPoint(blastSfx, Camera.main.transform.position);
             }
-            Destroy(this.gameObject); // the crate/barrel
+            Destroy(gameObject); // the crate/barrel
             Destroy(other.gameObject); // the bullet
         }
     }    
