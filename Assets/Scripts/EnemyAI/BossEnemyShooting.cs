@@ -7,11 +7,11 @@ public class BossEnemyShooting : MonoBehaviour
     public Transform player;
     public GameObject bulletPrefab;
     public Transform playerShip;
+    public PlayerBoatBehaviour boatBehaviour;   
     public float movementSpeed;
     public Transform shootingPoint;
     public PlayerHealth playerHealth;
 
-    Rigidbody2D rigid;
 
     public AudioClip rifleShootingAudio;
 
@@ -63,7 +63,6 @@ public class BossEnemyShooting : MonoBehaviour
         roars[2] = roar3;
         attack = false;
 
-        rigid = bulletPrefab.GetComponent<Rigidbody2D>();
         AttackRoutine = StartCoroutine(BossAttack());
         randomAttackWaitTime = getAttackInterval();
         health = player.GetComponent<PlayerHealth>();
@@ -132,7 +131,13 @@ public class BossEnemyShooting : MonoBehaviour
         {
             yield return new WaitForSeconds(randomAttackWaitTime);
             randomAttackWaitTime = getAttackInterval();
-            animator.SetTrigger("attack");
+
+            if (!boatBehaviour.GetMovement())
+            {
+
+                animator.SetTrigger("attack");
+            }
+
             AudioSource.PlayClipAtPoint(getNextAttackSound(), Camera.main.transform.position);
 
         } while (gameObject.activeInHierarchy);

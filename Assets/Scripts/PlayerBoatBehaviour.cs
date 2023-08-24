@@ -24,6 +24,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
     Cursor cursor;
 
     public float stoppingDistance = 2f;
+    bool moving;
 
     bool anyAttackerClose;
 
@@ -33,6 +34,7 @@ public class PlayerBoatBehaviour : MonoBehaviour
     private void Start()
     {
         movementSpeed = 2f;
+        moving = true;
         startingRotation = transform.rotation.eulerAngles.z;
         anyAttackerClose = false;
     }
@@ -49,7 +51,6 @@ public class PlayerBoatBehaviour : MonoBehaviour
         {
             transform.Translate(Vector2.right * movementSpeed * Time.deltaTime);
         }
-
     }
 
     private void CheckEnemyBoatDistance()
@@ -81,21 +82,20 @@ public class PlayerBoatBehaviour : MonoBehaviour
 
         if (anyAttackerClose)
         {   
-            if(movementSpeed !=0f )
-            {
-            }
-
             movementSpeed = 0;
+            moving = false;
             src.mute = true;
         }
         else
         {
-            if (movementSpeed != 2f)
-            {
-            }
-
             movementSpeed = 2f;
+            moving = true;
             src.mute = false;
         }
+    }
+
+    public bool GetMovement()
+    {
+        return moving;
     }
 }
