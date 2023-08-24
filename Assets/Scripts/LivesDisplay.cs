@@ -1,21 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class LivesDisplay : MonoBehaviour
 {
-    TextMeshProUGUI textMeshPro;
+    public Slider slider;
     public PlayerHealth health;
 
-    private void Start()
-    {
-        textMeshPro = GetComponent<TextMeshProUGUI>();
-    }
-
+   
     private void Update()
     {
-        textMeshPro.text = health.GetLives().ToString();
+       slider.value = health.GetHealth();
     }
 
 }

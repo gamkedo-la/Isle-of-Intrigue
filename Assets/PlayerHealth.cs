@@ -156,6 +156,11 @@ public class PlayerHealth : MonoBehaviour
         return deathCounter;
     }
 
+    public float GetHealth()
+    {
+        return currentHealth;
+    }
+
 
 
 }
